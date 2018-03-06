@@ -71,6 +71,9 @@ public class Users {
         this.midlleName = midlleName;
     }
 
+    public Users(String firstName, String secondName) {
+    }
+
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("{id:");
