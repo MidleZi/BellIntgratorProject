@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.bellintegrator.myProject.organization.service.OrganizationService;
 import ru.bellintegrator.myProject.organization.dao.OrganizationDAO;
 import ru.bellintegrator.myProject.organization.model.Organization;
-import ru.bellintegrator.myProject.organization.service.impl.OrganizationServiceImpl;
 import ru.bellintegrator.myProject.organization.view.OrganizationView;
 
 import java.util.List;
