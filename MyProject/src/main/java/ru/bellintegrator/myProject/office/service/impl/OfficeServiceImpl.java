@@ -42,7 +42,7 @@ public class OfficeServiceImpl implements OfficeService {
     public List<OfficeView> offices() {
         List<Office> all = dao.all();
 
-        Function<Office, OfficeView> mapPerson = o -> {
+        Function<Office, OfficeView> mapOffice = o -> {
             OfficeView view = new OfficeView();
             view.id = String.valueOf(o.getId());
             view.name = o.getName();
@@ -54,7 +54,7 @@ public class OfficeServiceImpl implements OfficeService {
         };
 
         return all.stream()
-                .map(mapPerson)
+                .map(mapOffice)
                 .collect(Collectors.toList());
     }
 
