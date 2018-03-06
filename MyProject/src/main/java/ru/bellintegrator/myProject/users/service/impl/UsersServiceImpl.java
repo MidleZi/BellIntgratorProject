@@ -38,7 +38,7 @@ public class UsersServiceImpl implements UsersService {
     public List<UsersView> user() {
         List<Users> all = dao.all();
 
-        Function<Users, UsersView> mapPerson = o -> {
+        Function<Users, UsersView> mapUsers = o -> {
             UsersView view = new UsersView();
             view.id = String.valueOf(o.getId());
             view.firstName = o.getFirstName();
@@ -50,7 +50,7 @@ public class UsersServiceImpl implements UsersService {
         };
 
         return all.stream()
-                .map(mapPerson)
+                .map(mapUsers)
                 .collect(Collectors.toList());
     }
 
