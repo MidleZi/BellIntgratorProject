@@ -38,20 +38,8 @@ public class Users {
     private String phone;
 
     @Basic(optional = false)
-    @Column(name = "docName")
-    private String docName;
-
-    @Basic(optional = false)
-    @Column(name = "docNumber")
-    private String docNumber;
-
-    @Basic(optional = false)
-    @Column(name = "docDate")
-    private String docDate;
-
-    @Basic(optional = false)
-    @Column(name = "citizenshipName")
-    private String citizenshipName;
+    @Column(name = "userdoc")
+    private String userDoc;
 
     @Basic(optional = false)
     @Column(name = "citizenshipCode")
@@ -90,14 +78,9 @@ public class Users {
         builder.append(getPosition());
         builder.append(";phone:");
         builder.append(getPhone());
-        builder.append(";docName:");
-        builder.append(getDocName());
+        builder.append(";userDoc:");
+        builder.append(getUserDoc());
         builder.append(";docNumber:");
-        builder.append(getDocNumber());
-        builder.append(";docDate:");
-        builder.append(getDocDate());
-        builder.append(";citizenshipName:");
-        builder.append(getCitizenshipName());
         builder.append(";citizenshipCode:");
         builder.append(getCitizenshipCode());
         builder.append(";isIdentified:");
@@ -135,20 +118,8 @@ public class Users {
         return phone;
     }
 
-    public String getDocName() {
-        return docName;
-    }
-
-    public String getDocNumber() {
-        return docNumber;
-    }
-
-    public String getDocDate() {
-        return docDate;
-    }
-
-    public String getCitizenshipName() {
-        return citizenshipName;
+    public String getUserDoc() {
+        return userDoc;
     }
 
     public String getCitizenshipCode() {
@@ -184,19 +155,7 @@ public class Users {
     }
 
     public void setDocName(String docName) {
-        this.docName = docName;
-    }
-
-    public void setDocNumber(String docNumber) {
-        this.docNumber = docNumber;
-    }
-
-    public void setDocDate(String docDate) {
-        this.docDate = docDate;
-    }
-
-    public void setCitizenshipName(String citizenshipName) {
-        this.citizenshipName = citizenshipName;
+        this.userDoc = userDoc;
     }
 
     public void setCitizenshipCode(String citizenshipCode) {
