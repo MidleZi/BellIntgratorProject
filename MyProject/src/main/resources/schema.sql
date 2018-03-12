@@ -37,17 +37,25 @@ CREATE TABLE `bellintegrator`.`user` (
   `middleName` VARCHAR(45) NOT NULL,
   `position` VARCHAR(45) NOT NULL,
   `phone` VARCHAR(20) NOT NULL,
-  `docName` VARCHAR(45) NOT NULL,
-  `docNamber` VARCHAR(45) NOT NULL,
-  `docDate` DATE NOT NULL,
-  `citizenshipName` VARCHAR(45) NOT NULL,
-  `citizenshipCode` VARCHAR(45) NOT NULL,
+  `userDoc` INT NOT NULL,
+  `citizenshipCode` INT NOT NULL,
   `isIdentified` BOOLEAN NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_officeId_idx` (`officeId` ASC),
   CONSTRAINT `fk_officeId`
     FOREIGN KEY (`officeId`)
     REFERENCES `bellintegrator`.`office` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
+  INDEX `fk_citizenship_idx` (`citizenshipCode` ASC);
+  CONSTRAINT `fk_userDoc`
+    FOREIGN KEY (`id`)
+    REFERENCES `bellintegrator`.`userdocs` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_citizenship`
+    FOREIGN KEY (`citizenshipCode`)
+    REFERENCES `bellintegrator`.`countries` (`code`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 	
@@ -60,4 +68,17 @@ CREATE TABLE `bellintegrator`.`countries` (
   `code` INT NOT NULL,
   `name` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`code`));
+  
+CREATE TABLE `bellintegrator`.`userdocs` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `docName` INT NOT NULL,
+  `docNumber` VARCHAR(45) NOT NULL,
+  `docDate` DATE NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_docs_idx` (`docName` ASC),
+  CONSTRAINT `fk_docs`
+    FOREIGN KEY (`docName`)
+    REFERENCES `bellintegrator`.`docs` (`code`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
   
