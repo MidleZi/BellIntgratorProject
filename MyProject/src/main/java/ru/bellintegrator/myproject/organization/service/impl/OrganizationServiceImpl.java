@@ -38,15 +38,18 @@ public class OrganizationServiceImpl implements OrganizationService {
     public List<OrganizationView> organizations() {
         List<Organization> all = dao.all();
 
-        Function<Organization, OrganizationView> mapOrganization = o -> {
-            OrganizationView view = new OrganizationView();
-            view.id = String.valueOf(o.getId());
-            view.name = o.getName();
-            view.name = o.getInn();
+        Function<Organization, OrganizationView> mapOrganization = new Function<Organization, OrganizationView>() {
+            @Override
+            public OrganizationView apply(Organization o) {
+                OrganizationView view = new OrganizationView();
+                view.id = String.valueOf(o.getId());
+                view.name = o.getName();
+                view.name = o.getInn();
 
-            log.info(view.toString());
+                log.info(view.toString());
 
-            return view;
+                return view;
+            }
         };
 
         return all.stream()

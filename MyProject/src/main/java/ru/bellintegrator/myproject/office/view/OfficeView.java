@@ -20,9 +20,12 @@ public class OfficeView {
 
     }
 
-    public OfficeView(String name, String adress ) {
+    public OfficeView(String id, String name, String adress, String phone, boolean isActive) {
+        this.id = id;
         this.name = name;
         this.adress = adress;
+        this.phone = phone;
+        this.isActive = isActive;
     }
 
     @Override

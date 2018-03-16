@@ -37,15 +37,51 @@ public class OrganizationControllerImpl implements OrganizationController {
             @ApiResponse(code = 200, message = "Success", response = String.class),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @RequestMapping(value = "/organization", method = {POST})
-    public void organization(@RequestBody OrganizationView organization) {
+    @RequestMapping(value = "api/organization/list", method = {GET})
+    public List<OrganizationView> organizations(@RequestBody OrganizationView view) {
+        return organizationService.organizations();
+    }
+
+    @Override
+    @ApiOperation(value = "addOrganization", nickname = "addOrganization", httpMethod = "GET")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = String.class),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    @RequestMapping(value = "api/organization/id", method = {GET})
+    public ResponseView getId (@PathVariable String id){
         organizationService.add(organization);
     }
 
     @Override
-    @ApiOperation(value = "getOrganizations", nickname = "getOrganizations", httpMethod = "GET")
-    @RequestMapping(value = "/organization", method = {GET})
-    public List<OrganizationView> organizations() {
-        return organizationService.organizations();
+    @ApiOperation(value = "addOrganization", nickname = "addOrganization", httpMethod = "POST")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = String.class),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    @RequestMapping(value = "api/organization/update", method = {POST})
+    public ResponseView update (@RequestBody OrganizationView view){
+        organizationService.add(organization);
+    }
+
+    @Override
+    @ApiOperation(value = "addOrganization", nickname = "addOrganization", httpMethod = "POST")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = String.class),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    @RequestMapping(value = "api/organization/save", method = {POST})
+    public ResponseView save (@RequestBody OrganizationView view){
+        organizationService.add(organization);
+    }
+
+    @ApiOperation(value = "addOrganization", nickname = "addOrganization", httpMethod = "DELETE")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = String.class),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    @RequestMapping(value = "api/organization/id", method = {DELETE})
+    public void delete (@PathVariable String id){
+        organizationService.add(organization);
     }
 }

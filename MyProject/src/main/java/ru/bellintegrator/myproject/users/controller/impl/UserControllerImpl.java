@@ -35,14 +35,14 @@ public class UserControllerImpl implements UsersController {
             @ApiResponse(code = 200, message = "Success", response = String.class),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @RequestMapping(value = "/organization", method = {POST})
+    @RequestMapping(value = "/user", method = {POST})
     public void users(@RequestBody UsersView users) {
         usersService.add(users);
     }
 
     @Override
     @ApiOperation(value = "getUser", nickname = "getUser", httpMethod = "GET")
-    @RequestMapping(value = "/organization", method = {GET})
+    @RequestMapping(value = "/user", method = {GET})
     public List<UsersView> user() {
         return usersService.user();
     }
