@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e10bc4d5-90f3-4185-987a-4804ae455986" name="Default" comment="">
+    <list default="true" id="e10bc4d5-90f3-4185-987a-4804ae455986" name="Default" comment="аброски контроллера организации">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/office/view/OfficeView.java" afterPath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/office/view/OfficeView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/controller/impl/OrganizationControllerImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/controller/impl/OrganizationControllerImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/dao/impl/OrganizationDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/dao/impl/OrganizationDAOImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/service/impl/OrganizationServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/service/impl/OrganizationServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/view/OrganizationView.java" afterPath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/view/OrganizationView.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/users/controller/impl/UserControllerImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/users/controller/impl/UserControllerImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/users/service/UsersService.java" afterPath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/users/service/UsersService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/users/view/UsersView.java" afterPath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/users/view/UsersView.java" />
       <change beforePath="$PROJECT_DIR$/target/classes/data.sql" afterPath="$PROJECT_DIR$/target/classes/data.sql" />
       <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/office/controller/impl/OfficeControllerImpl.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/office/controller/impl/OfficeControllerImpl.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/organization/controller/impl/OrganizationControllerImpl.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/organization/controller/impl/OrganizationControllerImpl.class" />
@@ -37,8 +29,8 @@
       <file leaf-file-name="OrganizationControllerImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/controller/impl/OrganizationControllerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="73" column="55" lean-forward="false" selection-start-line="73" selection-start-column="55" selection-end-line="73" selection-end-column="55" />
+            <state relative-caret-position="323">
+              <caret line="84" column="46" lean-forward="true" selection-start-line="84" selection-start-column="46" selection-end-line="84" selection-end-column="46" />
               <folding>
                 <element signature="e#2424#2425#0" expanded="true" />
                 <element signature="e#2477#2478#0" expanded="true" />
@@ -638,7 +630,14 @@
       <option name="project" value="LOCAL" />
       <updated>1520429515745</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="аброски контроллера организации">
+      <created>1521214141420</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1521214141421</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -720,7 +719,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="аброски контроллера организации" />
+    <option name="LAST_COMMIT_MESSAGE" value="аброски контроллера организации" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1074,8 +1074,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/controller/impl/OrganizationControllerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="73" column="55" lean-forward="false" selection-start-line="73" selection-start-column="55" selection-end-line="73" selection-end-column="55" />
+        <state relative-caret-position="323">
+          <caret line="84" column="46" lean-forward="true" selection-start-line="84" selection-start-column="46" selection-end-line="84" selection-end-column="46" />
           <folding>
             <element signature="e#2424#2425#0" expanded="true" />
             <element signature="e#2477#2478#0" expanded="true" />
