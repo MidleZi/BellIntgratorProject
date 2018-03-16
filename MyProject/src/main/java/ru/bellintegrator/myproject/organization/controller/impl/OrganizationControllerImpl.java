@@ -12,6 +12,7 @@ import ru.bellintegrator.myproject.organization.view.OrganizationView;
 import ru.bellintegrator.myproject.organization.controller.OrganizationController;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -22,6 +23,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 public class OrganizationControllerImpl implements OrganizationController {
 
     private final OrganizationService organizationService;
+    protected static Logger logger = Logger.getLogger("controller");
 
     @Autowired
     public OrganizationControllerImpl(OrganizationService organizationService) {
