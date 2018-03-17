@@ -19,12 +19,12 @@ public class OrganizationDAOImpl implements OrganizationDAO {
     }
 
     public List<Organization> all(){
-        TypedQuery<Organization> query = em.createQuery("SELECT h FROM House h", Organization.class);
+        TypedQuery<Organization> query = em.createQuery("SELECT h FROM organization h", Organization.class);
         return query.getResultList();
 
     }
-
-    public Organization loadById(Long id){
+    @Override
+    public Organization getOrganizationById(String id){
         return em.find(Organization.class, id);
     }
 
