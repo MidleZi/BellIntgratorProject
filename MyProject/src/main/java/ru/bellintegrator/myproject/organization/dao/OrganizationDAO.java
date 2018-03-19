@@ -19,7 +19,7 @@ public interface OrganizationDAO {
      * @param id
      * @return
      */
-    Organization loadById(Long id);
+    Organization getOrganizationById(String id);
 
     /**
      * Обновить Organization
@@ -42,4 +42,5 @@ public interface OrganizationDAO {
      * @param organization
      */
     void delete(Organization organization);
+
 }

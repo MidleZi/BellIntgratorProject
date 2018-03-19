@@ -23,8 +23,8 @@ public class OrganizationDAOImpl implements OrganizationDAO {
         return query.getResultList();
 
     }
-
-    public Organization loadById(Long id){
+    @Override
+    public Organization getOrganizationById(String id){
         return em.find(Organization.class, id);
     }
 
