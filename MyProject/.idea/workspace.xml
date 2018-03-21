@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e10bc4d5-90f3-4185-987a-4804ae455986" name="Default" comment="Попытался полностью собрать Organization">
+    <list default="true" id="e10bc4d5-90f3-4185-987a-4804ae455986" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -658,7 +658,14 @@
       <option name="project" value="LOCAL" />
       <updated>1521655577393</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Работаю с girignore">
+      <created>1521656189812</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1521656189812</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -770,7 +777,8 @@
     <MESSAGE value="http://javastudy.ru/spring-mvc/hello-world-example/&#10;Попробую с этого ресурса" />
     <MESSAGE value="Попытался полностью собрать Organization" />
     <MESSAGE value="работаю с gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="работаю с gitignore" />
+    <MESSAGE value="Работаю с girignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Работаю с girignore" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
