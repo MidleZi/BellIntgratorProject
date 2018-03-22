@@ -24,7 +24,7 @@ public class UsersDAOImpl implements UsersDAO {
 
     }
 
-    public Users loadById(Long id){
+    public Users getUsersById(Long id){
         return em.find(Users.class, id);
     }
 
