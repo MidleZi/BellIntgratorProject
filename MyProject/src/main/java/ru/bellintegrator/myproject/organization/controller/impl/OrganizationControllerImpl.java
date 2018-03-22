@@ -8,29 +8,27 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.bellintegrator.myproject.organization.service.OrganizationService;
-import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
-import ru.bellintegrator.myproject.organization.view.OrganizationView;
 import ru.bellintegrator.myproject.organization.controller.OrganizationController;
-import ru.bellintegrator.myproject.organization.view.ResponseView;
+import ru.bellintegrator.myproject.organization.service.impl.OrganizationServiceImpl;
+import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
+import ru.bellintegrator.myproject.organization.view.OrganizationResponseView;
+import ru.bellintegrator.myproject.organization.view.OrganizationView;
 
 import java.util.List;
 import java.util.logging.Logger;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
-import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @RestController
 @RequestMapping(value = "/", produces = APPLICATION_JSON_VALUE)
 public class OrganizationControllerImpl implements OrganizationController {
 
-    private final OrganizationService organizationService;
+    private final OrganizationServiceImpl organizationService;
     protected static Logger logger = Logger.getLogger("controller");
 
     @Autowired
-    public OrganizationControllerImpl(OrganizationService organizationService) {
+    public OrganizationControllerImpl(OrganizationServiceImpl organizationService) {
         this.organizationService = organizationService;
     }
 
@@ -42,8 +40,8 @@ public class OrganizationControllerImpl implements OrganizationController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(method = {GET})
-    public List<ResponseView> organizations(@RequestBody OrganizationFilterView view) {
-        return organizationService.organizations();
+    public List<OrganizationView> all(@RequestBody OrganizationFilterView view) {
+        return organizationService.all();
     }
 
     @Override
@@ -53,8 +51,8 @@ public class OrganizationControllerImpl implements OrganizationController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "api/organization/id", method = {GET})
-    public ResponseView getOrganizationById(@PathVariable String id){
-        return organizationService.getId(id);
+    public OrganizationResponseView getOrganizationById(@PathVariable String id) {
+        return organizationService.getOrganizationById(id);
     }
 
     @Override
@@ -64,7 +62,7 @@ public class OrganizationControllerImpl implements OrganizationController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "api/organization/update", method = {POST})
-    public ResponseView update(@RequestBody OrganizationView view){
+    public OrganizationResponseView update(@RequestBody OrganizationView view) {
         return organizationService.update(view);
     }
 
@@ -75,7 +73,7 @@ public class OrganizationControllerImpl implements OrganizationController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "api/organization/save", method = {POST})
-    public ResponseView save(@RequestBody OrganizationView view){
+    public OrganizationResponseView save(@RequestBody OrganizationView view) {
         return organizationService.save(view);
     }
 
@@ -86,7 +84,7 @@ public class OrganizationControllerImpl implements OrganizationController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "api/organization/id", method = {DELETE})
-    public ResponseView delete (@PathVariable String id){
+    public OrganizationResponseView delete(@PathVariable String id) {
         return organizationService.delete(id);
     }
 }

@@ -2,7 +2,7 @@ package ru.bellintegrator.myproject.organization.view;
 
 import io.swagger.annotations.ApiModelProperty;
 
-public class ResponseView {
+public class OrganizationResponseView {
 
     @ApiModelProperty(hidden = true)
 
@@ -22,11 +22,11 @@ public class ResponseView {
 
     public boolean isActive;
 
-    public ResponseView() {
+    public OrganizationResponseView() {
 
     }
 
-    public ResponseView(String name, String inn ) {
+    public OrganizationResponseView(String name, String inn) {
         this.name = name;
         this.inn = inn;
     }

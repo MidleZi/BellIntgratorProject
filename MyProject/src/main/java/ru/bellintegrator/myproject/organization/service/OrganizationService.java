@@ -1,9 +1,7 @@
 package ru.bellintegrator.myproject.organization.service;
 
-import org.springframework.transaction.annotation.Transactional;
-import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
+import ru.bellintegrator.myproject.organization.view.OrganizationResponseView;
 import ru.bellintegrator.myproject.organization.view.OrganizationView;
-import ru.bellintegrator.myproject.organization.view.ResponseView;
 
 import java.util.List;
 
@@ -13,16 +11,16 @@ public interface OrganizationService{
          * Organization service method
          * @return {@Organization}
          */
-        List<OrganizationView> organization();
+        List<OrganizationView> all();
 
 
-        void getOrganizationById(String id);
+    OrganizationResponseView getOrganizationById(String id);
 
-        void update(OrganizationView view);
+    OrganizationResponseView update(OrganizationView view);
 
-        void save(OrganizationView view);
+    OrganizationResponseView save(OrganizationView view);
 
-        void delete(String id);
+    OrganizationResponseView delete(String id);
 
 
 }

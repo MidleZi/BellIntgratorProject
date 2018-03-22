@@ -37,7 +37,7 @@ public interface OrganizationDAO {
     void save(Organization organization);
 
     /**
-     * Сохранить Organization
+     * Удалить Organization
      *
      * @param organization
      */
