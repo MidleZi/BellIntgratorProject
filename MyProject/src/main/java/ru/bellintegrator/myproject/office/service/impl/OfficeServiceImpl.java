@@ -39,7 +39,7 @@ public class OfficeServiceImpl implements OfficeService {
         Function<Office, OfficeView> mapOffice = p->{
             OfficeView view = new OfficeView();
             view.name = p.getName();
-            view.orgId = p.getOrgID();
+            view.orgId = p.getOrganization();
             view.isActive = p.getActive();
 
             log.info(view.toString());

@@ -20,14 +20,14 @@ public class OrganizationView {
 
     public String phone;
 
-    public boolean isActive;
+    public Boolean isActive;
 
     public OrganizationView() {
 
     }
 
     public OrganizationView(String id, String name, String fullName, String inn, String kpp, String adress, String phone,
-                            boolean isActive) {
+                            Boolean isActive) {
         this.id = id;
         this.name = name;
         this.fullName = fullName;

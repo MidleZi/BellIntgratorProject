@@ -16,11 +16,11 @@ public interface OrganizationService{
 
     OrganizationResponseView getOrganizationById(String id);
 
-    OrganizationResponseView update(OrganizationView view);
+    void update(OrganizationView view);
 
-    OrganizationResponseView save(OrganizationView view);
+    void save(OrganizationView view);
 
-    OrganizationResponseView delete(String id);
+    void delete(String id);
 
 
 }

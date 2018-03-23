@@ -1,5 +1,7 @@
 package ru.bellintegrator.myproject.office.model;
 
+import ru.bellintegrator.myproject.organization.model.Organization;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,9 +13,9 @@ public class Office {
     @Column(name = "id")
     private String id;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "orgId")
-    private String orgId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "organization")
+    private Organization organization;
 
     @Basic(optional = false)
     @Column(name = "name")
@@ -39,12 +41,12 @@ public class Office {
         this.adress=adress;
     }
 
-    public String toString() {
+   /* public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("{id:");
         builder.append(getId());
         builder.append("{orgId:");
-        builder.append(getOrgID());
+        builder.append(getOrganization());
         builder.append(";name:");
         builder.append(getName());
         builder.append(";adress:");
@@ -53,21 +55,21 @@ public class Office {
         builder.append(getPhone());
         builder.append(";isActive:");
         builder.append(getActive());
-       /* if (orgId != null) {
+        if (orgId != null) {
             builder.append(";Organization:");
             builder.append(orgId.getName());
-        }*/
+        }
         builder.append("}");
 
         return builder.toString();
-    }
+    }*/
 
     public String getId() {
         return id;
     }
 
-    public String getOrgID() {
-        return orgId;
+    public Organization getOrganization() {
+        return organization;
     }
 
     public String getName(){
@@ -86,8 +88,8 @@ public class Office {
         return isActive;
     }
 
-    public void setOrgId(String id) {
-        orgId = id;
+    public void setOrganization(Organization id) {
+        organization = id;
     }
 
     public void setName (String setName){

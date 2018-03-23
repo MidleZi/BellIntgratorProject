@@ -3,16 +3,18 @@ package ru.bellintegrator.myproject.organization.service.impl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.bellintegrator.myproject.organization.service.OrganizationService;
 import ru.bellintegrator.myproject.organization.dao.OrganizationDAO;
 import ru.bellintegrator.myproject.organization.model.Organization;
+import ru.bellintegrator.myproject.organization.view.OrganizationResponseView;
 import ru.bellintegrator.myproject.organization.view.OrganizationView;
 
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-
+@Service
 public class OrganizationServiceImpl implements OrganizationService {
 
 
@@ -27,7 +29,7 @@ public class OrganizationServiceImpl implements OrganizationService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<OrganizationView> organization() {
+    public List<OrganizationView> all() {
         List<Organization> all = DAO.all();
 
         Function<Organization, OrganizationView> mapPerson = p -> {
@@ -48,8 +50,9 @@ public class OrganizationServiceImpl implements OrganizationService {
 
     @Override
     @Transactional
-    public void getOrganizationById (String id) {
-        DAO.getOrganizationById(String id);
+    public OrganizationResponseView getOrganizationById (String id) {
+        DAO.getOrganizationById( id);
+        return null;
     }
 
     @Override
@@ -61,16 +64,18 @@ public class OrganizationServiceImpl implements OrganizationService {
 
     @Override
     @Transactional
-    public void save(OrganizationView view) {
+    public OrganizationResponseView save(OrganizationView view) {
         Organization users = new Organization();
         DAO.save(users);
+        return null;
     }
 
     @Override
     @Transactional
-    public void delete(String id) {
+    public OrganizationResponseView delete(String id) {
         Organization users = new Organization();
         DAO.save(users);
+        return null;
     }
 
 }

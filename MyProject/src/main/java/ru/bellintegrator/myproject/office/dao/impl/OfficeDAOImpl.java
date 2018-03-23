@@ -15,7 +15,7 @@ public class OfficeDAOImpl implements OfficeDAO {
     private final EntityManager em;
 
     @Autowired
-    public OfficeDAOImpl(EntityManager em) {
+    public OfficeDAOImpl(EntityManager em){
         this.em = em;
     }
 

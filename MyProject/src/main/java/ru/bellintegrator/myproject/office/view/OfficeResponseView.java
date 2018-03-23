@@ -1,6 +1,7 @@
 package ru.bellintegrator.myproject.office.view;
 
 import io.swagger.annotations.ApiModelProperty;
+import ru.bellintegrator.myproject.organization.model.Organization;
 
 public class OfficeResponseView {
     @ApiModelProperty(hidden = true)
@@ -9,7 +10,7 @@ public class OfficeResponseView {
 
     public String name;
 
-    public String orgId;
+    public Organization orgId;
 
     public String adress;
 

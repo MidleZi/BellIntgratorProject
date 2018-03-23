@@ -12,7 +12,7 @@ import ru.bellintegrator.myproject.organization.service.OrganizationService;
 import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
 import ru.bellintegrator.myproject.organization.view.OrganizationView;
 import ru.bellintegrator.myproject.organization.controller.OrganizationController;
-import ru.bellintegrator.myproject.organization.view.ResponseView;
+import ru.bellintegrator.myproject.organization.view.OrganizationResponseView;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -42,8 +42,8 @@ public class OrganizationControllerImpl implements OrganizationController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(method = {GET})
-    public List<ResponseView> organizations(@RequestBody OrganizationFilterView view) {
-        return organizationService.organizations();
+    public List<OrganizationView> all(@RequestBody OrganizationFilterView view) {
+        return organizationService.all();
     }
 
     @Override
@@ -53,8 +53,8 @@ public class OrganizationControllerImpl implements OrganizationController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "api/organization/id", method = {GET})
-    public ResponseView getOrganizationById(@PathVariable String id){
-        return organizationService.getId(id);
+    public OrganizationResponseView getOrganizationById(@PathVariable String id){
+        return organizationService.getOrganizationById(id);
     }
 
     @Override
@@ -64,7 +64,7 @@ public class OrganizationControllerImpl implements OrganizationController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "api/organization/update", method = {POST})
-    public ResponseView update(@RequestBody OrganizationView view){
+    public OrganizationResponseView update(@RequestBody OrganizationView view){
         return organizationService.update(view);
     }
 
@@ -75,7 +75,7 @@ public class OrganizationControllerImpl implements OrganizationController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "api/organization/save", method = {POST})
-    public ResponseView save(@RequestBody OrganizationView view){
+    public OrganizationResponseView save(@RequestBody OrganizationView view){
         return organizationService.save(view);
     }
 
@@ -86,7 +86,7 @@ public class OrganizationControllerImpl implements OrganizationController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "api/organization/id", method = {DELETE})
-    public ResponseView delete (@PathVariable String id){
+    public OrganizationResponseView delete (@PathVariable String id){
         return organizationService.delete(id);
     }
 }

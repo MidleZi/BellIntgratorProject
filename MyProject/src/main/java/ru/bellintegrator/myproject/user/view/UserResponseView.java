@@ -1,10 +1,6 @@
-package ru.bellintegrator.myproject.users.view;
+package ru.bellintegrator.myproject.user.view;
 
-import io.swagger.annotations.ApiModelProperty;
-
-public class UsersView {
-
-    @ApiModelProperty(hidden = true)
+public class UserResponseView {
 
     public String id;
 
@@ -26,12 +22,12 @@ public class UsersView {
 
     public boolean isIdentified;
 
-    public UsersView() {
+    public UserResponseView() {
 
     }
 
-    public UsersView(String id, String office, String firstName, String secondName, String midleName, String position, String phone,
-                     String userDoc, String citizenshipCode, boolean isIdentified) {
+    public UserResponseView(String id, String office, String firstName, String secondName, String midleName, String position, String phone,
+                    String userDoc, String citizenshipCode, boolean isIdentified) {
         this.id = id;
         this.office = office;
         this.firstName = firstName;

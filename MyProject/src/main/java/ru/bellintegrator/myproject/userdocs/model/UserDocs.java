@@ -11,7 +11,7 @@ public class UserDocs {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private Long id;
+    private String id;
 
     @Basic(optional = false)
     @Column(name = "docName")
@@ -39,7 +39,7 @@ public class UserDocs {
         return builder.toString();
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

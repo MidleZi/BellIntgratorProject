@@ -1,6 +1,7 @@
 package ru.bellintegrator.myproject.office.view;
 
 import io.swagger.annotations.ApiModelProperty;
+import ru.bellintegrator.myproject.organization.model.Organization;
 
 public class OfficeFilterView {
 
@@ -10,13 +11,13 @@ public class OfficeFilterView {
 
     public String name;
 
-    public String orgId;
+    public Organization orgId;
 
     public OfficeFilterView() {
 
     }
 
-    public OfficeFilterView(String name, String orgId) {
+    public OfficeFilterView(String name, Organization orgId) {
         this.name = name;
         this.orgId = orgId;
     }

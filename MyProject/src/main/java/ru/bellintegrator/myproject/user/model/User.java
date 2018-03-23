@@ -1,17 +1,17 @@
-package ru.bellintegrator.myproject.users.model;
+package ru.bellintegrator.myproject.user.model;
 
 import ru.bellintegrator.myproject.office.model.Office;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
-public class Users {
+@Table(name = "users")
+public class User {
 
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private Long id;
+    private String id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "office_id")
@@ -49,20 +49,20 @@ public class Users {
     @Column(name = "isIdentified")
     private boolean isIdentified;
 
-    public Users(){
+    public User(){
 
     }
 
-    public Users(String firstName, String secondName, String midlleName){
+    public User(String firstName, String secondName, String midlleName){
         this.firstName = firstName;
         this.secondName = secondName;
         this.midlleName = midlleName;
     }
 
-    public Users(String firstName, String secondName) {
+    public User(String firstName, String secondName) {
     }
 
-    public String toString() {
+  /*  public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("{id:");
         builder.append(getId());
@@ -89,8 +89,8 @@ public class Users {
 
         return builder.toString();
     }
-
-    public Long getId() {
+*/
+    public String getId() {
         return id;
     }
 
@@ -130,7 +130,7 @@ public class Users {
         return isIdentified;
     }
 
-    public void setOfficeId(Long officeId) {
+    public void setOffice(Office office) {
         this.office = office;
     }
 
