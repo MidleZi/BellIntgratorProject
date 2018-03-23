@@ -19,7 +19,7 @@ public interface OfficeDAO {
      * @param id
      * @return
      */
-    Office loadById(Long id);
+    Office getOfficeById(String id);
 
     /**
      * Обновить Organization

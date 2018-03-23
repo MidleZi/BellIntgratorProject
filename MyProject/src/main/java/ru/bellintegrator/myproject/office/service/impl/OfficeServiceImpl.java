@@ -7,9 +7,10 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.bellintegrator.myproject.office.dao.OfficeDAO;
+import ru.bellintegrator.myproject.office.dao.impl.OfficeDAOImpl;
 import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.office.service.OfficeService;
+import ru.bellintegrator.myproject.office.view.OfficeResponseView;
 import ru.bellintegrator.myproject.office.view.OfficeView;
 
 import java.util.List;
@@ -22,31 +23,24 @@ public class OfficeServiceImpl implements OfficeService {
 
     private final Logger log = LoggerFactory.getLogger(OfficeServiceImpl.class);
 
-    private final OfficeDAO dao;
+    private final OfficeDAOImpl DAO;
 
     @Autowired
-    public OfficeServiceImpl(OfficeDAO dao) {
-        this.dao = dao;
-    }
-
-    @Override
-    @Transactional
-    public void add(OfficeView view) {
-        Office office = new Office(view.name, view.adress);
-        dao.save(office);
+    public OfficeServiceImpl(OfficeDAOImpl dao) {
+        this.DAO = dao;
     }
 
 
     @Override
     @Transactional(readOnly = true)
-    public List<OfficeView> offices() {
-        List<Office> all = dao.all();
+    public List<OfficeView> all() {
+        List<Office> all = DAO.all();
 
-        Function<Office, OfficeView> mapOffice = o -> {
+        Function<Office, OfficeView> mapOffice = p->{
             OfficeView view = new OfficeView();
-            view.id = String.valueOf(o.getId());
-            view.name = o.getName();
-            view.adress = o.getAdress();
+            view.name = p.getName();
+            view.orgId = p.getOrgID();
+            view.isActive = p.getActive();
 
             log.info(view.toString());
 
@@ -56,6 +50,37 @@ public class OfficeServiceImpl implements OfficeService {
         return all.stream()
                 .map(mapOffice)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    @Transactional
+    public OfficeResponseView getOfficeById(String id) {
+        DAO.getOfficeById(id);
+        return null;
+    }
+
+    @Override
+    @Transactional
+    public OfficeResponseView update(OfficeView view) {
+        Office office = new Office();
+        DAO.update(office);
+        return null;
+    }
+
+    @Override
+    @Transactional
+    public OfficeResponseView save(OfficeView view) {
+        Office office = new Office();
+        DAO.save(office);
+        return null;
+    }
+
+    @Override
+    @Transactional
+    public OfficeResponseView delete(String id) {
+        Office office = new Office();
+        DAO.delete(office);
+        return null;
     }
 
 

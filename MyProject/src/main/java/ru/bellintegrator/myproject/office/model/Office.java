@@ -9,11 +9,11 @@ public class Office {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private Long id;
+    private String id;
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "orgId")
-    private Long orgId;
+    private String orgId;
 
     @Basic(optional = false)
     @Column(name = "name")
@@ -62,11 +62,11 @@ public class Office {
         return builder.toString();
     }
 
-    public long getId(){
+    public String getId() {
         return id;
     }
 
-    public long getOrgID(){
+    public String getOrgID() {
         return orgId;
     }
 
@@ -86,7 +86,7 @@ public class Office {
         return isActive;
     }
 
-    public void setOrgId (long id){
+    public void setOrgId(String id) {
         orgId = id;
     }
 

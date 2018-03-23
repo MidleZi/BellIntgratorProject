@@ -1,44 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e10bc4d5-90f3-4185-987a-4804ae455986" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/test/java/ru/bellintegrator/myproject/MyApplicationTest.java" />
+    <list default="true" id="e10bc4d5-90f3-4185-987a-4804ae455986" name="Default" comment="Попытался полностью собрать Organization">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/view/OrganizationFilterView.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/view/ResponseView.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ru/bellintegrator/myProject/office/controller/impl/OfficeControllerImplTest.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/MyApplication.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/MyApplication.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/authorization/controller/AuthorizationController.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/authorization/controller/AuthorizationController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/authorization/dao/AuthorizationDAO.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/authorization/dao/AuthorizationDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/authorization/dao/impl/AuthorizationDAOImpl.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/authorization/dao/impl/AuthorizationDAOImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/authorization/model/Authorization.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/authorization/model/Authorization.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/office/controller/OfficeController.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/office/controller/OfficeController.class" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/controller/OrganizationController.java" afterPath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/controller/OrganizationController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/controller/impl/OrganizationControllerImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/controller/impl/OrganizationControllerImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/dao/OrganizationDAO.java" afterPath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/dao/OrganizationDAO.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/dao/impl/OrganizationDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/dao/impl/OrganizationDAOImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/service/OrganizationService.java" afterPath="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/service/OrganizationService.java" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data.sql" afterPath="$PROJECT_DIR$/target/classes/data.sql" />
       <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/office/controller/impl/OfficeControllerImpl.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/office/controller/impl/OfficeControllerImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/office/dao/OfficeDAO.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/office/dao/OfficeDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/office/dao/impl/OfficeDAOImpl.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/office/dao/impl/OfficeDAOImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/office/model/Office.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/office/model/Office.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/office/service/OfficeService.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/office/service/OfficeService.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/office/service/impl/OfficeServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/office/service/impl/OfficeServiceImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/office/view/OfficeView.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/office/view/OfficeView.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/organization/controller/OrganizationController.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/organization/controller/OrganizationController.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/organization/controller/impl/OrganizationControllerImpl.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/organization/controller/impl/OrganizationControllerImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/organization/dao/OrganizationDAO.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/organization/dao/OrganizationDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/organization/dao/impl/OrganizationDAOImpl.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/organization/dao/impl/OrganizationDAOImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/organization/model/Organization.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/organization/model/Organization.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/organization/service/OrganizationService.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/organization/service/OrganizationService.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/organization/service/impl/OrganizationServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/organization/service/impl/OrganizationServiceImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/organization/view/OrganizationView.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/organization/view/OrganizationView.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/registration/controller/RegistrationController.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/registration/controller/RegistrationController.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/registration/dao/RegistrationDAO.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/registration/dao/RegistrationDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/registration/dao/impl/RegistrationDAOImpl.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/registration/dao/impl/RegistrationDAOImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/registration/model/Registration.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/registration/model/Registration.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/users/controller/UsersController.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/users/controller/UsersController.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/users/controller/impl/UserControllerImpl.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/users/controller/impl/UserControllerImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/users/dao/UsersDAO.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/users/dao/UsersDAO.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/users/dao/impl/UsersDAOImpl.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/users/dao/impl/UsersDAOImpl.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/users/model/Users.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/users/model/Users.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/users/service/UsersService.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/users/service/UsersService.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/users/service/impl/UsersServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/users/service/impl/UsersServiceImpl.class" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/users/view/UsersView.class" afterPath="$PROJECT_DIR$/target/classes/ru/bellintegrator/myProject/users/view/UsersView.class" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ru/bellintegrator/myProject/office/controller/impl/OfficeControllerImplTest.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/schema.sql" afterPath="$PROJECT_DIR$/target/classes/schema.sql" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -55,7 +33,65 @@
     </SUITE>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="OrganizationService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/service/OrganizationService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrganizationServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/service/impl/OrganizationServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="48" column="13" lean-forward="true" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+              <folding>
+                <element signature="e#902#903#0" expanded="true" />
+                <element signature="e#932#933#0" expanded="true" />
+                <element signature="method#organization#0;class#OrganizationServiceImpl#0" expanded="false" />
+                <element signature="e#1597#1598#0" expanded="true" />
+                <element signature="e#1647#1648#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrganizationDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/dao/OrganizationDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrganizationDAOImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/dao/impl/OrganizationDAOImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+              <folding>
+                <element signature="e#829#830#0" expanded="true" />
+                <element signature="e#883#884#0" expanded="true" />
+                <element signature="e#935#936#0" expanded="true" />
+                <element signature="e#975#976#0" expanded="true" />
+                <element signature="e#1026#1027#0" expanded="true" />
+                <element signature="e#1066#1067#0" expanded="true" />
+                <element signature="e#1119#1120#0" expanded="true" />
+                <element signature="e#1159#1160#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -63,13 +99,21 @@
         <option value="AnnotationType" />
         <option value="FxmlFile" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="master" />
+      </map>
+    </option>
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -79,17 +123,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myProject/organization/dao/OrganizationDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myProject/organization/dao/impl/Autowired.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myProject/office/dao/OfficeDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myProject/users/dao/UsersDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myProject/office/dao/impl/OfficeDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myProject/users/dao/impl/UsersDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myProject/organization/dao/impl/OrganizationDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myProject/MyAplication.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myProject/authorization/dao/AuthorizationDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myProject/office/controller/impl/OfficeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myProject/office/controller/impl/impl/OfficeControllerImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myProject/office/controller/impl/impl/OfficeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myProject/office/controller/OfficeControlleImpl.java" />
@@ -125,6 +158,22 @@
         <option value="$PROJECT_DIR$/src/test/java/ru/bellintegrator/myProject/organization/dao/impl/OrganizationDAOImplTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/bellintegrator/myproject/organization/dao/impl/OrganizationDAOImplTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/bellintegrator/myproject/organization/view/OrganizationViewTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/userdocs/UserDocsView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/userdocs/view/UserDocsView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/userdocs/model/UserDocs.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/users/model/Users.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/office/controller/impl/OfficeControllerImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/users/controller/impl/UserControllerImpl.java" />
+        <option value="$PROJECT_DIR$/gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/view/ResponseView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/view/OrganizationView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/view/OrganizationFilterView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/controller/OrganizationController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/controller/impl/OrganizationControllerImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/service/OrganizationService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/dao/impl/OrganizationDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/service/impl/OrganizationServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/dao/OrganizationDAO.java" />
       </list>
     </option>
   </component>
@@ -162,6 +211,28 @@
     <option name="width" value="1530" />
     <option name="height" value="864" />
   </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Probable bugsJava</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>MismatchedStringBuilderQueryUpdate</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -179,8 +250,9 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -206,11 +278,41 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="MyProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="myproject" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="myproject" type="462c0819:PsiDirectoryNode" />
+              <item name="organization" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -219,8 +321,9 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="SearchEverywhereHistoryKey" value="data Base&#9;PSI&#9;JAVA://org.hibernate.boot.model.relational.Database" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Курс GitHub/git_tutorial/work/hello/empty_project" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -229,6 +332,9 @@
       <recent name="ru.bellintegrator.myProject.organization.view" />
       <recent name="ru.bellintegrator.myProject" />
       <recent name="ru.bellintegrator.myProject.office.controller.impl" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="ru.bellintegrator.myproject.organization.controller.impl" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -249,7 +355,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.OrganizationViewTest">
+  <component name="RunManager" selected="Application.MyApplication">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -459,11 +565,11 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.OrganizationViewTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.OrganizationViewTest.toString" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.MyApplicationTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.MyApplicationTest.main" />
-        <item index="4" class="java.lang.String" itemvalue="Application.MyApplication" />
+        <item index="0" class="java.lang.String" itemvalue="Application.MyApplication" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.OrganizationViewTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.OrganizationViewTest.toString" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.MyApplicationTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.MyApplicationTest.main" />
       </list>
     </recent_temporary>
   </component>
@@ -544,13 +650,66 @@
       <option name="project" value="LOCAL" />
       <updated>1520429515745</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Исправил сущность юзера, добвил сущность документа">
+      <created>1520882388483</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1520882388483</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Добавил сущность документа">
+      <created>1520882527305</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1520882527305</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Не помню что делал и почему не закомитил">
+      <created>1521181007026</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1521181007027</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Вспомнил, добавил анотации контроллера">
+      <created>1521181077671</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1521181077671</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Добавил антоацию контроллера">
+      <created>1521181122112</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1521181122112</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Сделал gitignore">
+      <created>1521181175565</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1521181175565</updated>
+    </task>
+    <task id="LOCAL-00016" summary="http://javastudy.ru/spring-mvc/hello-world-example/&#10;Попробую с этого ресурса">
+      <created>1521185548572</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1521185548572</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Попытался полностью собрать Organization">
+      <created>1521303755677</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1521303755677</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MyApplicationTest - 2018.03.07 at 16h 00m 31s.xml">
-      <configuration name="MyApplicationTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="MyApplicationTest - 2018.03.07 at 16h 01m 00s.xml">
       <configuration name="MyApplicationTest" configurationId="JUnit" />
     </history-entry>
@@ -578,6 +737,9 @@
     <history-entry file="OrganizationServiceTest_test - 2018.03.02 at 17h 53m 49s.xml">
       <configuration name="OrganizationServiceTest.test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="OrganizationViewTest - 2018.03.14 at 20h 09m 05s.xml">
+      <configuration name="OrganizationViewTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -593,19 +755,18 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32896462" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896462" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23907454" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.225625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896462" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -616,8 +777,9 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -625,7 +787,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="Исправил сущность юзера, добвил сущность документа" />
+    <MESSAGE value="Добавил сущность документа" />
+    <MESSAGE value="Не помню что делал и почему не закомитил" />
+    <MESSAGE value="Вспомнил, добавил анотации контроллера" />
+    <MESSAGE value="Добавил антоацию контроллера" />
+    <MESSAGE value="Сделал gitignore" />
+    <MESSAGE value="http://javastudy.ru/spring-mvc/hello-world-example/&#10;Попробую с этого ресурса" />
+    <MESSAGE value="Попытался полностью собрать Organization" />
+    <option name="LAST_COMMIT_MESSAGE" value="Попытался полностью собрать Organization" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -644,99 +814,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/authorization/controller/AuthorizationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="36" lean-forward="false" selection-start-line="2" selection-start-column="36" selection-end-line="2" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/authorization/dao/impl/AuthorizationDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/authorization/model/Authorization.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/registration/dao/RegistrationDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/authorization/dao/AuthorizationDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="4" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/office/dao/OfficeDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/util/function/Function.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="40" column="17" lean-forward="false" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/bellintegrator/myProject/Organization/OrganizationServiceTest.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/Test.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/bellintegrator/myProject/Office/OfficeServiceTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/bellintegrator/myProject/Office/OfficeControllerTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/bellintegrator/myproject/office/controller/impl/OfficeControllerImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="16" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.14.RELEASE/spring-context-4.3.14.RELEASE.jar!/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/lang/Runtime.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
           <caret line="45" column="13" lean-forward="false" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
-          <folding>
-            <element signature="e#1272#1273#0" expanded="false" />
-            <element signature="e#1309#1310#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring_mvc_config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -744,7 +825,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -759,23 +839,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="30" column="5" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="30" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/office/controller/impl/OfficeControllerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-85">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="21" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#935#936#0" expanded="false" />
-            <element signature="e#985#986#0" expanded="false" />
-            <element signature="e#1431#1432#0" expanded="false" />
-            <element signature="e#1472#1473#0" expanded="false" />
-            <element signature="e#1667#1668#0" expanded="false" />
-            <element signature="e#1713#1714#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -783,17 +846,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="20" lean-forward="true" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/service/OrganizationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -801,7 +853,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="15" column="19" lean-forward="false" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -809,7 +860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="36" column="11" lean-forward="false" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -817,15 +867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="50" column="18" lean-forward="false" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/users/model/Users.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -833,15 +874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/service/impl/OrganizationServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="62" lean-forward="true" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -849,9 +881,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-255">
           <caret line="0" column="55" lean-forward="true" selection-start-line="0" selection-start-column="55" selection-end-line="0" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -859,17 +888,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/users/view/UsersView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -877,54 +895,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/controller/OrganizationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="20" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/users/controller/impl/UserControllerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="56" lean-forward="true" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
-          <folding>
-            <element signature="e#919#920#0" expanded="false" />
-            <element signature="e#967#968#0" expanded="false" />
-            <element signature="e#1414#1415#0" expanded="false" />
-            <element signature="e#1453#1454#0" expanded="false" />
-            <element signature="e#1644#1645#0" expanded="false" />
-            <element signature="e#1686#1687#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/controller/impl/OrganizationControllerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1563#1564#0" expanded="false" />
-            <element signature="e#1616#1617#0" expanded="false" />
-            <element signature="e#1841#1842#0" expanded="false" />
-            <element signature="e#1899#1900#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/users/controller/UsersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -932,98 +902,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
-          <folding>
-            <marker date="1519299267550" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1519299267550" expanded="false" signature="148:2425" ph="..." />
-            <marker date="1519299267550" expanded="true" signature="4073:4357" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="4438:4768" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="4816:5263" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="5308:5636" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="5688:6283" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="6347:7737" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="7878:8405" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="8622:9439" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="9513:9753" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="9800:9930" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="10005:10240" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="10325:10401" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="10529:10919" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="11077:11831" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="11894:12135" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="12229:12345" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="12443:13360" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="13451:13743" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="13813:14393" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="14467:15132" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="15223:15851" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="15930:16410" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="16462:16604" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="16687:17317" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="17357:17470" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="17542:18178" ph="{...}" />
-            <marker date="1519299267550" expanded="false" signature="18225:18236" ph=" { " />
-            <marker date="1519299267550" expanded="false" signature="18263:18269" ph=" }" />
-            <marker date="1519299267550" expanded="true" signature="18311:18438" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="18529:18927" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="19042:19109" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="19177:19335" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="19436:19484" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="19570:20264" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="20347:20533" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="20616:20818" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="20984:21502" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="21582:21998" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="22064:22252" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="22347:22782" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="22886:23120" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="23230:23623" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="23704:23970" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="24035:24155" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="24212:24386" ph="{...}" />
-            <marker date="1519299267550" expanded="false" signature="24433:24444" ph=" { " />
-            <marker date="1519299267550" expanded="false" signature="24477:24483" ph=" }" />
-            <marker date="1519299267550" expanded="true" signature="24556:24621" ph="{...}" />
-            <marker date="1519299267550" expanded="false" signature="24660:24671" ph=" { " />
-            <marker date="1519299267550" expanded="false" signature="24698:24704" ph=" }" />
-            <marker date="1519299267550" expanded="false" signature="24763:24774" ph=" { " />
-            <marker date="1519299267550" expanded="false" signature="24811:24817" ph=" }" />
-            <marker date="1519299267550" expanded="false" signature="24864:24875" ph=" { " />
-            <marker date="1519299267550" expanded="false" signature="24900:24906" ph=" }" />
-            <marker date="1519299267550" expanded="true" signature="24978:25043" ph="{...}" />
-            <marker date="1519299267550" expanded="false" signature="25085:25096" ph=" { " />
-            <marker date="1519299267550" expanded="false" signature="25117:25123" ph=" }" />
-            <marker date="1519299267550" expanded="false" signature="25171:25182" ph=" { " />
-            <marker date="1519299267550" expanded="false" signature="25211:25217" ph=" }" />
-            <marker date="1519299267550" expanded="false" signature="25276:25287" ph=" { " />
-            <marker date="1519299267550" expanded="false" signature="25324:25330" ph=" }" />
-            <marker date="1519299267550" expanded="true" signature="25410:25483" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="25561:25620" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="25689:25995" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="26055:26140" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="26216:26275" ph="{...}" />
-            <marker date="1519299267550" expanded="false" signature="26344:26355" ph=" { " />
-            <marker date="1519299267550" expanded="false" signature="26386:26392" ph=" }" />
-            <marker date="1519299267550" expanded="false" signature="26429:26440" ph=" { " />
-            <marker date="1519299267550" expanded="false" signature="26460:26466" ph=" }" />
-            <marker date="1519299267550" expanded="true" signature="26516:26622" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="26689:26817" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="26935:27128" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="27208:27401" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="27504:27604" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="27685:27755" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="27824:27891" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="27978:28069" ph="{...}" />
-            <marker date="1519299267550" expanded="false" signature="28133:28144" ph=" { " />
-            <marker date="1519299267550" expanded="false" signature="28192:28198" ph=" }" />
-            <marker date="1519299267550" expanded="false" signature="28253:28264" ph=" { " />
-            <marker date="1519299267550" expanded="false" signature="28312:28318" ph=" }" />
-            <marker date="1519299267550" expanded="true" signature="28404:28459" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="28547:28613" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="28675:28716" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="28814:29665" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="29725:29933" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="30014:30205" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1031,41 +909,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="61" column="18" lean-forward="false" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
-          <folding>
-            <marker date="1519299267550" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1519299267550" expanded="false" signature="165:1538" ph="..." />
-            <marker date="1519299267550" expanded="true" signature="1981:1988" ph="{}" />
-            <marker date="1519299267550" expanded="true" signature="2077:2261" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="2340:2525" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="2558:2798" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="2835:3109" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="3140:3227" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="3279:4110" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="4195:4919" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="4980:5235" ph="{...}" />
-            <marker date="1519299267550" expanded="false" signature="4997:5121" ph="onStartup(servletContext) → {" />
-            <marker date="1519299267550" expanded="false" signature="5213:5228" ph="}" />
-            <marker date="1519299267550" expanded="true" signature="5324:6126" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="6216:6297" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="6386:8202" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="8273:8477" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="8537:8893" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="8949:9138" ph="{...}" />
-            <marker date="1519299267550" expanded="false" signature="9186:9197" ph=" { " />
-            <marker date="1519299267550" expanded="false" signature="9224:9230" ph=" }" />
-            <marker date="1519299267550" expanded="false" signature="9264:9275" ph=" { " />
-            <marker date="1519299267550" expanded="false" signature="9297:9303" ph=" }" />
-            <marker date="1519299267550" expanded="false" signature="9366:9377" ph=" { " />
-            <marker date="1519299267550" expanded="false" signature="9412:9418" ph=" }" />
-            <marker date="1519299267550" expanded="false" signature="9463:9474" ph=" { " />
-            <marker date="1519299267550" expanded="false" signature="9500:9506" ph=" }" />
-            <marker date="1519299267550" expanded="false" signature="9573:9584" ph=" { " />
-            <marker date="1519299267550" expanded="false" signature="9621:9627" ph=" }" />
-            <marker date="1519299267550" expanded="true" signature="9682:11113" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="9955:10348" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="10380:10856" ph="{...}" />
-            <marker date="1519299267550" expanded="true" signature="10873:11107" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1073,39 +916,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="82" column="108" lean-forward="false" selection-start-line="82" selection-start-column="108" selection-end-line="82" selection-end-column="108" />
-          <folding>
-            <marker date="1519299258295" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1519299258295" expanded="false" signature="163:1090" ph="..." />
-            <marker date="1519299258295" expanded="true" signature="1351:1358" ph="{}" />
-            <marker date="1519299258295" expanded="false" signature="1430:1441" ph=" { " />
-            <marker date="1519299258295" expanded="false" signature="1478:1484" ph=" }" />
-            <marker date="1519299258295" expanded="false" signature="1565:1576" ph=" { " />
-            <marker date="1519299258295" expanded="false" signature="1595:1601" ph=" }" />
-            <marker date="1519299258295" expanded="true" signature="1714:1795" ph="{...}" />
-            <marker date="1519299258295" expanded="false" signature="1861:1872" ph=" { " />
-            <marker date="1519299258295" expanded="false" signature="1909:1915" ph=" }" />
-            <marker date="1519299258295" expanded="false" signature="1962:1973" ph=" { " />
-            <marker date="1519299258295" expanded="false" signature="2000:2006" ph=" }" />
-            <marker date="1519299258295" expanded="true" signature="2047:2142" ph="{...}" />
-            <marker date="1519299258295" expanded="false" signature="2201:2212" ph=" { " />
-            <marker date="1519299258295" expanded="false" signature="2252:2258" ph=" }" />
-            <marker date="1519299258295" expanded="true" signature="2347:2719" ph="{...}" />
-            <marker date="1519299258295" expanded="false" signature="2774:2785" ph=" { " />
-            <marker date="1519299258295" expanded="false" signature="2846:2852" ph=" }" />
-            <marker date="1519299258295" expanded="true" signature="2921:2992" ph="{...}" />
-            <marker date="1519299258295" expanded="true" signature="3024:3035" ph=" { " />
-            <marker date="1519299258295" expanded="true" signature="3102:3108" ph=" }" />
-            <marker date="1519299258295" expanded="true" signature="3151:3396" ph="{...}" />
-            <marker date="1519299258295" expanded="false" signature="3441:3452" ph=" { " />
-            <marker date="1519299258295" expanded="false" signature="3496:3502" ph=" }" />
-            <marker date="1519299258295" expanded="true" signature="3566:3573" ph="{}" />
-            <marker date="1519299258295" expanded="true" signature="3619:3743" ph="{...}" />
-            <marker date="1519299258295" expanded="true" signature="3792:3799" ph="{}" />
-            <marker date="1519299258295" expanded="true" signature="3834:3954" ph="{...}" />
-            <marker date="1519299258295" expanded="true" signature="4013:4266" ph="{...}" />
-            <marker date="1519299258295" expanded="true" signature="4330:4586" ph="{...}" />
-            <marker date="1519299258295" expanded="true" signature="4629:4755" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1113,123 +923,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1313">
           <caret line="266" column="0" lean-forward="false" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
-          <folding>
-            <marker date="1519299265823" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1519299265823" expanded="false" signature="159:3541" ph="..." />
-            <marker date="1519299265823" expanded="true" signature="4778:5287" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="5354:5409" ph="{...}" />
-            <marker date="1519299265823" expanded="false" signature="5443:5454" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="5467:5473" ph=" }" />
-            <marker date="1519299265823" expanded="false" signature="5500:5511" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="5526:5532" ph=" }" />
-            <marker date="1519299265823" expanded="false" signature="5572:5583" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="5593:5599" ph=" }" />
-            <marker date="1519299265823" expanded="true" signature="5652:5772" ph="{...}" />
-            <marker date="1519299265823" expanded="false" signature="5808:5819" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="5843:5849" ph=" }" />
-            <marker date="1519299265823" expanded="false" signature="5892:5903" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="5922:5928" ph=" }" />
-            <marker date="1519299265823" expanded="false" signature="5997:6008" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="6039:6045" ph=" }" />
-            <marker date="1519299265823" expanded="true" signature="6099:6247" ph="{...}" />
-            <marker date="1519299265823" expanded="false" signature="6306:6317" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="6350:6356" ph=" }" />
-            <marker date="1519299265823" expanded="true" signature="6457:6502" ph="{...}" />
-            <marker date="1519299265823" expanded="false" signature="6536:6547" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="6571:6577" ph=" }" />
-            <marker date="1519299265823" expanded="false" signature="6631:6642" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="6689:6695" ph=" }" />
-            <marker date="1519299265823" expanded="false" signature="6739:6750" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="6797:6803" ph=" }" />
-            <marker date="1519299265823" expanded="true" signature="6877:8017" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="8113:8417" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="8495:8779" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="8848:8917" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="8972:9294" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="9380:9530" ph="{...}" />
-            <marker date="1519299265823" expanded="false" signature="9604:9615" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="9653:9659" ph=" }" />
-            <marker date="1519299265823" expanded="true" signature="9733:10030" ph="{...}" />
-            <marker date="1519299265823" expanded="false" signature="10103:10114" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="10147:10153" ph=" }" />
-            <marker date="1519299265823" expanded="true" signature="10226:11438" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="11476:11862" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="11905:11912" ph="{}" />
-            <marker date="1519299265823" expanded="true" signature="11985:12284" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="12369:14421" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="14510:14517" ph="{}" />
-            <marker date="1519299265823" expanded="true" signature="14615:15064" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="15157:15253" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="15294:16568" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="16623:17601" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="17647:18622" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="18677:18684" ph="{}" />
-            <marker date="1519299265823" expanded="true" signature="18725:19857" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="19955:21086" ph="{...}" />
-            <marker date="1519299265823" expanded="false" signature="20338:20431" ph="resolveStringValue(strVal) → {" />
-            <marker date="1519299265823" expanded="false" signature="20549:20568" ph="}" />
-            <marker date="1519299265823" expanded="true" signature="21123:21355" ph="{...}" />
-            <marker date="1519299265823" expanded="false" signature="21408:21419" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="21442:21448" ph=" }" />
-            <marker date="1519299265823" expanded="true" signature="21489:21647" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="21688:22112" ph="{...}" />
-            <marker date="1519299265823" expanded="false" signature="21763:21813" ph="run() → {" />
-            <marker date="1519299265823" expanded="false" signature="22006:22025" ph="}" />
-            <marker date="1519299265823" expanded="false" signature="22139:22150" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="22163:22169" ph=" }" />
-            <marker date="1519299265823" expanded="true" signature="22195:22600" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="22631:23615" ph="{...}" />
-            <marker date="1519299265823" expanded="false" signature="23650:23661" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="23703:23709" ph=" }" />
-            <marker date="1519299265823" expanded="true" signature="23740:23747" ph="{}" />
-            <marker date="1519299265823" expanded="false" signature="23778:23789" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="23814:23820" ph=" }" />
-            <marker date="1519299265823" expanded="true" signature="23867:24195" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="24258:24357" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="24442:24555" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="24627:24734" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="24813:24918" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="25006:25119" ph="{...}" />
-            <marker date="1519299265823" expanded="false" signature="25165:25176" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="25224:25230" ph=" }" />
-            <marker date="1519299265823" expanded="true" signature="25313:25416" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="25499:25602" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="25713:25829" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="25934:26050" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="26130:26229" ph="{...}" />
-            <marker date="1519299265823" expanded="false" signature="26274:26285" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="26331:26337" ph=" }" />
-            <marker date="1519299265823" expanded="true" signature="26398:26476" ph="{...}" />
-            <marker date="1519299265823" expanded="false" signature="26517:26528" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="26582:26588" ph=" }" />
-            <marker date="1519299265823" expanded="false" signature="26634:26645" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="26699:26705" ph=" }" />
-            <marker date="1519299265823" expanded="true" signature="26768:26879" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="26936:27047" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="27158:27307" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="27391:27497" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="27635:27779" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="27871:27998" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="28120:28244" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="28382:28514" ph="{...}" />
-            <marker date="1519299265823" expanded="false" signature="28561:28572" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="28596:28602" ph=" }" />
-            <marker date="1519299265823" expanded="false" signature="28653:28664" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="28717:28723" ph=" }" />
-            <marker date="1519299265823" expanded="true" signature="28782:28968" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="29065:29159" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="29263:29341" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="29453:29531" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="29607:29868" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="29931:30108" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="30188:30270" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="30296:30427" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="30452:30582" ph="{...}" />
-            <marker date="1519299265823" expanded="false" signature="30614:30625" ph=" { " />
-            <marker date="1519299265823" expanded="false" signature="30703:30709" ph=" }" />
-            <marker date="1519299265823" expanded="true" signature="30985:31427" ph="{...}" />
-            <marker date="1519299265823" expanded="true" signature="31440:31491" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1237,7 +930,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
           <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1245,7 +937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">
           <caret line="208" column="0" lean-forward="false" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1253,10 +944,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="234" column="18" lean-forward="false" selection-start-line="234" selection-start-column="18" selection-end-line="234" selection-end-column="18" />
-          <folding>
-            <element signature="e#10065#10066#0" expanded="false" />
-            <element signature="e#10148#10149#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1264,58 +951,96 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#main#0;class#MyApplicationTest#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/dao/impl/OrganizationDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/MyApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="17" column="18" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        <state relative-caret-position="102">
+          <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/bellintegrator/myproject/organization/view/OrganizationViewTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/bellintegrator/myproject/organization/dao/impl/OrganizationDAOImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/bellintegrator/myproject/organization/view/OrganizationViewTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/bellintegrator/myproject/organization/dao/impl/OrganizationDAOImplTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/data.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/schema.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-323">
-          <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+        <state relative-caret-position="-224">
+          <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/users/controller/UsersController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/userdocs/view/UserDocsView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/users/view/UsersView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/users/model/Users.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/userdocs/model/UserDocs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="38" column="34" lean-forward="false" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/office/controller/impl/OfficeControllerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="25" column="14" lean-forward="true" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/users/controller/impl/UserControllerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring_mvc_config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1323,15 +1048,165 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.14.RELEASE/spring-web-4.3.14.RELEASE.jar!/org/springframework/web/bind/annotation/RequestMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#308#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../Курс GitHub/git_tutorial/work/hello/empty_project/practice.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../Курс GitHub/git_tutorial/work/hello/empty_project/src/main/java/ru/bellintegrator/practice/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/view/ResponseView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="562">
+          <caret line="36" column="16" lean-forward="false" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/view/OrganizationFilterView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <element signature="e#520#521#0" expanded="false" />
+            <element signature="e#605#606#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="3111" column="25" lean-forward="false" selection-start-line="3111" selection-start-column="25" selection-end-line="3111" selection-end-column="25" />
+          <folding>
+            <element signature="e#122184#122185#0" expanded="false" />
+            <element signature="e#122223#122224#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/controller/impl/OrganizationControllerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="721">
+          <caret line="76" column="69" lean-forward="true" selection-start-line="76" selection-start-column="69" selection-end-line="76" selection-end-column="69" />
+          <folding>
+            <element signature="e#3758#3759#0" expanded="false" />
+            <element signature="e#3811#3812#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/view/OrganizationView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-79">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="36" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar!/javax/persistence/EntityManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/util/function/Function.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="603">
+          <caret line="67" column="26" lean-forward="true" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/model/Organization.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1036">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/service/OrganizationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/controller/OrganizationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#organizations#0;class#OrganizationController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/dao/OrganizationDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/dao/impl/OrganizationDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+          <folding>
+            <element signature="e#829#830#0" expanded="true" />
+            <element signature="e#883#884#0" expanded="true" />
+            <element signature="e#935#936#0" expanded="true" />
+            <element signature="e#975#976#0" expanded="true" />
+            <element signature="e#1026#1027#0" expanded="true" />
+            <element signature="e#1066#1067#0" expanded="true" />
+            <element signature="e#1119#1120#0" expanded="true" />
+            <element signature="e#1159#1160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/bellintegrator/myproject/organization/service/impl/OrganizationServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="48" column="13" lean-forward="true" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+          <folding>
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#932#933#0" expanded="true" />
+            <element signature="method#organization#0;class#OrganizationServiceImpl#0" expanded="false" />
+            <element signature="e#1597#1598#0" expanded="true" />
+            <element signature="e#1647#1648#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
