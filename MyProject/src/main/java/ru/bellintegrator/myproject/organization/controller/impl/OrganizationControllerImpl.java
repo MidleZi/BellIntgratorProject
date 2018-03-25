@@ -23,7 +23,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
-@RequestMapping(value = "/", produces = APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/organization", produces = APPLICATION_JSON_VALUE)
 public class OrganizationControllerImpl implements OrganizationController {
 
     private final OrganizationService organizationService;
@@ -36,57 +36,57 @@ public class OrganizationControllerImpl implements OrganizationController {
 
 
     @Override
-    @ApiOperation(value = "addOrganization", nickname = "addOrganization", httpMethod = "POST")
+    @ApiOperation(value = "allOrganization", nickname = "allOrganization", httpMethod = "POST")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success", response = String.class),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(method = {GET})
-    public List<OrganizationView> all(@RequestBody OrganizationFilterView view) {
+    public List<OrganizationView> all(@RequestBody OrganizationView view) {
         return organizationService.all();
     }
 
     @Override
-    @ApiOperation(value = "addOrganization", nickname = "addOrganization", httpMethod = "GET")
+    @ApiOperation(value = "getOrganization", nickname = "getOrganization", httpMethod = "GET")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success", response = String.class),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @RequestMapping(value = "api/organization/id", method = {GET})
-    public OrganizationResponseView getOrganizationById(@PathVariable String id){
+    @RequestMapping(value = "/{id}", method = {GET})
+    public OrganizationResponseView getOrganizationById(@PathVariable Long id){
         return organizationService.getOrganizationById(id);
     }
 
     @Override
-    @ApiOperation(value = "addOrganization", nickname = "addOrganization", httpMethod = "POST")
+    @ApiOperation(value = "updateOrganization", nickname = "updateOrganization", httpMethod = "POST")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success", response = String.class),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @RequestMapping(value = "api/organization/update", method = {POST})
+    @RequestMapping(value = "/update", method = {POST})
     public OrganizationResponseView update(@RequestBody OrganizationView view){
         return organizationService.update(view);
     }
 
     @Override
-    @ApiOperation(value = "addOrganization", nickname = "addOrganization", httpMethod = "POST")
+    @ApiOperation(value = "saveOrganization", nickname = "saveOrganization", httpMethod = "POST")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success", response = String.class),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @RequestMapping(value = "api/organization/save", method = {POST})
+    @RequestMapping(value = "/save", method = {POST})
     public OrganizationResponseView save(@RequestBody OrganizationView view){
         return organizationService.save(view);
     }
 
     @Override
-    @ApiOperation(value = "addOrganization", nickname = "addOrganization", httpMethod = "DELETE")
+    @ApiOperation(value = "deleteOrganization", nickname = "deleteOrganization", httpMethod = "DELETE")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success", response = String.class),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @RequestMapping(value = "api/organization/id", method = {DELETE})
-    public OrganizationResponseView delete (@PathVariable String id){
+    @RequestMapping(value = "/{id}", method = {DELETE})
+    public OrganizationResponseView delete (@PathVariable Long id){
         return organizationService.delete(id);
     }
 }

@@ -17,11 +17,11 @@ public interface UserService {
     List<UserView> all();
 
 
-    UserResponseView getUserById(String id);
+    UserResponseView getUserById(Long id);
 
     UserResponseView update(UserView view);
 
     UserResponseView save(UserView view);
 
-    UserResponseView delete(String id);
+    UserResponseView delete(Long id);
 }

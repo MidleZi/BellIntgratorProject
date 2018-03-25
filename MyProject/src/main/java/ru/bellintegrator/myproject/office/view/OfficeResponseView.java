@@ -6,7 +6,7 @@ import ru.bellintegrator.myproject.organization.model.Organization;
 public class OfficeResponseView {
     @ApiModelProperty(hidden = true)
 
-    public String id;
+    public Long id;
 
     public String name;
 

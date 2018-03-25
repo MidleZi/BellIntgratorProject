@@ -1,6 +1,7 @@
 package ru.bellintegrator.myproject.userdocs.model;
 
 import ru.bellintegrator.myproject.office.model.Office;
+import ru.bellintegrator.myproject.user.model.User;
 
 import javax.persistence.*;
 
@@ -11,18 +12,18 @@ public class UserDocs {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private String id;
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "docname")
+    private User user;
 
     @Basic(optional = false)
-    @Column(name = "docName")
-    private String docName;
-
-    @Basic(optional = false)
-    @Column(name = "docNumber")
+    @Column(name = "docnumber")
     private String docNumber;
 
     @Basic(optional = false)
-    @Column(name = "docDate")
+    @Column(name = "docdate")
     private String docDate;
 
     public String toString() {
@@ -30,7 +31,7 @@ public class UserDocs {
         builder.append("{id:");
         builder.append(getId());
         builder.append(";docName:");
-        builder.append(getDocName());
+        builder.append(getUser());
         builder.append(";docNumber:");
         builder.append(getDocNumber());
         builder.append(";docDate:");
@@ -39,12 +40,12 @@ public class UserDocs {
         return builder.toString();
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public String getDocName() {
-        return docName;
+    public User getUser() {
+        return user;
     }
 
     public String getDocNumber() {
@@ -55,8 +56,8 @@ public class UserDocs {
         return docDate;
     }
 
-    public void setDocName(String docName) {
-        this.docName = docName;
+    public void setDocName(User user) {
+        this.user = user;
     }
 
     public void setDocNumber(String docNumber) {

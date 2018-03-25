@@ -13,7 +13,7 @@ public class Organization {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private String id;
+    private Long id;
 
     @Basic(optional = false)
     @Column(name = "name")
@@ -23,7 +23,7 @@ public class Organization {
     private Set<Office> office;
 
     @Basic(optional = false)
-    @Column(name = "fullName")
+    @Column(name = "fullname")
     private String fullName;
 
     @Basic(optional = false)
@@ -43,7 +43,7 @@ public class Organization {
     private String phone;
 
     @Basic(optional = false)
-    @Column(name = "isActive")
+    @Column(name = "isactive")
     private boolean isActive;
 
     public Organization (){
@@ -78,7 +78,7 @@ public class Organization {
         return builder.toString();
     }
 
-    public String getId(){
+    public Long getId(){
         return id;
     }
 
@@ -138,3 +138,4 @@ public class Organization {
         isActive = active;
     }
 }
+

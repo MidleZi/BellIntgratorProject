@@ -23,7 +23,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
-@RequestMapping(value = "/", produces = APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/api/user", produces = APPLICATION_JSON_VALUE)
 public class UserControllerImpl implements UserController {
 
     private final UserService userService;
@@ -34,45 +34,58 @@ public class UserControllerImpl implements UserController {
     }
 
 
-    @ApiOperation(value = "addOrganization", nickname = "addOrganization", httpMethod = "POST")
-    @ApiResponses(value = {@ApiResponse(code = 200, message = "Success", response = String.class), @ApiResponse(code = 404, message = "Not Found"), @ApiResponse(code = 500, message = "Failure")})
+    @ApiOperation(value = "allUser", nickname = "allUser", httpMethod = "POST")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = String.class),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(method = {GET})
     public List<UserView> all(@RequestBody UserFilterView view) {
         return userService.all();
     }
 
     @Override
-    @ApiOperation(value = "addOrganization", nickname = "addOrganization", httpMethod = "GET")
+    @ApiOperation(value = "getUser", nickname = "getUser", httpMethod = "GET")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success", response = String.class),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @RequestMapping(value = "api/organization/id", method = {GET})
-    public UserResponseView getUserById(@PathVariable String id) {
+    @RequestMapping(value = "/{id}", method = {GET})
+    public UserResponseView getUserById(@PathVariable Long id) {
         return userService.getUserById(id);
     }
 
     @Override
-    @ApiOperation(value = "addOrganization", nickname = "addOrganization", httpMethod = "POST")
-    @ApiResponses(value = {@ApiResponse(code = 200, message = "Success", response = String.class), @ApiResponse(code = 404, message = "Not Found"), @ApiResponse(code = 500, message = "Failure")})
-    @RequestMapping(value = "api/organization/update", method = {POST})
+    @ApiOperation(value = "updateUser", nickname = "updateUser", httpMethod = "POST")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = String.class),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    @RequestMapping(value = "/update", method = {POST})
     public UserResponseView update(@RequestBody UserView view) {
         return userService.update(view);
     }
 
     @Override
-    @ApiOperation(value = "addOrganization", nickname = "addOrganization", httpMethod = "POST")
-    @ApiResponses(value = {@ApiResponse(code = 200, message = "Success", response = String.class), @ApiResponse(code = 404, message = "Not Found"), @ApiResponse(code = 500, message = "Failure")})
-    @RequestMapping(value = "api/organization/save", method = {POST})
+    @ApiOperation(value = "saveUser", nickname = "saveUser", httpMethod = "POST")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = String.class),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    @RequestMapping(value = "/save", method = {POST})
     public UserResponseView save(@RequestBody UserView view) {
         return userService.save(view);
     }
 
     @Override
-    @ApiOperation(value = "addOrganization", nickname = "addOrganization", httpMethod = "DELETE")
-    @ApiResponses(value = {@ApiResponse(code = 200, message = "Success", response = String.class), @ApiResponse(code = 404, message = "Not Found"), @ApiResponse(code = 500, message = "Failure")})
-    @RequestMapping(value = "api/organization/id", method = {DELETE})
-    public UserResponseView delete(@PathVariable String id) {
+    @ApiOperation(value = "deleteUser", nickname = "deleteUser", httpMethod = "DELETE")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = String.class),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    @RequestMapping(value = "/{id}", method = {DELETE})
+    public UserResponseView delete(@PathVariable Long id) {
         return userService.delete(id);
     }
 }
+

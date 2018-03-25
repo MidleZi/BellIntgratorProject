@@ -13,15 +13,15 @@ public interface OrganizationController {
      * Get all organizations
      * @return JSON organizations value
      */
-    List<OrganizationView> all(OrganizationFilterView view);
+    List<OrganizationView> all(OrganizationView view);
 
-    OrganizationResponseView getOrganizationById(String id);
+    OrganizationResponseView getOrganizationById(Long id);
 
     OrganizationResponseView update(OrganizationView view);
 
     OrganizationResponseView save(OrganizationView view);
 
-    OrganizationResponseView delete(String id);
+    OrganizationResponseView delete(Long id);
 
 
 }

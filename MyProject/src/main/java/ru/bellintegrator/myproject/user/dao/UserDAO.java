@@ -18,7 +18,7 @@ public interface UserDAO {
      * @param id
      * @return
      */
-    User getUserById(String id);
+    User getUserById(Long id);
 
     /**
      * Обновить Organization

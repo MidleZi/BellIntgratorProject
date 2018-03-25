@@ -6,7 +6,7 @@ public class OrganizationResponseView {
 
     @ApiModelProperty(hidden = true)
 
-    public String id;
+    public Long id;
 
     public String name;
 
@@ -37,3 +37,4 @@ public class OrganizationResponseView {
                 ";address" + adress + ";phone" + phone + ";isActive" + isActive + "}";
     }
 }
+

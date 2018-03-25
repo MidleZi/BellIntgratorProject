@@ -53,3 +53,4 @@ public class UserView {
                 ";citizenshipCode" + citizenshipCode + ";isIdentified" + isIdentified + "}";
     }
 }
+
