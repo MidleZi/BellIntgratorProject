@@ -7,20 +7,20 @@ import java.util.List;
 
 public interface OrganizationService{
 
-        /**
-         * Organization service method
-         * @return {@Organization}
-         */
-        List<OrganizationView> all();
+    /**
+     * Organization service method
+     * @return {@Organization}
+     */
+    List<OrganizationView> all();
 
 
-    OrganizationResponseView getOrganizationById(String id);
+    OrganizationResponseView getOrganizationById(Long id);
 
-    void update(OrganizationView view);
+    OrganizationResponseView update(OrganizationView view);
 
-    void save(OrganizationView view);
+    OrganizationResponseView save(OrganizationView view);
 
-    void delete(String id);
+    OrganizationResponseView delete(Long id);
 
 
 }

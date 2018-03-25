@@ -7,7 +7,7 @@ public class OfficeFilterView {
 
     @ApiModelProperty(hidden = true)
 
-    public String id;
+    public Long id;
 
     public String name;
 

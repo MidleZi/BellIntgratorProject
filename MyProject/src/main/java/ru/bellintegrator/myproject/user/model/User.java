@@ -1,8 +1,10 @@
 package ru.bellintegrator.myproject.user.model;
 
 import ru.bellintegrator.myproject.office.model.Office;
+import ru.bellintegrator.myproject.userdocs.model.UserDocs;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -11,22 +13,22 @@ public class User {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private String id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "office_id")
+    @JoinColumn(name = "officeid")
     private Office office;
 
     @Basic(optional = false)
-    @Column(name = "firstName")
+    @Column(name = "firstname")
     private String firstName;
 
     @Basic(optional = false)
-    @Column(name = "secondName")
+    @Column(name = "secondname")
     private String secondName;
 
     @Basic(optional = false)
-    @Column(name = "middleName")
+    @Column(name = "middlename")
     private String midlleName;
 
     @Basic(optional = false)
@@ -37,16 +39,15 @@ public class User {
     @Column(name = "phone")
     private String phone;
 
-    @Basic(optional = false)
-    @Column(name = "userdoc")
-    private String userDoc;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<UserDocs> userDocs;
 
     @Basic(optional = false)
-    @Column(name = "citizenshipCode")
+    @Column(name = "citizenshipcode")
     private String citizenshipCode;
 
     @Basic(optional = false)
-    @Column(name = "isIdentified")
+    @Column(name = "isidentified")
     private boolean isIdentified;
 
     public User(){
@@ -62,35 +63,35 @@ public class User {
     public User(String firstName, String secondName) {
     }
 
-  /*  public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("{id:");
-        builder.append(getId());
-        builder.append(";officeId:");
-        builder.append(getOffice());
-        builder.append(";firstName:");
-        builder.append(getFirstName());
-        builder.append(";secondName:");
-        builder.append(getSecondName());
-        builder.append(";midlleName:");
-        builder.append(getMidlleName());
-        builder.append(";position:");
-        builder.append(getPosition());
-        builder.append(";phone:");
-        builder.append(getPhone());
-        builder.append(";userDoc:");
-        builder.append(getUserDoc());
-        builder.append(";docNumber:");
-        builder.append(";citizenshipCode:");
-        builder.append(getCitizenshipCode());
-        builder.append(";isIdentified:");
-        builder.append(isIdentified());
-        builder.append("}");
+      public String toString() {
+          StringBuilder builder = new StringBuilder();
+          builder.append("{id:");
+          builder.append(getId());
+          builder.append(";officeId:");
+          builder.append(getOffice());
+          builder.append(";firstName:");
+          builder.append(getFirstName());
+          builder.append(";secondName:");
+          builder.append(getSecondName());
+          builder.append(";midlleName:");
+          builder.append(getMidlleName());
+          builder.append(";position:");
+          builder.append(getPosition());
+          builder.append(";phone:");
+          builder.append(getPhone());
+          builder.append(";userDoc:");
+          builder.append(getUserDocs());
+          builder.append(";docNumber:");
+          builder.append(";citizenshipCode:");
+          builder.append(getCitizenshipCode());
+          builder.append(";isIdentified:");
+          builder.append(isIdentified());
+          builder.append("}");
 
-        return builder.toString();
-    }
-*/
-    public String getId() {
+          return builder.toString();
+      }
+
+    public Long getId() {
         return id;
     }
 
@@ -118,8 +119,8 @@ public class User {
         return phone;
     }
 
-    public String getUserDoc() {
-        return userDoc;
+    public Set<UserDocs> getUserDocs() {
+        return userDocs;
     }
 
     public String getCitizenshipCode() {
@@ -155,7 +156,7 @@ public class User {
     }
 
     public void setDocName(String docName) {
-        this.userDoc = userDoc;
+        this.userDocs = userDocs;
     }
 
     public void setCitizenshipCode(String citizenshipCode) {

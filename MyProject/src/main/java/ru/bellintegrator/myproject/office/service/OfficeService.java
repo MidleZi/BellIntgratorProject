@@ -13,12 +13,12 @@ public interface OfficeService {
      */
     List<OfficeView> all();
 
-    OfficeResponseView getOfficeById(String id);
+    OfficeResponseView getOfficeById(Long id);
 
     OfficeResponseView update(OfficeView view);
 
     OfficeResponseView save(OfficeView view);
 
-    OfficeResponseView delete(String id);
+    OfficeResponseView delete(Long id);
 
 }

@@ -19,7 +19,7 @@ public interface OrganizationDAO {
      * @param id
      * @return
      */
-    Organization getOrganizationById(String id);
+    Organization getOrganizationById(Long id);
 
     /**
      * Обновить Organization

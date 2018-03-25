@@ -7,7 +7,7 @@ public class OfficeView {
 
     @ApiModelProperty(hidden = true)
 
-    public String id;
+    public Long id;
 
     public String name;
 
@@ -23,7 +23,7 @@ public class OfficeView {
 
     }
 
-    public OfficeView(String id, String name, String adress, String phone, boolean isActive) {
+    public OfficeView(Long id, String name, String adress, String phone, boolean isActive) {
         this.id = id;
         this.name = name;
         this.adress = adress;

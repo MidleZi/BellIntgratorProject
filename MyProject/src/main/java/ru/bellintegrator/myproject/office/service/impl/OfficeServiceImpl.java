@@ -54,7 +54,7 @@ public class OfficeServiceImpl implements OfficeService {
 
     @Override
     @Transactional
-    public OfficeResponseView getOfficeById(String id) {
+    public OfficeResponseView getOfficeById(Long id) {
         DAO.getOfficeById(id);
         return null;
     }
@@ -77,7 +77,7 @@ public class OfficeServiceImpl implements OfficeService {
 
     @Override
     @Transactional
-    public OfficeResponseView delete(String id) {
+    public OfficeResponseView delete(Long id) {
         Office office = new Office();
         DAO.delete(office);
         return null;

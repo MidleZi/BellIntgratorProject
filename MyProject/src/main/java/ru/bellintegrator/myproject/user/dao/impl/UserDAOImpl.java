@@ -26,7 +26,7 @@ public class UserDAOImpl implements UserDAO {
 
     }
     @Override
-    public User getUserById(String id){
+    public User getUserById(Long id){
         return em.find(User.class, id);
     }
 

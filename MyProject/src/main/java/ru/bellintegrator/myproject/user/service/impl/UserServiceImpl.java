@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public UserResponseView getUserById(String id) {
+    public UserResponseView getUserById(Long id) {
         DAO.getUserById(id);
         return null;
     }
@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public UserResponseView delete(String id) {
+    public UserResponseView delete(Long id) {
         User user = new User();
         DAO.delete(user);
         return null;

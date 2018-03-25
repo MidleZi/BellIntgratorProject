@@ -32,11 +32,11 @@ public class OrganizationServiceImpl implements OrganizationService {
     public List<OrganizationView> all() {
         List<Organization> all = DAO.all();
 
-        Function<Organization, OrganizationView> mapPerson = p -> {
+        Function<Organization, OrganizationView> mapOrganization = o -> {
             OrganizationView view = new OrganizationView();
-            view.name = p.getName();
-            view.inn = p.getInn();
-            view.isActive = p.getActive();
+            view.name = o.getName();
+            view.inn = o.getInn();
+            view.isActive = o.getActive();
 
             log.info(view.toString());
 
@@ -44,22 +44,23 @@ public class OrganizationServiceImpl implements OrganizationService {
         };
 
         return all.stream()
-                .map(mapPerson)
+                .map(mapOrganization)
                 .collect(Collectors.toList());
     }
 
     @Override
     @Transactional
-    public OrganizationResponseView getOrganizationById (String id) {
-        DAO.getOrganizationById( id);
+    public OrganizationResponseView getOrganizationById (Long id) {
+        DAO.getOrganizationById(id);
         return null;
     }
 
     @Override
     @Transactional
-    public void update(OrganizationView view) {
+    public OrganizationResponseView update(OrganizationView view) {
         Organization users = new Organization(view.name, view.inn);
         DAO.save(users);
+        return null;
     }
 
     @Override
@@ -72,7 +73,7 @@ public class OrganizationServiceImpl implements OrganizationService {
 
     @Override
     @Transactional
-    public OrganizationResponseView delete(String id) {
+    public OrganizationResponseView delete(Long id) {
         Organization users = new Organization();
         DAO.save(users);
         return null;

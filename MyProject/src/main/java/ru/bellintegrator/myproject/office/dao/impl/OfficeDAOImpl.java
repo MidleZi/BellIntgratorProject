@@ -25,7 +25,7 @@ public class OfficeDAOImpl implements OfficeDAO {
 
     }
 
-    public Office getOfficeById(String id) {
+    public Office getOfficeById(Long id) {
         return em.find(Office.class, id);
     }
 

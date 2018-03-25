@@ -27,7 +27,7 @@ public class UserResponseView {
     }
 
     public UserResponseView(String id, String office, String firstName, String secondName, String midleName, String position, String phone,
-                    String userDoc, String citizenshipCode, boolean isIdentified) {
+                            String userDoc, String citizenshipCode, boolean isIdentified) {
         this.id = id;
         this.office = office;
         this.firstName = firstName;

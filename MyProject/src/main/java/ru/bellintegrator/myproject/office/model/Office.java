@@ -11,10 +11,10 @@ public class Office {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private String id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "organization")
+    @JoinColumn(name = "orgid")
     private Organization organization;
 
     @Basic(optional = false)
@@ -30,7 +30,7 @@ public class Office {
     private String phone;
 
     @Basic(optional = false)
-    @Column(name = "isActive")
+    @Column(name = "isactive")
     private boolean isActive;
 
     public Office(){
@@ -41,7 +41,7 @@ public class Office {
         this.adress=adress;
     }
 
-   /* public String toString() {
+    public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("{id:");
         builder.append(getId());
@@ -55,16 +55,16 @@ public class Office {
         builder.append(getPhone());
         builder.append(";isActive:");
         builder.append(getActive());
-        if (orgId != null) {
+        if (organization != null) {
             builder.append(";Organization:");
-            builder.append(orgId.getName());
+            builder.append(organization.getName());
         }
         builder.append("}");
 
         return builder.toString();
-    }*/
+    }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
