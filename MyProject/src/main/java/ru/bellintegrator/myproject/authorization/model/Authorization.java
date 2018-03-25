@@ -3,8 +3,8 @@ package ru.bellintegrator.myproject.authorization.model;
 import javax.persistence.*;
 
 
-@Entity
-@Table(name = "user")
+//@Entity
+//@Table(name = "authUsers")
 public class Authorization {
 
     @Id

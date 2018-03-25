@@ -20,19 +20,27 @@ public class OrganizationView {
 
     public String phone;
 
-    public boolean isActive;
+    public Boolean isActive;
 
     public OrganizationView() {
 
     }
 
-    public OrganizationView(String name, String inn ) {
+    public OrganizationView(String id, String name, String fullName, String inn, String kpp, String adress, String phone,
+                            Boolean isActive) {
+        this.id = id;
         this.name = name;
+        this.fullName = fullName;
         this.inn = inn;
+        this.kpp = kpp;
+        this.adress = adress;
+        this.phone = phone;
+        this.isActive = isActive;
     }
 
     @Override
     public String toString() {
-        return "{id:" + id + ";name:" + name+ ";fullName:" + fullName + ";INN:" + inn + ";KPP:" + kpp + ";address" + adress + ";phone" + phone + ";isActive" + isActive + "}";
+        return "{id:" + id + ";name:" + name+ ";fullName:" + fullName + ";INN:" + inn + ";KPP:" + kpp +
+                ";address" + adress + ";phone" + phone + ";isActive" + isActive + "}";
     }
 }

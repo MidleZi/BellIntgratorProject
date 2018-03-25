@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.bellintegrator.myproject.office.dao.OfficeDAO;
 import ru.bellintegrator.myproject.office.model.Office;
+
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
@@ -14,7 +15,7 @@ public class OfficeDAOImpl implements OfficeDAO {
     private final EntityManager em;
 
     @Autowired
-    public OfficeDAOImpl(EntityManager em) {
+    public OfficeDAOImpl(EntityManager em){
         this.em = em;
     }
 
@@ -24,12 +25,12 @@ public class OfficeDAOImpl implements OfficeDAO {
 
     }
 
-    public Office loadById(Long id){
+    public Office getOfficeById(String id) {
         return em.find(Office.class, id);
     }
 
     public void update(Office office){
-        em.persist(office);
+        em.merge(office);
     }
 
     public void save(Office office) {
@@ -37,6 +38,6 @@ public class OfficeDAOImpl implements OfficeDAO {
     }
 
     public void delete(Office office) {
-        em.persist(office);
+        em.remove(office);
     }
 }

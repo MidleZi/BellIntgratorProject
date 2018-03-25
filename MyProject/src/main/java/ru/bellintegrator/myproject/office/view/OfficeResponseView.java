@@ -3,8 +3,7 @@ package ru.bellintegrator.myproject.office.view;
 import io.swagger.annotations.ApiModelProperty;
 import ru.bellintegrator.myproject.organization.model.Organization;
 
-public class OfficeView {
-
+public class OfficeResponseView {
     @ApiModelProperty(hidden = true)
 
     public String id;
@@ -19,16 +18,13 @@ public class OfficeView {
 
     public boolean isActive;
 
-    public OfficeView() {
+    public OfficeResponseView() {
 
     }
 
-    public OfficeView(String id, String name, String adress, String phone, boolean isActive) {
-        this.id = id;
+    public OfficeResponseView(String name, String adress) {
         this.name = name;
         this.adress = adress;
-        this.phone = phone;
-        this.isActive = isActive;
     }
 
     @Override

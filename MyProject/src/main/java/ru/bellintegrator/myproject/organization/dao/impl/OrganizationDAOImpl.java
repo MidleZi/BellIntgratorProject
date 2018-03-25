@@ -5,7 +5,8 @@ import org.springframework.stereotype.Repository;
 import ru.bellintegrator.myproject.organization.dao.OrganizationDAO;
 import ru.bellintegrator.myproject.organization.model.Organization;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
@@ -19,17 +20,17 @@ public class OrganizationDAOImpl implements OrganizationDAO {
     }
 
     public List<Organization> all(){
-        TypedQuery<Organization> query = em.createQuery("SELECT h FROM House h", Organization.class);
+        TypedQuery<Organization> query = em.createQuery("SELECT h FROM organization h", Organization.class);
         return query.getResultList();
 
     }
-
-    public Organization loadById(Long id){
+    @Override
+    public Organization getOrganizationById(String id){
         return em.find(Organization.class, id);
     }
 
     public void update(Organization organization){
-        em.persist(organization);
+        em.merge(organization);
     }
 
     public void save(Organization organization) {
@@ -37,7 +38,7 @@ public class OrganizationDAOImpl implements OrganizationDAO {
     }
 
     public void delete(Organization organization) {
-        em.persist(organization);
+        em.remove(organization);
     }
 
 

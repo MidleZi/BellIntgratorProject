@@ -1,6 +1,9 @@
 package ru.bellintegrator.myproject.organization.model;
 
+import ru.bellintegrator.myproject.office.model.Office;
+
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
@@ -10,11 +13,14 @@ public class Organization {
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private Long id;
+    private String id;
 
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "organization", cascade = CascadeType.ALL)
+    private Set<Office> office;
 
     @Basic(optional = false)
     @Column(name = "fullName")
@@ -72,7 +78,7 @@ public class Organization {
         return builder.toString();
     }
 
-    public long getId(){
+    public String getId(){
         return id;
     }
 

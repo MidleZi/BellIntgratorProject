@@ -1,17 +1,16 @@
-package ru.bellintegrator.myproject.office.dao;
+package ru.bellintegrator.myproject.user.dao;
 
-import ru.bellintegrator.myproject.office.model.Office;
+import ru.bellintegrator.myproject.user.model.User;
 
 import java.util.List;
 
-public interface OfficeDAO {
-
+public interface UserDAO {
     /**
      * Получить все объекты Organization
      *
      * @return
      */
-    List<Office> all();
+    List<User> all();
 
     /**
      * Получить Organization по идентификатору
@@ -19,27 +18,27 @@ public interface OfficeDAO {
      * @param id
      * @return
      */
-    Office getOfficeById(String id);
+    User getUserById(String id);
 
     /**
      * Обновить Organization
      *
-     * @param office
+     * @param user
      * @return
      */
-    void update(Office office);
+    void update(User user);
 
     /**
      * Сохранить Organization
      *
-     * @param office
+     * @param user
      */
-    void save(Office office);
+    void save(User user);
 
     /**
      * Сохранить Organization
      *
-     * @param office
+     * @param user
      */
-    void delete(Office office);
+    void delete(User user);
 }
