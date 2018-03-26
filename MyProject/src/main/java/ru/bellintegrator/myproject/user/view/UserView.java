@@ -7,7 +7,7 @@ public class UserView {
 
     @ApiModelProperty(hidden = true)
 
-    public String id;
+    public Long id;
 
     public Office office;
 
@@ -31,7 +31,7 @@ public class UserView {
 
     }
 
-    public UserView(String id, Office office, String firstName, String secondName, String midleName, String position, String phone,
+    public UserView(Long id, Office office, String firstName, String secondName, String midleName, String position, String phone,
                     String userDoc, String citizenshipCode, boolean isIdentified) {
         this.id = id;
         this.office = office;
