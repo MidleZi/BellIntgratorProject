@@ -2,7 +2,7 @@ package ru.bellintegrator.myproject.user.view;
 
 public class UserResponseView {
 
-    public String id;
+    public Long id;
 
     public String office;
 
@@ -26,7 +26,7 @@ public class UserResponseView {
 
     }
 
-    public UserResponseView(String id, String office, String firstName, String secondName, String midleName, String position, String phone,
+    public UserResponseView(Long id, String office, String firstName, String secondName, String midleName, String position, String phone,
                             String userDoc, String citizenshipCode, boolean isIdentified) {
         this.id = id;
         this.office = office;
