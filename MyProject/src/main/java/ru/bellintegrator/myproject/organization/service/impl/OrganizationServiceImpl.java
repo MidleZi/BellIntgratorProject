@@ -61,14 +61,15 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Transactional
     public void update(OrganizationView view) {
         Organization organization = new Organization(view.name, view.inn);
-      DAO.save(organization);
+        DAO.save(organization);
 
     }
 
     @Override
     @Transactional
     public void save(OrganizationView view) {
-        Organization organization = new Organization();
+        Organization organization = new Organization(view.name, view.fullName, view.inn, view.kpp, view.adress, view.phone,
+                view.isActive);
         DAO.save(organization);
     }
 

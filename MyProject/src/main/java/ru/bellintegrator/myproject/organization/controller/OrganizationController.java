@@ -21,6 +21,4 @@ public interface OrganizationController {
     void save(OrganizationView view);
 
     void delete(Long id);
-
-
 }

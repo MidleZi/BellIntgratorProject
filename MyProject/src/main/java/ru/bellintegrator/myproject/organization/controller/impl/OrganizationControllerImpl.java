@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,16 +34,20 @@ public class OrganizationControllerImpl implements OrganizationController {
         this.organizationService = organizationService;
     }
 
-
+    //не работает
     @Override
     @ApiOperation(value = "allOrganization", nickname = "allOrganization", httpMethod = "POST")
-    @RequestMapping(method = {GET})
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = String.class),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    @RequestMapping(method = {POST})
     public List<OrganizationView> list(@RequestBody OrganizationView view) {
         logger.info("Geted all" );
         return organizationService.list();
 
     }
-
+    //работает
     @Override
     @ApiOperation(value = "getOrganization", nickname = "getOrganization", httpMethod = "GET")
     @RequestMapping(value = "/{id}", method = {GET})
@@ -51,7 +56,7 @@ public class OrganizationControllerImpl implements OrganizationController {
         return organizationService.getOrganizationById(id);
 
     }
-
+    //не работает
     @Override
     @ApiOperation(value = "updateOrganization", nickname = "updateOrganization", httpMethod = "POST")
     @ApiResponses(value = {
@@ -60,23 +65,23 @@ public class OrganizationControllerImpl implements OrganizationController {
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/update", method = {POST})
     public void update(@RequestBody OrganizationView view){
-        organizationService.update(view);
         logger.info(view.toString());
+        organizationService.update(view);
     }
-
+    //не работает
     @Override
     @ApiOperation(value = "saveOrganization", nickname = "saveOrganization", httpMethod = "POST")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success", response = String.class),
             @ApiResponse(code = 404, message = "Not Found"),
-            @ApiResponse(code = 500, message = "Failure"),
-            @ApiResponse(code = 415, message = "Залупа")})
+            @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/save", method = {POST})
     public void save(@RequestBody OrganizationView view){
-         organizationService.save(view);
          logger.info(view.toString());
-    }
+         organizationService.save(view);
 
+    }
+    //работает
     @Override
     @ApiOperation(value = "deleteOrganization", nickname = "deleteOrganization", httpMethod = "DELETE")
     @ApiResponses(value = {
