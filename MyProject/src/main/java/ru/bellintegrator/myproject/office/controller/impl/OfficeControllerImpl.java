@@ -73,7 +73,7 @@ public class OfficeControllerImpl implements OfficeController {
             @ApiResponse(code = 200, message = "Success", response = String.class),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @RequestMapping(value = "/delete/{id}", method = {DELETE})
+    @RequestMapping(value = "/{id}", method = {DELETE})
     public void delete(@PathVariable Long id) {
          officeService.delete(id);
     }
