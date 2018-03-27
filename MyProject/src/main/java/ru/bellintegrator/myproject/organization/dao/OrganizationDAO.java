@@ -11,7 +11,7 @@ public interface OrganizationDAO {
      *
      * @return
      */
-    List<Organization> all();
+    List<Organization> list();
 
     /**
      * Получить Organization по идентификатору

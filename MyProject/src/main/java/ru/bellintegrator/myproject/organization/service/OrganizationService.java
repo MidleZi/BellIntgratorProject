@@ -1,6 +1,6 @@
 package ru.bellintegrator.myproject.organization.service;
 
-import ru.bellintegrator.myproject.organization.view.OrganizationResponseView;
+import ru.bellintegrator.myproject.organization.model.Organization;
 import ru.bellintegrator.myproject.organization.view.OrganizationView;
 
 import java.util.List;
@@ -11,16 +11,16 @@ public interface OrganizationService{
      * Organization service method
      * @return {@Organization}
      */
-    List<OrganizationView> all();
+    List<OrganizationView> list();
 
 
-    OrganizationResponseView getOrganizationById(Long id);
+    Organization getOrganizationById(Long id);
 
-    OrganizationResponseView update(OrganizationView view);
+    void update(OrganizationView view);
 
-    OrganizationResponseView save(OrganizationView view);
+    void save(OrganizationView view);
 
-    OrganizationResponseView delete(Long id);
+    void delete(Long id);
 
 
 }

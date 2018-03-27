@@ -19,7 +19,7 @@ public class OrganizationDAOImpl implements OrganizationDAO {
         this.em = em;
     }
 
-    public List<Organization> all(){
+    public List<Organization> list(){
         TypedQuery<Organization> query = em.createQuery("SELECT o FROM organization o", Organization.class);
         return query.getResultList();
 

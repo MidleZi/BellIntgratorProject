@@ -1,5 +1,7 @@
 package ru.bellintegrator.myproject.user.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.userdocs.model.UserDocs;
 
@@ -15,6 +17,7 @@ public class User {
     @Column(name = "id")
     private Long id;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "officeid")
     private Office office;
@@ -48,7 +51,7 @@ public class User {
 
     @Basic(optional = false)
     @Column(name = "isidentified")
-    private boolean isIdentified;
+    private Boolean isIdentified;
 
     public User(){
 
@@ -127,7 +130,8 @@ public class User {
         return citizenshipCode;
     }
 
-    public boolean isIdentified() {
+    @JsonProperty(value = "isIdentified")
+    public Boolean isIdentified() {
         return isIdentified;
     }
 
@@ -163,7 +167,7 @@ public class User {
         this.citizenshipCode = citizenshipCode;
     }
 
-    public void setIdentified(boolean identified) {
+    public void setIdentified(Boolean identified) {
         isIdentified = identified;
     }
 }

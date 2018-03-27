@@ -6,40 +6,15 @@ import java.util.List;
 
 public interface OfficeDAO {
 
-    /**
-     * Получить все объекты Organization
-     *
-     * @return
-     */
-    List<Office> all();
 
-    /**
-     * Получить Organization по идентификатору
-     *
-     * @param id
-     * @return
-     */
+    List<Office> list();
+
+
     Office getOfficeById(Long id);
 
-    /**
-     * Обновить Organization
-     *
-     * @param office
-     * @return
-     */
     void update(Office office);
 
-    /**
-     * Сохранить Organization
-     *
-     * @param office
-     */
     void save(Office office);
 
-    /**
-     * Сохранить Organization
-     *
-     * @param office
-     */
     void delete(Office office);
 }
