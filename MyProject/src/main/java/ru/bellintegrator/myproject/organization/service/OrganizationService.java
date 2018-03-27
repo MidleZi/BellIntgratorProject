@@ -11,7 +11,7 @@ public interface OrganizationService{
      * Organization service method
      * @return {@Organization}
      */
-    List<OrganizationView> all();
+    List<OrganizationView> list();
 
 
     Organization getOrganizationById(Long id);

@@ -14,6 +14,8 @@ import ru.bellintegrator.myproject.organization.view.OrganizationView;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
+
 @Service
 public class OrganizationServiceImpl implements OrganizationService {
 
@@ -29,8 +31,8 @@ public class OrganizationServiceImpl implements OrganizationService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<OrganizationView> all() {
-        List<Organization> all = DAO.all();
+    public List<OrganizationView> list() {
+        List<Organization> all = DAO.list();
 
         Function<Organization, OrganizationView> mapOrganization = o -> {
             OrganizationView view = new OrganizationView();

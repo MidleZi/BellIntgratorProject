@@ -6,7 +6,7 @@ public class OrganizationView {
 
     @ApiModelProperty(hidden = true)
 
-  //  public String id;
+    public String id;
 
     public String name;
 
@@ -26,9 +26,9 @@ public class OrganizationView {
 
     }
 
-    public OrganizationView(/*String id,*/ String name, String fullName, String inn, String kpp, String adress, String phone,
+    public OrganizationView(String id, String name, String fullName, String inn, String kpp, String adress, String phone,
                             Boolean isActive) {
-       // this.id = id;
+        this.id = id;
         this.name = name;
         this.fullName = fullName;
         this.inn = inn;

@@ -8,11 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.bellintegrator.myproject.office.view.OfficeFilterView;
 import ru.bellintegrator.myproject.user.controller.UserController;
+import ru.bellintegrator.myproject.user.model.User;
 import ru.bellintegrator.myproject.user.service.UserService;
-import ru.bellintegrator.myproject.user.view.UserFilterView;
-import ru.bellintegrator.myproject.user.view.UserResponseView;
 import ru.bellintegrator.myproject.user.view.UserView;
 
 import java.util.List;
@@ -40,7 +38,7 @@ public class UserControllerImpl implements UserController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(method = {GET})
-    public List<UserView> all(@RequestBody UserFilterView view) {
+    public List<UserView> all(@RequestBody UserView view) {
         return userService.all();
     }
 
@@ -51,7 +49,7 @@ public class UserControllerImpl implements UserController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/{id}", method = {GET})
-    public UserResponseView getUserById(@PathVariable Long id) {
+    public User getUserById(@PathVariable Long id) {
         return userService.getUserById(id);
     }
 
@@ -62,8 +60,8 @@ public class UserControllerImpl implements UserController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/update", method = {POST})
-    public UserResponseView update(@RequestBody UserView view) {
-        return userService.update(view);
+    public void update(@RequestBody UserView view) {
+         userService.update(view);
     }
 
     @Override
@@ -73,8 +71,8 @@ public class UserControllerImpl implements UserController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/save", method = {POST})
-    public UserResponseView save(@RequestBody UserView view) {
-        return userService.save(view);
+    public void save(@RequestBody UserView view) {
+         userService.save(view);
     }
 
     @Override
@@ -84,8 +82,8 @@ public class UserControllerImpl implements UserController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/{id}", method = {DELETE})
-    public UserResponseView delete(@PathVariable Long id) {
-        return userService.delete(id);
+    public void delete(@PathVariable Long id) {
+         userService.delete(id);
     }
 }
 

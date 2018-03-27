@@ -1,6 +1,6 @@
 package ru.bellintegrator.myproject.user.service;
 
-import ru.bellintegrator.myproject.user.view.UserResponseView;
+import ru.bellintegrator.myproject.user.model.User;
 import ru.bellintegrator.myproject.user.view.UserView;
 
 import java.util.List;
@@ -14,11 +14,11 @@ public interface UserService {
     List<UserView> all();
 
 
-    UserResponseView getUserById(Long id);
+    User getUserById(Long id);
 
-    UserResponseView update(UserView view);
+    void update(UserView view);
 
-    UserResponseView save(UserView view);
+    void save(UserView view);
 
-    UserResponseView delete(Long id);
+    void delete(Long id);
 }

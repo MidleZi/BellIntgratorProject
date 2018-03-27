@@ -1,29 +1,30 @@
 package ru.bellintegrator.myproject.office.view;
 
 import io.swagger.annotations.ApiModelProperty;
+import org.springframework.web.bind.annotation.PathVariable;
 import ru.bellintegrator.myproject.organization.model.Organization;
 
 public class OfficeView {
 
     @ApiModelProperty(hidden = true)
 
-    public Long id;
+    public String id;
 
     public String name;
 
-    public Organization orgId;
+    public String orgId;
 
     public String adress;
 
     public String phone;
 
-    public boolean isActive;
+    public Boolean isActive;
 
     public OfficeView() {
 
     }
 
-    public OfficeView(Long id, String name, String adress, String phone, boolean isActive) {
+    public OfficeView(String id, String name, String adress, String phone, Boolean isActive) {
         this.id = id;
         this.name = name;
         this.adress = adress;

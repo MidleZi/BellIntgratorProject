@@ -12,7 +12,7 @@ public interface OrganizationController {
      * Get all organizations
      * @return JSON organizations value
      */
-    List<OrganizationView> all(OrganizationView view);
+    List<OrganizationView> list(OrganizationView view);
 
     Organization getOrganizationById(Long id);
 

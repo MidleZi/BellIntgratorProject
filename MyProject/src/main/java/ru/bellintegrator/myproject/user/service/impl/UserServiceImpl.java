@@ -5,13 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.bellintegrator.myproject.office.dao.impl.OfficeDAOImpl;
-import ru.bellintegrator.myproject.office.model.Office;
-import ru.bellintegrator.myproject.office.view.OfficeResponseView;
-import ru.bellintegrator.myproject.office.view.OfficeView;
 import ru.bellintegrator.myproject.user.dao.impl.UserDAOImpl;
 import ru.bellintegrator.myproject.user.model.User;
-import ru.bellintegrator.myproject.user.view.UserResponseView;
 import ru.bellintegrator.myproject.user.view.UserView;
 import ru.bellintegrator.myproject.user.service.UserService;
 
@@ -55,33 +50,30 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public UserResponseView getUserById(Long id) {
-        DAO.getUserById(id);
-        return null;
+    public User getUserById(Long id) {
+       return DAO.getUserById(id);
+
     }
 
     @Override
     @Transactional
-    public UserResponseView update(UserView view) {
+    public void update(UserView view) {
         User user = new User();
         DAO.update(user);
-        return null;
     }
 
     @Override
     @Transactional
-    public UserResponseView save(UserView view) {
+    public void save(UserView view) {
         User user = new User();
         DAO.save(user);
-        return null;
     }
 
     @Override
     @Transactional
-    public UserResponseView delete(Long id) {
+    public void delete(Long id) {
         User user = new User();
         DAO.delete(user);
-        return null;
     }
 
 

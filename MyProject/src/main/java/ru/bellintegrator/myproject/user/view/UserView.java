@@ -25,14 +25,14 @@ public class UserView {
 
     public String citizenshipCode;
 
-    public boolean isIdentified;
+    public Boolean isIdentified;
 
     public UserView() {
 
     }
 
     public UserView(Long id, Office office, String firstName, String secondName, String midleName, String position, String phone,
-                    String userDoc, String citizenshipCode, boolean isIdentified) {
+                    String userDoc, String citizenshipCode, Boolean isIdentified) {
         this.id = id;
         this.office = office;
         this.firstName = firstName;

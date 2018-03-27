@@ -1,5 +1,7 @@
 package ru.bellintegrator.myproject.office.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.bellintegrator.myproject.organization.model.Organization;
 
 import javax.persistence.*;
@@ -13,6 +15,7 @@ public class Office {
     @Column(name = "id")
     private Long id;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "orgid")
     private Organization organization;
@@ -31,7 +34,7 @@ public class Office {
 
     @Basic(optional = false)
     @Column(name = "isactive")
-    private boolean isActive;
+    private Boolean isActive;
 
     public Office(){
 
@@ -84,7 +87,8 @@ public class Office {
         return phone;
     }
 
-    public boolean getActive() {
+    @JsonProperty(value = "isActive")
+    public Boolean getActive() {
         return isActive;
     }
 
@@ -104,7 +108,7 @@ public class Office {
         phone = setPhone;
     }
 
-    public void setActive (boolean setActive){
+    public void setActive (Boolean setActive){
         isActive = setActive;
     }
 }

@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.bellintegrator.myproject.office.dao.impl.OfficeDAOImpl;
 import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.office.service.OfficeService;
-import ru.bellintegrator.myproject.office.view.OfficeResponseView;
 import ru.bellintegrator.myproject.office.view.OfficeView;
 
 import java.util.List;
@@ -18,7 +17,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
-@Scope(proxyMode = ScopedProxyMode.INTERFACES)
+//@Scope(proxyMode = ScopedProxyMode.INTERFACES)
 public class OfficeServiceImpl implements OfficeService {
 
     private final Logger log = LoggerFactory.getLogger(OfficeServiceImpl.class);
@@ -33,13 +32,13 @@ public class OfficeServiceImpl implements OfficeService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<OfficeView> all() {
-        List<Office> all = DAO.all();
+    public List<OfficeView> list() {
+        List<Office> all = DAO.list();
 
         Function<Office, OfficeView> mapOffice = p->{
             OfficeView view = new OfficeView();
             view.name = p.getName();
-            view.orgId = p.getOrganization();
+           // view.orgId = p.getOrganization();
             view.isActive = p.getActive();
 
             log.info(view.toString());
@@ -54,33 +53,29 @@ public class OfficeServiceImpl implements OfficeService {
 
     @Override
     @Transactional
-    public OfficeResponseView getOfficeById(Long id) {
-        DAO.getOfficeById(id);
-        return null;
+    public Office getOfficeById(Long id) {
+       return DAO.getOfficeById(id);
     }
 
     @Override
     @Transactional
-    public OfficeResponseView update(OfficeView view) {
+    public void update(OfficeView view) {
         Office office = new Office();
         DAO.update(office);
-        return null;
     }
 
     @Override
     @Transactional
-    public OfficeResponseView save(OfficeView view) {
+    public void save(OfficeView view) {
         Office office = new Office();
         DAO.save(office);
-        return null;
     }
 
     @Override
     @Transactional
-    public OfficeResponseView delete(Long id) {
+    public void delete(Long id) {
         Office office = new Office();
         DAO.delete(office);
-        return null;
     }
 
 

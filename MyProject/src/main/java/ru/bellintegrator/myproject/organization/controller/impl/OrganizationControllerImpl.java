@@ -37,9 +37,9 @@ public class OrganizationControllerImpl implements OrganizationController {
     @Override
     @ApiOperation(value = "allOrganization", nickname = "allOrganization", httpMethod = "POST")
     @RequestMapping(method = {GET})
-    public List<OrganizationView> all(@RequestBody OrganizationView view) {
+    public List<OrganizationView> list(@RequestBody OrganizationView view) {
         logger.info("Geted all" );
-        return organizationService.all();
+        return organizationService.list();
 
     }
 
@@ -47,7 +47,7 @@ public class OrganizationControllerImpl implements OrganizationController {
     @ApiOperation(value = "getOrganization", nickname = "getOrganization", httpMethod = "GET")
     @RequestMapping(value = "/{id}", method = {GET})
     public Organization getOrganizationById(@PathVariable Long id){
-        logger.info("Geted " + id);
+        logger.info("Geted ID:" + id);
         return organizationService.getOrganizationById(id);
 
     }

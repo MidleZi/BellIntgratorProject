@@ -1,5 +1,6 @@
 package ru.bellintegrator.myproject.organization.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.bellintegrator.myproject.office.model.Office;
 
 import javax.persistence.*;
@@ -44,7 +45,7 @@ public class Organization {
 
     @Basic(optional = false)
     @Column(name = "isactive")
-    private boolean isActive;
+    private Boolean isActive;
 
     public Organization (){
 
@@ -106,7 +107,8 @@ public class Organization {
         return phone;
     }
 
-    public boolean getActive() {
+    @JsonProperty(value = "isActive")
+    public Boolean getActive() {
         return isActive;
     }
 
@@ -134,7 +136,7 @@ public class Organization {
         this.phone = phone;
     }
 
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
         isActive = active;
     }
 }
