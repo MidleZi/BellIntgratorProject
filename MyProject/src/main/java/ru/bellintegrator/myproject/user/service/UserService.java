@@ -1,8 +1,5 @@
 package ru.bellintegrator.myproject.user.service;
 
-import org.springframework.web.bind.annotation.RequestBody;
-import ru.bellintegrator.myproject.organization.view.OrganizationResponseView;
-import ru.bellintegrator.myproject.organization.view.OrganizationView;
 import ru.bellintegrator.myproject.user.view.UserResponseView;
 import ru.bellintegrator.myproject.user.view.UserView;
 

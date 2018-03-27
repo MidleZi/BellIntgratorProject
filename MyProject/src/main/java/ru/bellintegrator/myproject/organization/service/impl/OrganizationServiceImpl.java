@@ -5,10 +5,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.bellintegrator.myproject.organization.dao.impl.OrganizationDAOImpl;
 import ru.bellintegrator.myproject.organization.service.OrganizationService;
 import ru.bellintegrator.myproject.organization.dao.OrganizationDAO;
 import ru.bellintegrator.myproject.organization.model.Organization;
-import ru.bellintegrator.myproject.organization.view.OrganizationResponseView;
 import ru.bellintegrator.myproject.organization.view.OrganizationView;
 
 import java.util.List;
@@ -23,7 +23,7 @@ public class OrganizationServiceImpl implements OrganizationService {
     private final OrganizationDAO DAO;
 
     @Autowired
-    public OrganizationServiceImpl(OrganizationDAO dao) {
+    public OrganizationServiceImpl(OrganizationDAOImpl dao) {
         this.DAO = dao;
     }
 
@@ -50,33 +50,31 @@ public class OrganizationServiceImpl implements OrganizationService {
 
     @Override
     @Transactional
-    public OrganizationResponseView getOrganizationById (Long id) {
-        DAO.getOrganizationById(id);
-        return null;
+    public Organization getOrganizationById (Long id) {
+       return DAO.getOrganizationById(id);
+
     }
 
     @Override
     @Transactional
-    public OrganizationResponseView update(OrganizationView view) {
-        Organization users = new Organization(view.name, view.inn);
-        DAO.save(users);
-        return null;
+    public void update(OrganizationView view) {
+        Organization organization = new Organization(view.name, view.inn);
+      DAO.save(organization);
+
     }
 
     @Override
     @Transactional
-    public OrganizationResponseView save(OrganizationView view) {
-        Organization users = new Organization();
-        DAO.save(users);
-        return null;
+    public void save(OrganizationView view) {
+        Organization organization = new Organization();
+        DAO.save(organization);
     }
 
     @Override
     @Transactional
-    public OrganizationResponseView delete(Long id) {
-        Organization users = new Organization();
-        DAO.save(users);
-        return null;
+    public void delete(Long id) {
+        Organization organization = new Organization();
+        DAO.delete(organization);
     }
 
 }
