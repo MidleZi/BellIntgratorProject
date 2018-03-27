@@ -6,7 +6,7 @@ public class OrganizationView {
 
     @ApiModelProperty(hidden = true)
 
-    public Long id;
+    public String id;
 
     public String name;
 
@@ -26,7 +26,7 @@ public class OrganizationView {
 
     }
 
-    public OrganizationView(Long id, String name, String fullName, String inn, String kpp, String adress, String phone,
+    public OrganizationView(String id, String name, String fullName, String inn, String kpp, String adress, String phone,
                             Boolean isActive) {
         this.id = id;
         this.name = name;
@@ -40,7 +40,7 @@ public class OrganizationView {
 
     @Override
     public String toString() {
-        return "{id:" + id + ";name:" + name+ ";fullName:" + fullName + ";INN:" + inn + ";KPP:" + kpp +
+        return "{id:" /*+ id*/ + ";name:" + name+ ";fullName:" + fullName + ";INN:" + inn + ";KPP:" + kpp +
                 ";address" + adress + ";phone" + phone + ";isActive" + isActive + "}";
     }
 }

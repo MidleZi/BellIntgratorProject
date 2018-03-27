@@ -1,6 +1,6 @@
 package ru.bellintegrator.myproject.office.service;
 
-import ru.bellintegrator.myproject.office.view.OfficeResponseView;
+import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.office.view.OfficeView;
 
 import java.util.List;
@@ -11,14 +11,14 @@ public interface OfficeService {
      * Organization service method
      * @return {@Office}
      */
-    List<OfficeView> all();
+    List<OfficeView> list();
 
-    OfficeResponseView getOfficeById(Long id);
+    Office getOfficeById(Long id);
 
-    OfficeResponseView update(OfficeView view);
+    void update(OfficeView view);
 
-    OfficeResponseView save(OfficeView view);
+    void save(OfficeView view);
 
-    OfficeResponseView delete(Long id);
+    void delete(Long id);
 
 }

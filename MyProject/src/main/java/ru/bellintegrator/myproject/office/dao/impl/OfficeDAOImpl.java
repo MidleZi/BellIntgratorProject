@@ -19,14 +19,14 @@ public class OfficeDAOImpl implements OfficeDAO {
         this.em = em;
     }
 
-    public List<Office> all(){
+    public List<Office> list(){
         TypedQuery<Office> query = em.createQuery("SELECT h FROM House h", Office.class);
         return query.getResultList();
 
     }
 
     public Office getOfficeById(Long id) {
-        return em.find(Office.class, id);
+        return em.find(Office.class, id); // сек
     }
 
     public void update(Office office){

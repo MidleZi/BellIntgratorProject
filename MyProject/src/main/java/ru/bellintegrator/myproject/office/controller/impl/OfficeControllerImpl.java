@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.bellintegrator.myproject.office.controller.OfficeController;
+import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.office.service.OfficeService;
-import ru.bellintegrator.myproject.office.view.OfficeFilterView;
-import ru.bellintegrator.myproject.office.view.OfficeResponseView;
+import ru.bellintegrator.myproject.office.service.impl.OfficeServiceImpl;
 import ru.bellintegrator.myproject.office.view.OfficeView;
 
 import java.util.List;
@@ -23,33 +23,25 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 @RequestMapping(value = "/api/office", produces = APPLICATION_JSON_VALUE)
 public class OfficeControllerImpl implements OfficeController {
 
-    private final OfficeService officeService;
+    private final OfficeServiceImpl officeService;
 
     @Autowired
-    public OfficeControllerImpl(OfficeService officeService) {
+    public OfficeControllerImpl(OfficeServiceImpl officeService) {
         this.officeService = officeService;
     }
 
 
     @Override
     @ApiOperation(value = "allOffice", nickname = "allOffice", httpMethod = "POST")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Success", response = String.class),
-            @ApiResponse(code = 404, message = "Not Found"),
-            @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(method = {GET})
-    public List<OfficeView> all(@RequestBody OfficeFilterView view) {
-        return officeService.all();
+    public List<OfficeView> list(@RequestBody OfficeView view) {
+        return officeService.list();
     }
 
     @Override
     @ApiOperation(value = "getOffice", nickname = "getOffice", httpMethod = "GET")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Success", response = String.class),
-            @ApiResponse(code = 404, message = "Not Found"),
-            @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/{id}", method = {GET})
-    public OfficeResponseView getOfficeById(@PathVariable Long id) {
+    public Office getOfficeById(@PathVariable Long id) {
         return officeService.getOfficeById(id);
     }
 
@@ -60,8 +52,8 @@ public class OfficeControllerImpl implements OfficeController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/update", method = {POST})
-    public OfficeResponseView update(@RequestBody OfficeView view) {
-        return officeService.update(view);
+    public void update(@RequestBody OfficeView view) {
+        officeService.update(view);
     }
 
     @Override
@@ -71,8 +63,8 @@ public class OfficeControllerImpl implements OfficeController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/save", method = {POST})
-    public OfficeResponseView save(@RequestBody OfficeView view) {
-        return officeService.save(view);
+    public void save(@RequestBody OfficeView view) {
+        officeService.save(view);
     }
 
     @Override
@@ -82,7 +74,7 @@ public class OfficeControllerImpl implements OfficeController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/{id}", method = {DELETE})
-    public OfficeResponseView delete(@PathVariable Long id) {
-        return officeService.delete(id);
+    public void delete(@PathVariable Long id) {
+         officeService.delete(id);
     }
 }

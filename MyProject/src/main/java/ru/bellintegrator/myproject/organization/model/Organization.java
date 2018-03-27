@@ -1,5 +1,6 @@
 package ru.bellintegrator.myproject.organization.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.bellintegrator.myproject.office.model.Office;
 
 import javax.persistence.*;
@@ -44,7 +45,7 @@ public class Organization {
 
     @Basic(optional = false)
     @Column(name = "isactive")
-    private boolean isActive;
+    private Boolean isActive;
 
     public Organization (){
 
@@ -55,27 +56,11 @@ public class Organization {
         this.inn = inn;
     }
 
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("{id:");
-        builder.append(getId());
-        builder.append(";name:");
-        builder.append(getName());
-        builder.append(";fullName:");
-        builder.append(getFullName());
-        builder.append(";INN:");
-        builder.append(getInn());
-        builder.append(";KPP:");
-        builder.append(getKpp());
-        builder.append(";adress:");
-        builder.append(getAdress());
-        builder.append(";phone:");
-        builder.append(getPhone());
-        builder.append(";isActive:");
-        builder.append(getActive());
-        builder.append("}");
+    public Organization(String name, String fullName, String inn, String kpp, String adress, String phone, Boolean isActive) {
+    }
 
-        return builder.toString();
+    public String toString() {
+        return null;
     }
 
     public Long getId(){
@@ -106,7 +91,8 @@ public class Organization {
         return phone;
     }
 
-    public boolean getActive() {
+    @JsonProperty(value = "isActive")
+    public Boolean getActive() {
         return isActive;
     }
 
@@ -134,7 +120,7 @@ public class Organization {
         this.phone = phone;
     }
 
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
         isActive = active;
     }
 }

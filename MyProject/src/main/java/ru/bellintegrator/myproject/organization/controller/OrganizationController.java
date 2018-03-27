@@ -1,8 +1,7 @@
 package ru.bellintegrator.myproject.organization.controller;
 
 
-import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
-import ru.bellintegrator.myproject.organization.view.OrganizationResponseView;
+import ru.bellintegrator.myproject.organization.model.Organization;
 import ru.bellintegrator.myproject.organization.view.OrganizationView;
 
 import java.util.List;
@@ -13,15 +12,13 @@ public interface OrganizationController {
      * Get all organizations
      * @return JSON organizations value
      */
-    List<OrganizationView> all(OrganizationView view);
+    List<OrganizationView> list(OrganizationView view);
 
-    OrganizationResponseView getOrganizationById(Long id);
+    Organization getOrganizationById(Long id);
 
-    OrganizationResponseView update(OrganizationView view);
+    void update(OrganizationView view);
 
-    OrganizationResponseView save(OrganizationView view);
+    void save(OrganizationView view);
 
-    OrganizationResponseView delete(Long id);
-
-
+    void delete(Long id);
 }
