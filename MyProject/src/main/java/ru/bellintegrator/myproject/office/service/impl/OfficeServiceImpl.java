@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 //@Scope(proxyMode = ScopedProxyMode.INTERFACES)
 public class OfficeServiceImpl implements OfficeService {
 
-    private final Logger log = LoggerFactory.getLogger(OfficeServiceImpl.class);
+    private final Logger logger = LoggerFactory.getLogger(OfficeServiceImpl.class);
 
     private final OfficeDAOImpl DAO;
 
@@ -41,7 +41,7 @@ public class OfficeServiceImpl implements OfficeService {
            // view.orgId = p.getOrganization();
             view.isActive = p.getActive();
 
-            log.info(view.toString());
+            logger.info(view.toString());
 
             return view;
         };
@@ -54,20 +54,23 @@ public class OfficeServiceImpl implements OfficeService {
     @Override
     @Transactional
     public Office getOfficeById(Long id) {
-       return DAO.getOfficeById(id);
+        logger.info("Office get ID:" + id);
+        return DAO.getOfficeById(id);
     }
 
     @Override
     @Transactional
     public void update(OfficeView view) {
-        Office office = new Office();
+        Office office = new Office(view.id, view.name, view.address, view.phone, view.isActive);
+        logger.info("Office update " + office.toString());
         DAO.update(office);
     }
 
     @Override
     @Transactional
     public void save(OfficeView view) {
-        Office office = new Office();
+        Office office = new Office(view.name, view.address, view.phone, view.isActive);
+        logger.info("Office save " + office.toString());
         DAO.save(office);
     }
 
@@ -75,6 +78,7 @@ public class OfficeServiceImpl implements OfficeService {
     @Transactional
     public void delete(Long id) {
         Office office = new Office();
+        logger.info("Office deleted ID:" + id);
         DAO.delete(office);
     }
 

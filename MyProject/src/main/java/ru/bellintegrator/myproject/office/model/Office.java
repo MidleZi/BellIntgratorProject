@@ -25,8 +25,8 @@ public class Office {
     private String name;
 
     @Basic(optional = false)
-    @Column(name = "adress")
-    private String adress;
+    @Column(name = "address")
+    private String address;
 
     @Basic(optional = false)
     @Column(name = "phone")
@@ -36,12 +36,21 @@ public class Office {
     @Column(name = "isactive")
     private Boolean isActive;
 
-    public Office(){
+    public Office(){}
 
+    public Office(Long id, String name, String address, String phone, Boolean isActive) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.isActive = isActive;
     }
-    public Office(String name, String adress) {
-        this.name=name;
-        this.adress=adress;
+
+    public Office(String name,String address, String phone, Boolean isActive) {
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.isActive = isActive;
     }
 
     public String toString() {
@@ -52,8 +61,8 @@ public class Office {
         builder.append(getOrganization());
         builder.append(";name:");
         builder.append(getName());
-        builder.append(";adress:");
-        builder.append(getAdress());
+        builder.append(";address:");
+        builder.append(getAddress());
         builder.append(";phone:");
         builder.append(getPhone());
         builder.append(";isActive:");
@@ -79,8 +88,8 @@ public class Office {
         return name;
     }
 
-    public String getAdress(){
-        return adress;
+    public String getAddress(){
+        return address;
     }
 
     public String getPhone() {
@@ -100,8 +109,8 @@ public class Office {
         name = setName;
     }
 
-    public void setAdress (String setAdress) {
-        adress = setAdress;
+    public void setAddress (String setAddress) {
+        address = setAddress;
     }
 
     public void setPhone (String setPhone){

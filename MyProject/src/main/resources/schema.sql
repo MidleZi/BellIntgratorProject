@@ -33,16 +33,16 @@ CREATE TABLE IF NOT EXISTS `organization` (
   `fullname` VARCHAR(128) NOT NULL,
   `inn` VARCHAR(10) NOT NULL,
   `kpp` VARCHAR(9) NOT NULL,
-  `adress` VARCHAR(128) NOT NULL,
+  `address` VARCHAR(128) NOT NULL,
   `phone` VARCHAR(20) NOT NULL,
   `isactive` BOOLEAN NOT NULL,
   PRIMARY KEY (`id`));
 
 CREATE TABLE IF NOT EXISTS `office` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `orgid` INT NOT NULL,
+  `orgid` INT,
   `name` VARCHAR(128) NOT NULL,
-  `adress` VARCHAR(128) NOT NULL,
+  `address` VARCHAR(128)NOT NULL,
   `phone` VARCHAR(20) NOT NULL,
   `isactive` BOOLEAN NOT NULL,
   PRIMARY KEY (`id`),

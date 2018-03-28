@@ -17,13 +17,13 @@ INSERT INTO `docs` (`code`, `name`) VALUES ('21', 'Паспорт граждан
 INSERT INTO `docs` (`code`, `name`) VALUES ('24', 'Удостоверение личности военнослужащего Российской Федерации');
 INSERT INTO `docs` (`code`, `name`) VALUES ('91', 'Инные документы');
 
-INSERT INTO `organization` (`name`, `fullname`, `inn`, `kpp`, `adress`, `phone`, `isactive`) VALUES ('BellIntegrator', 'ООО "Белл Интегратор"', '7777777777', '777777777', 'Москва', '+7 (495) 777-77-77', 'true');
-INSERT INTO `organization` (`name`, `fullname`, `inn`, `kpp`, `adress`, `phone`, `isactive`) VALUES ('McDonald''s', 'ООО "Макдональдс"', '7788888888', '778888888', 'Москва', '+7 (495) 888-88-88', 'true');
+INSERT INTO `organization` (`name`, `fullname`, `inn`, `kpp`, `address`, `phone`, `isactive`) VALUES ('BellIntegrator', 'ООО "Белл Интегратор"', '7777777777', '777777777', 'Москва', '+7 (495) 777-77-77', 'true');
+INSERT INTO `organization` (`name`, `fullname`, `inn`, `kpp`, `address`, `phone`, `isactive`) VALUES ('McDonald''s', 'ООО "Макдональдс"', '7788888888', '778888888', 'Москва', '+7 (495) 888-88-88', 'true');
 
-INSERT INTO `office` (`orgid`, `name`, `adress`, `phone`, `isactive`) VALUES ('1', 'офис1', 'Москва', '+7(495) 777-77-77', 'true');
-INSERT INTO `office` (`orgid`, `name`, `adress`, `phone`, `isactive`) VALUES ('1', 'офис2', 'Пенза', '+7 (8412) 555-555', 'true');
-INSERT INTO `office` (`orgid`, `name`, `adress`, `phone`, `isactive`) VALUES ('2', 'ресторан 1', 'Москва, ул. Лескова', '+7 (495) 888-88-78', 'true');
-INSERT INTO `office` (`orgid`, `name`, `adress`, `phone`, `isactive`) VALUES ('2', 'Ресоран 2', 'Москва, ул Вучетича', '+7 (495) 888-88-98', 'false');
+INSERT INTO `office` (`orgid`, `name`, `address`, `phone`, `isactive`) VALUES ('1', 'офис1', 'Москва', '+7(495) 777-77-77', 'true');
+INSERT INTO `office` (`orgid`, `name`, `address`, `phone`, `isactive`) VALUES ('1', 'офис2', 'Пенза', '+7 (8412) 555-555', 'true');
+INSERT INTO `office` (`orgid`, `name`, `address`, `phone`, `isactive`) VALUES ('2', 'ресторан 1', 'Москва, ул. Лескова', '+7 (495) 888-88-78', 'true');
+INSERT INTO `office` (`orgid`, `name`, `address`, `phone`, `isactive`) VALUES ('2', 'Ресоран 2', 'Москва, ул Вучетича', '+7 (495) 888-88-98', 'false');
 
 INSERT INTO `users` (`officeid`, `firstname`, `secondname`, `middlename`, `position`, `phone`, `userdoc`,`citizenshipcode`, `isidentified`) VALUES ('1', 'Василий', 'Васильев', 'Васильевич', 'Менеджер', '+7 (999) 998-98-98', '21','643', 'true');
 INSERT INTO `users` (`officeid`, `firstname`, `secondname`, `middlename`, `position`, `phone`, `userdoc`,`citizenshipcode`, `isidentified`) VALUES ('1', 'Петр', 'Петров', 'Петрович', 'Начальник', '+7 (999) 999-99-65', '21','643', 'true');
