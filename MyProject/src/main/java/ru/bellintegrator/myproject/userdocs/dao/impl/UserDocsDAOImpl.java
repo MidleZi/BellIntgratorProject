@@ -12,11 +12,14 @@ import java.util.List;
 
 public class UserDocsDAOImpl implements UserDocsDAO {
 
-    private final EntityManager em;
+    private EntityManager em;
     private final Logger logger = LoggerFactory.getLogger(UserDocsDAOImpl.class);
 
     public UserDocsDAOImpl(EntityManager em) {
         this.em = em;
+    }
+
+    public UserDocsDAOImpl() {
     }
 
     public List<UserDocs> list(){

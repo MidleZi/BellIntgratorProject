@@ -27,7 +27,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 public class UserControllerImpl implements UserController {
 
     private final UserService userService;
-    protected static Logger logger = Logger.getLogger(OrganizationControllerImpl.class.getName());
+    protected static Logger logger = Logger.getLogger(UserControllerImpl.class.getName());
 
     @Autowired
     public UserControllerImpl(UserService usersService) {

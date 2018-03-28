@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.bellintegrator.myproject.countries.dao.impl.CountriesDAOImpl;
+import ru.bellintegrator.myproject.countries.model.Countries;
 import ru.bellintegrator.myproject.user.dao.impl.UserDAOImpl;
 import ru.bellintegrator.myproject.user.model.User;
 import ru.bellintegrator.myproject.user.view.UserView;
@@ -22,13 +24,15 @@ public class UserServiceImpl implements UserService {
     private final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     private final UserDAOImpl DAO;
-    private final UserDocsDAOImpl DAOUD;
 
     @Autowired
-    public UserServiceImpl(UserDAOImpl dao, UserDocsDAOImpl daoud) {
+    public UserServiceImpl(UserDAOImpl dao) {
         this.DAO = dao;
-        DAOUD = daoud;
     }
+
+    UserDocsDAOImpl DAOUD = new UserDocsDAOImpl();
+    CountriesDAOImpl DAOCOU = new CountriesDAOImpl();
+
 
 
     @Override
@@ -59,9 +63,21 @@ public class UserServiceImpl implements UserService {
         UserView view = new UserView();
         User user = DAO.getUserById(id);
         UserDocs userDocs = DAOUD.getUserDocsById(id);
+        Countries countries = DAOCOU.getCountriesByCode(user.getCitizenshipCode());
         view.id = String.valueOf(user.getId());
         view.firstName = String.valueOf(user.getFirstName());
+        view.secondName = String.valueOf(user.getSecondName());
+        view.midleName = String.valueOf(user.getMidlleName());
+        view.position = String.valueOf(user.getPosition());
+        view.phone = String.valueOf(user.getPhone());
         view.docName = String.valueOf(userDocs.getDocName());
+        view.docNumber = String.valueOf(userDocs.getDocNumber());
+        view.docDate = String.valueOf(userDocs.getDocDate());
+        view.citizenshipCode = String.valueOf(user.getCitizenshipCode());
+        view.citizenshipName = countries.getName();
+        view.isIdentified = Boolean.valueOf(user.getIdentified());
+
+        logger.info(view.toString());
         return view;
     }
 

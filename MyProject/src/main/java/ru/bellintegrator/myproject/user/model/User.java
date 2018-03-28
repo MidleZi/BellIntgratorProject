@@ -2,6 +2,7 @@ package ru.bellintegrator.myproject.user.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.bellintegrator.myproject.countries.model.Countries;
 import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.userdocs.model.UserDocs;
 
@@ -42,15 +43,20 @@ public class User {
     @Column(name = "phone")
     private String phone;
 
-    /*@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
-    private Set<UserDocs> userDocs;*/
+    @MapsId
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id")
+    private UserDocs userDocs;
 
-    @Basic(optional = false)
-    @Column(name = "citizenshipcode")
-    private String citizenshipCode;
+    @MapsId
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "citizenshipcode")
+    private Long citizenshipCode;
 
-    /*@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
-    private Set<Count> countries;*/
+    /*@MapsId
+    @OneToOne
+    @JoinColumn(name = "citizenshipcode")
+    private Countries countries;*/
 
     @Basic(optional = false)
     @Column(name = "isidentified")
@@ -142,8 +148,12 @@ public class User {
         return userDocs;
     }*/
 
-    public String getCitizenshipCode() {
+    public Long getCitizenshipCode() {
         return citizenshipCode;
+    }
+
+    public Boolean getIdentified() {
+        return isIdentified;
     }
 
     @JsonProperty(value = "isIdentified")
@@ -175,7 +185,7 @@ public class User {
         this.phone = phone;
     }
 
-    public void setCitizenshipCode(String citizenshipCode) {
+    public void setCitizenshipCode(Long citizenshipCode) {
         this.citizenshipCode = citizenshipCode;
     }
 

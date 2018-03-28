@@ -17,7 +17,7 @@ import java.util.List;
 public class UserDAOImpl implements UserDAO {
 
     private final EntityManager em;
-    private final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+    private final Logger logger = LoggerFactory.getLogger(UserDAOImpl.class);
 
     @Autowired
     public UserDAOImpl(EntityManager em) {
