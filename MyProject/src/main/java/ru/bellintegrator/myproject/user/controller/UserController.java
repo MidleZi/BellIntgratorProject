@@ -13,7 +13,7 @@ public interface UserController {
      */
     List<UserView> all(UserView view);
 
-    User getUserById(Long id);
+    UserView getUserById(Long id);
 
     void update(UserView view);
 

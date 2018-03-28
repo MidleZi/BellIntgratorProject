@@ -14,18 +14,7 @@ CREATE TABLE IF NOT EXISTS `authUsers` (
     `name` VARCHAR(50) NOT NULL,
     PRIMARY KEY (`code`));
 
-  CREATE TABLE IF NOT EXISTS `userdocs` (
-    `id` INT NOT NULL AUTO_INCREMENT,
-    `docname` VARCHAR(45) NOT NULL,
-    `docnumber` VARCHAR(45) NOT NULL,
-    `docdate` DATE NOT NULL,
-    PRIMARY KEY (`id`),
-    CONSTRAINT `fk_docs`
-      FOREIGN KEY (`docname`)
-      REFERENCES `docs` (`code`)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION);
-  CREATE INDEX `fk_docs_idx` ON `userdocs` (`docName` ASC);
+
 
 CREATE TABLE IF NOT EXISTS `organization` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -77,5 +66,24 @@ CREATE TABLE IF NOT EXISTS `users` (
     ON UPDATE NO ACTION);
 CREATE INDEX `fk_officeId_idx` ON `users` (`officeId` ASC);
 CREATE INDEX `fk_citizenship_idx` ON `users` (`citizenshipCode` ASC);
+
+  CREATE TABLE IF NOT EXISTS `userdocs` (
+    `id` INT NOT NULL,
+    `docname` VARCHAR(45) NOT NULL,
+    `docnumber` VARCHAR(45) NOT NULL,
+    `docdate` DATE NOT NULL,
+    PRIMARY KEY (`id`),
+    CONSTRAINT `fk_docs`
+      FOREIGN KEY (`docname`)
+      REFERENCES `docs` (`code`)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION,
+    CONSTRAINT `fk_userId`
+      FOREIGN KEY (`id`)
+      REFERENCES `users` (`id`)
+      ON DELETE NO ACTION
+      ON UPDATE NO ACTION);
+  CREATE INDEX `fk_docs_idx` ON `userdocs` (`docName` ASC);
+  CREATE INDEX `fk_userId_idx` ON `userdocs` (`id` ASC);
 
   

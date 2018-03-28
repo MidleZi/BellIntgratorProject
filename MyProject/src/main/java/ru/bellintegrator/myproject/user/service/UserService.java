@@ -14,7 +14,7 @@ public interface UserService {
     List<UserView> all();
 
 
-    User getUserById(Long id);
+    UserView getUserById(Long id);
 
     void update(UserView view);
 

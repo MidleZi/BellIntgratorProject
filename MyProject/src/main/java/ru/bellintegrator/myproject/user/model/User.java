@@ -42,31 +42,47 @@ public class User {
     @Column(name = "phone")
     private String phone;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
-    private Set<UserDocs> userDocs;
+    /*@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<UserDocs> userDocs;*/
 
     @Basic(optional = false)
     @Column(name = "citizenshipcode")
     private String citizenshipCode;
 
+    /*@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Count> countries;*/
+
     @Basic(optional = false)
     @Column(name = "isidentified")
     private Boolean isIdentified;
 
-    public User(){
+    public User(){ }
 
+
+    public User(Long id) {
+        this.id =id;
     }
 
-    public User(String firstName, String secondName, String midlleName){
+    public User(Long id, String firstName, String secondName, String midleName, String position, String phone, Boolean isIdentified) {
+        this.id =id;
         this.firstName = firstName;
         this.secondName = secondName;
-        this.midlleName = midlleName;
+        this.midlleName = midleName;
+        this.position = position;
+        this.phone = phone;
+        this.isIdentified = isIdentified;
     }
 
-    public User(String firstName, String secondName) {
+    public User(String firstName, String secondName, String midleName, String position, String phone, Boolean isIdentified) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.midlleName = midleName;
+        this.position = position;
+        this.phone = phone;
+        this.isIdentified = isIdentified;
     }
 
-      public String toString() {
+    public String toString() {
           StringBuilder builder = new StringBuilder();
           builder.append("{id:");
           builder.append(getId());
@@ -83,7 +99,7 @@ public class User {
           builder.append(";phone:");
           builder.append(getPhone());
           builder.append(";userDoc:");
-          builder.append(getUserDocs());
+          //builder.append(getUserDocs());
           builder.append(";docNumber:");
           builder.append(";citizenshipCode:");
           builder.append(getCitizenshipCode());
@@ -122,9 +138,9 @@ public class User {
         return phone;
     }
 
-    public Set<UserDocs> getUserDocs() {
+   /* public Set<UserDocs> getUserDocs() {
         return userDocs;
-    }
+    }*/
 
     public String getCitizenshipCode() {
         return citizenshipCode;
@@ -157,10 +173,6 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public void setDocName(String docName) {
-        this.userDocs = userDocs;
     }
 
     public void setCitizenshipCode(String citizenshipCode) {

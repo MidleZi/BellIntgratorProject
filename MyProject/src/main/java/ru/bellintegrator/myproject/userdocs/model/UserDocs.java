@@ -10,13 +10,14 @@ import javax.persistence.*;
 public class UserDocs {
 
     @Id
-    @GeneratedValue
-    @Column(name = "id")
+    //@ManyToOne(fetch = FetchType.EAGER)
+    @Basic(optional = false)
+    @JoinColumn(name = "id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "docname")
-    private User user;
+    @Basic(optional = false)
+    @Column(name = "docname")
+    private String docName;
 
     @Basic(optional = false)
     @Column(name = "docnumber")
@@ -26,12 +27,20 @@ public class UserDocs {
     @Column(name = "docdate")
     private String docDate;
 
+    public UserDocs(){}
+
+    public UserDocs(String docName, String docNumber, String docDate) {
+        this.docName = docName;
+        this.docNumber = docNumber;
+        this.docDate = docDate;
+    }
+
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("{id:");
-        builder.append(getId());
+        //builder.append(getId());
         builder.append(";docName:");
-        builder.append(getUser());
+        builder.append(getDocName());
         builder.append(";docNumber:");
         builder.append(getDocNumber());
         builder.append(";docDate:");
@@ -44,8 +53,8 @@ public class UserDocs {
         return id;
     }
 
-    public User getUser() {
-        return user;
+    public String getDocName() {
+        return docName;
     }
 
     public String getDocNumber() {
@@ -54,10 +63,6 @@ public class UserDocs {
 
     public String getDocDate() {
         return docDate;
-    }
-
-    public void setDocName(User user) {
-        this.user = user;
     }
 
     public void setDocNumber(String docNumber) {
