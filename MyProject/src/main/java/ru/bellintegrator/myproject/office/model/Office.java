@@ -53,6 +53,10 @@ public class Office {
         this.isActive = isActive;
     }
 
+    public Office(Long id) {
+        this.id = id;
+    }
+
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("{id:");

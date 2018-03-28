@@ -53,7 +53,8 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     @Transactional
     public Organization getOrganizationById (Long id) {
-       return DAO.getOrganizationById(id);
+        logger.info("Organization get ID:" + id);
+        return DAO.getOrganizationById(id);
 
     }
 
@@ -79,8 +80,9 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     @Transactional
     public void delete(Long id) {
-        Organization organization = new Organization();
+        Organization organization = new Organization(id);
         DAO.delete(organization);
+        logger.info("Organization deleted ID:" + id);
     }
 
 }

@@ -15,7 +15,7 @@ import java.util.List;
 @Repository
 public class OrganizationDAOImpl implements OrganizationDAO {
 
-    private final Logger logger = LoggerFactory.getLogger(OrganizationServiceImpl.class);
+    private final Logger logger = LoggerFactory.getLogger(OrganizationDAOImpl.class);
 
     private final EntityManager em;
 
@@ -35,15 +35,17 @@ public class OrganizationDAOImpl implements OrganizationDAO {
     }
 
     public void update(Organization organization){
-        logger.info(organization.toString());
+        logger.info("Organization update " + organization.toString());
         em.merge(organization);
     }
 
     public void save(Organization organization) {
+        logger.info("save:" + organization.toString());
         em.persist(organization);
     }
 
     public void delete(Organization organization) {
+        logger.info("Organization deleted ID:" + organization.getId());
         em.remove(organization);
     }
 

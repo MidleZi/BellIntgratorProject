@@ -72,7 +72,9 @@ public class Organization {
 
     }
 
-
+    public Organization(Long id) {
+        this.id = id;
+    }
 
 
     public Long getId(){

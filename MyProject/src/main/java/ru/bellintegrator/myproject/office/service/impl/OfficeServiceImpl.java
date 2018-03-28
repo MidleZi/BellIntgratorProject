@@ -77,7 +77,7 @@ public class OfficeServiceImpl implements OfficeService {
     @Override
     @Transactional
     public void delete(Long id) {
-        Office office = new Office();
+        Office office = new Office(id);
         logger.info("Office deleted ID:" + id);
         DAO.delete(office);
     }
