@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `authUsers` (
   PRIMARY KEY (`login`));
 
   CREATE TABLE IF NOT EXISTS `docs` (
-    `code` INT NOT NULL,
+    `code` VARCHAR(8) NOT NULL,
     `name` VARCHAR(200) NOT NULL,
     PRIMARY KEY (`code`));
 
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `middlename` VARCHAR(45) NOT NULL,
   `position` VARCHAR(45) NOT NULL,
   `phone` VARCHAR(20) NOT NULL,
-  `userdoc` INT NOT NULL,
+  `userdoc`  INT NOT NULL,
   `citizenshipcode` INT NOT NULL,
   `isidentified` BOOLEAN NOT NULL,
   PRIMARY KEY (`id`),

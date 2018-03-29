@@ -23,27 +23,32 @@ public class OfficeDAOImpl implements OfficeDAO {
         this.em = em;
     }
 
+    @Override
     public List<Office> list(){
         TypedQuery<Office> query = em.createQuery("SELECT h FROM House h", Office.class);
         return query.getResultList();
 
     }
 
+    @Override
     public Office getOfficeById(Long id) {
         logger.info("Office get ID:" + id);
         return em.find(Office.class, id);
     }
 
+    @Override
     public void update(Office office){
         logger.info("Office update " + office.toString());
         em.merge(office);
     }
 
+    @Override
     public void save(Office office) {
         logger.info("Office save " + office.toString());
         em.persist(office);
     }
 
+    @Override
     public void delete(Office office) {
         logger.info("Office deleted ID:" + office.getId());
         em.remove(office);

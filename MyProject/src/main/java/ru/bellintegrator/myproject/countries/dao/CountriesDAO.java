@@ -8,7 +8,7 @@ public interface CountriesDAO {
 
     List<Countries> list();
 
-    Countries getUserDocsById(Long id);
+    Countries getCountriesByCode(Long code);
 
     void update(Countries contries);
 

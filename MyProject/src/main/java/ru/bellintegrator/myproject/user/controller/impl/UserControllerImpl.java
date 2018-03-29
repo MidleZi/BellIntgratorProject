@@ -41,8 +41,8 @@ public class UserControllerImpl implements UserController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(method = {GET})
-    public List<UserView> all(@RequestBody UserView view) {
-        return userService.all();
+    public List<UserView> list(@RequestBody UserView view) {
+        return userService.list();
     }
 
     @Override

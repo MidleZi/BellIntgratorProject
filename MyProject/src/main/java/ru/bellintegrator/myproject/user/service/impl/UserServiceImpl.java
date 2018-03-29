@@ -30,30 +30,12 @@ public class UserServiceImpl implements UserService {
         this.DAO = dao;
     }
 
-    UserDocsDAOImpl DAOUD = new UserDocsDAOImpl();
-    CountriesDAOImpl DAOCOU = new CountriesDAOImpl();
-
-
-
     @Override
     @Transactional(readOnly = true)
-    public List<UserView> all() {
-        List<User> all = DAO.all();
+    public List<UserView> list() {
+        UserView view = new UserView();
+        return (List<UserView>) view;
 
-        Function<User, UserView> mapUser = p->{
-            UserView view = new UserView();
-            view.office = p.getOffice();
-            view.firstName = p.getFirstName();
-            view.secondName = p.getSecondName();
-
-            logger.info(view.toString());
-
-            return view;
-        };
-
-        return all.stream()
-                .map(mapUser)
-                .collect(Collectors.toList());
     }
 
     @Override
@@ -62,19 +44,17 @@ public class UserServiceImpl implements UserService {
         logger.info("User get ID:" + id);
         UserView view = new UserView();
         User user = DAO.getUserById(id);
-        UserDocs userDocs = DAOUD.getUserDocsById(id);
-        Countries countries = DAOCOU.getCountriesByCode(user.getCitizenshipCode());
         view.id = String.valueOf(user.getId());
         view.firstName = String.valueOf(user.getFirstName());
         view.secondName = String.valueOf(user.getSecondName());
         view.midleName = String.valueOf(user.getMidlleName());
         view.position = String.valueOf(user.getPosition());
         view.phone = String.valueOf(user.getPhone());
-        view.docName = String.valueOf(userDocs.getDocName());
-        view.docNumber = String.valueOf(userDocs.getDocNumber());
-        view.docDate = String.valueOf(userDocs.getDocDate());
-        view.citizenshipCode = String.valueOf(user.getCitizenshipCode());
-        view.citizenshipName = countries.getName();
+        view.docName = String.valueOf(user.getUserDocs().getDocs().getName());
+        view.docNumber = String.valueOf(user.getUserDocs().getDocNumber());
+        view.docDate = String.valueOf(user.getUserDocs().getDocDate());
+        view.citizenshipCode = String.valueOf(user.getCountries().getCode());
+        view.citizenshipName = String.valueOf(user.getCountries().getName());
         view.isIdentified = Boolean.valueOf(user.getIdentified());
 
         logger.info(view.toString());
@@ -84,19 +64,19 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void update(UserView view) {
-        User user = new User(Long.parseLong(view.id), view.firstName, view.secondName, view.midleName, view.position, view.phone, view.isIdentified);
+       /* User user = new User(Long.parseLong(view.id), view.firstName, view.secondName, view.midleName, view.position, view.phone, view.isIdentified);
         logger.info("User update " + user.toString());
-        DAO.update(user);
+        DAO.update(user);*/
     }
 
     @Override
     @Transactional
     public void save(UserView view) {
-        User user = new User(view.firstName, view.secondName, view.midleName, view.position, view.phone, view.isIdentified);
+      /*  User user = new User(view.firstName, view.secondName, view.midleName, view.position, view.phone, view.isIdentified);
         UserDocs userDocs = new UserDocs(view.docName, view.docNumber, view.docDate);
         logger.info("User save " + user.toString());
         DAO.save(user);
-        DAOUD.save(userDocs);
+        DAOUD.save(userDocs);*/
     }
 
     @Override
@@ -106,7 +86,5 @@ public class UserServiceImpl implements UserService {
         DAO.delete(user);
         logger.info("User deleted ID:" + id);
     }
-
-
 
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserDocsDAO {
 
-    List<UserDocs> list();
+  /*  List<UserDocs> list();
 
     UserDocs getUserDocsById(Long id);
 
@@ -14,5 +14,5 @@ public interface UserDocsDAO {
 
     void save(UserDocs userDocs);
 
-    void delete(UserDocs userDocs);
+    void delete(UserDocs userDocs);*/
 }

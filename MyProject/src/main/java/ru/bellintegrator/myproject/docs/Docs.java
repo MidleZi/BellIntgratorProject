@@ -1,30 +1,30 @@
-package ru.bellintegrator.myproject.countries.model;
+package ru.bellintegrator.myproject.docs;
 
 
 import javax.persistence.*;
 
-
 @Entity
-@Table(name = "countries")
-public class Countries {
+@Table(name = "docs")
+public class Docs {
 
     @Id
     @Basic(optional = false)
-    @JoinColumn(name = "countries")
-    private Long code;
+    @Column(name = "code")
+    //@OneToOne(fetch = FetchType.EAGER, mappedBy = "docs")
+    private String code;
 
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
 
-    public Countries(){}
+    public Docs(){}
 
-    public Countries(Long code, String name){
+    public Docs(String code, String name){
         this.code = code;
         this. name = name;
     }
 
-    public Long getCode() {
+    public String getCode() {
         return code;
     }
 
@@ -32,7 +32,7 @@ public class Countries {
         return name;
     }
 
-    public void setCode(Long code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

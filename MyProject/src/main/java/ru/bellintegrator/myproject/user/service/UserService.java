@@ -11,7 +11,7 @@ public interface UserService {
      * Organization service method
      * @return {@User}
      */
-    List<UserView> all();
+    List<UserView> list();
 
 
     UserView getUserById(Long id);

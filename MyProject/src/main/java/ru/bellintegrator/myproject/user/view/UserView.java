@@ -1,7 +1,9 @@
 package ru.bellintegrator.myproject.user.view;
 
 import io.swagger.annotations.ApiModelProperty;
+import ru.bellintegrator.myproject.countries.model.Countries;
 import ru.bellintegrator.myproject.office.model.Office;
+import ru.bellintegrator.myproject.userdocs.model.UserDocs;
 
 public class UserView {
 
@@ -9,7 +11,7 @@ public class UserView {
 
     public String id;
 
-    public Office office;
+    //public Office office;
 
     public String firstName;
 
@@ -27,9 +29,9 @@ public class UserView {
 
     public String docDate;
 
-    public String citizenshipName;
-
     public String citizenshipCode;
+
+    public String citizenshipName;
 
     public Boolean isIdentified;
 
@@ -38,32 +40,25 @@ public class UserView {
     }
 
     public UserView(String id, String firstName, String secondName, String midleName, String position, String phone,
-                    String userDoc, String citizenshipCode, Boolean isIdentified) {
+                    String docName, String docNumber, String docDate, String citizenshipCode, String citizenshipName, Boolean isIdentified) {
         this.id = id;
         this.firstName = firstName;
         this.secondName = secondName;
         this.midleName = midleName;
         this.position = position;
         this.phone = phone;
-        this.isIdentified = isIdentified;
-    }
-
-    public UserView(String docName, String docNumber, String docDate){
         this.docName = docName;
         this.docNumber = docNumber;
         this.docDate = docDate;
-    }
-
-    public UserView(String citizenshipCode, String citizenshipName){
         this.citizenshipCode = citizenshipCode;
         this.citizenshipName = citizenshipName;
+        this.isIdentified = isIdentified;
     }
 
     @Override
     public String toString() {
-        return "{id: " + id + "; Firstname: " + firstName+ "; SecondName: " + secondName + "; midleName: " + midleName +
-                "; position: " + position + "; phone " + phone + "; docName " + docName + "; docNumber " + docNumber +
-                "; docDate " + docDate + "; citizenshipCode " + citizenshipCode + "; citizenshipName " + citizenshipName +
+        return "{id: " + id + /*"; office" + office.getName() +*/ "; Firstname: " + firstName+ "; SecondName: " + secondName + "; midleName: " + midleName +
+                "; position: " + position + "; phone " + phone + /*"; docName " + userDoc.getDocName() + "; countries " + countries.getName() +*/
                 "; isIdentified " + isIdentified + "}";
     }
 
@@ -71,9 +66,9 @@ public class UserView {
         this.id = id;
     }
 
-    public void setOffice(Office office) {
+   /* public void setOffice(Office office) {
         this.office = office;
-    }
+    }*/
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -93,10 +88,6 @@ public class UserView {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public void setCitizenshipCode(String citizenshipCode) {
-        this.citizenshipCode = citizenshipCode;
     }
 
     public void setIdentified(Boolean identified) {

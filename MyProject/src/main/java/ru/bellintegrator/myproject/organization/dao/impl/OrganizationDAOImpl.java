@@ -24,6 +24,7 @@ public class OrganizationDAOImpl implements OrganizationDAO {
         this.em = em;
     }
 
+    @Override
     public List<Organization> list(){
         TypedQuery<Organization> query = em.createQuery("SELECT o FROM organization o", Organization.class);
         return query.getResultList();
@@ -34,16 +35,19 @@ public class OrganizationDAOImpl implements OrganizationDAO {
         return em.find(Organization.class, id);
     }
 
+    @Override
     public void update(Organization organization){
         logger.info("Organization update " + organization.toString());
         em.merge(organization);
     }
 
+    @Override
     public void save(Organization organization) {
         logger.info("save:" + organization.toString());
         em.persist(organization);
     }
 
+    @Override
     public void delete(Organization organization) {
         logger.info("Organization deleted ID:" + organization.getId());
         em.remove(organization);

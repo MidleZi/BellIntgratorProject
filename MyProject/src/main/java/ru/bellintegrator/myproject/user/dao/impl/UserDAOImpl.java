@@ -24,27 +24,28 @@ public class UserDAOImpl implements UserDAO {
         this.em = em;
     }
 
-    public List<User> all(){
+    public List<User> list(){
         TypedQuery<User> query = em.createQuery("SELECT h FROM user h", User.class);
         return query.getResultList();
 
     }
+
     @Override
     public User getUserById(Long id){
         logger.info("User get ID:" + id);
         return em.find(User.class, id);
     }
-
+    @Override
     public void update(User user){
         em.merge(user);
         logger.info("User update " + user.toString());
     }
-
+    @Override
     public void save(User user) {
         em.persist(user);
         logger.info("User save " + user.toString());
     }
-
+    @Override
     public void delete(User user) {
         em.remove(user);
         logger.info("User deleted ID:" + user.getId());

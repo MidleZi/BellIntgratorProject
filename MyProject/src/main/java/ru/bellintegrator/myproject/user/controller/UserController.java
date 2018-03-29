@@ -11,7 +11,7 @@ public interface UserController {
      * Get all offices
      * @return JSON offices value
      */
-    List<UserView> all(UserView view);
+    List<UserView> list(UserView view);
 
     UserView getUserById(Long id);
 

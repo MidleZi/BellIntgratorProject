@@ -19,7 +19,7 @@ public class User {
     private Long id;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "officeid")
     private Office office;
 
@@ -44,19 +44,14 @@ public class User {
     private String phone;
 
     @MapsId
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id")
     private UserDocs userDocs;
 
     @MapsId
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER/*, mappedBy = "users"*/)
     @JoinColumn(name = "citizenshipcode")
-    private Long citizenshipCode;
-
-    /*@MapsId
-    @OneToOne
-    @JoinColumn(name = "citizenshipcode")
-    private Countries countries;*/
+    private Countries countries;
 
     @Basic(optional = false)
     @Column(name = "isidentified")
@@ -69,13 +64,17 @@ public class User {
         this.id =id;
     }
 
-    public User(Long id, String firstName, String secondName, String midleName, String position, String phone, Boolean isIdentified) {
+    public User(Long id, Office office, String firstName, String secondName, String midleName, String position,
+                String phone,UserDocs userDocs, Countries countries, Boolean isIdentified) {
         this.id =id;
+        this.office = office;
         this.firstName = firstName;
         this.secondName = secondName;
         this.midlleName = midleName;
         this.position = position;
         this.phone = phone;
+        this.userDocs = userDocs;
+        this.countries = countries;
         this.isIdentified = isIdentified;
     }
 
@@ -105,10 +104,9 @@ public class User {
           builder.append(";phone:");
           builder.append(getPhone());
           builder.append(";userDoc:");
-          //builder.append(getUserDocs());
-          builder.append(";docNumber:");
-          builder.append(";citizenshipCode:");
-          builder.append(getCitizenshipCode());
+          builder.append(getUserDocs());
+          builder.append(";countries:");
+          builder.append(getCountries());
           builder.append(";isIdentified:");
           builder.append(isIdentified());
           builder.append("}");
@@ -144,12 +142,10 @@ public class User {
         return phone;
     }
 
-   /* public Set<UserDocs> getUserDocs() {
-        return userDocs;
-    }*/
+    public UserDocs getUserDocs(){ return userDocs;}
 
-    public Long getCitizenshipCode() {
-        return citizenshipCode;
+    public Countries getCountries() {
+        return countries;
     }
 
     public Boolean getIdentified() {
@@ -185,8 +181,12 @@ public class User {
         this.phone = phone;
     }
 
-    public void setCitizenshipCode(Long citizenshipCode) {
-        this.citizenshipCode = citizenshipCode;
+    public void setUserDocs(UserDocs userDocs) {
+        this.userDocs = userDocs;
+    }
+
+    public void setCountries(Countries countries) {
+        this.countries = countries;
     }
 
     public void setIdentified(Boolean identified) {
