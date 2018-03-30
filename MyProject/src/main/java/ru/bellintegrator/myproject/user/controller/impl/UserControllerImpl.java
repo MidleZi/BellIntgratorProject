@@ -8,12 +8,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.bellintegrator.myproject.organization.controller.impl.OrganizationControllerImpl;
 import ru.bellintegrator.myproject.user.controller.UserController;
 import ru.bellintegrator.myproject.user.model.User;
 import ru.bellintegrator.myproject.user.service.UserService;
 import ru.bellintegrator.myproject.user.view.UserView;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
@@ -25,6 +27,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 public class UserControllerImpl implements UserController {
 
     private final UserService userService;
+    protected static Logger logger = Logger.getLogger(UserControllerImpl.class.getName());
 
     @Autowired
     public UserControllerImpl(UserService usersService) {
@@ -38,8 +41,8 @@ public class UserControllerImpl implements UserController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(method = {GET})
-    public List<UserView> all(@RequestBody UserView view) {
-        return userService.all();
+    public List<UserView> list(@RequestBody UserView view) {
+        return userService.list();
     }
 
     @Override
@@ -49,7 +52,8 @@ public class UserControllerImpl implements UserController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/{id}", method = {GET})
-    public User getUserById(@PathVariable Long id) {
+    public UserView getUserById(@PathVariable Long id) {
+        logger.info("User get ID:" + id);
         return userService.getUserById(id);
     }
 
@@ -61,6 +65,7 @@ public class UserControllerImpl implements UserController {
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/update", method = {POST})
     public void update(@RequestBody UserView view) {
+         logger.info("User update " + view.toString());
          userService.update(view);
     }
 
@@ -72,6 +77,7 @@ public class UserControllerImpl implements UserController {
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/save", method = {POST})
     public void save(@RequestBody UserView view) {
+         logger.info("User save " + view.toString());
          userService.save(view);
     }
 
@@ -83,6 +89,7 @@ public class UserControllerImpl implements UserController {
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/{id}", method = {DELETE})
     public void delete(@PathVariable Long id) {
+         logger.info("User deleted ID:" + id);
          userService.delete(id);
     }
 }

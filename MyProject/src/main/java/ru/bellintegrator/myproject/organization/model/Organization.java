@@ -25,7 +25,7 @@ public class Organization {
 
     @Basic(optional = false)
     @Column(name = "fullname")
-    private String fullName;
+    private String fullname;
 
     @Basic(optional = false)
     @Column(name = "inn")
@@ -36,8 +36,8 @@ public class Organization {
     private String kpp;
 
     @Basic(optional = false)
-    @Column(name = "adress")
-    private String adress;
+    @Column(name = "address")
+    private String address;
 
     @Basic(optional = false)
     @Column(name = "phone")
@@ -47,21 +47,35 @@ public class Organization {
     @Column(name = "isactive")
     private Boolean isActive;
 
-    public Organization (){
+    public Organization() {}
 
-    }
-
-    public Organization(String name, String inn){
-        this.name = name;
+    public Organization(Long id, String name, String fullname, String inn, String kpp, String address, String phone, Boolean isActive){
+        this.id = id;
+        this.name= name;
+        this.fullname = fullname;
         this.inn = inn;
+        this.kpp = kpp;
+        this.address = address;
+        this.phone = phone;
+        this.isActive = isActive;
+
     }
 
-    public Organization(String name, String fullName, String inn, String kpp, String adress, String phone, Boolean isActive) {
+    public Organization(String name, String fullname, String inn, String kpp, String address, String phone, Boolean isActive) {
+        this.name = name;
+        this.fullname = fullname;
+        this.inn = inn;
+        this.kpp = kpp;
+        this.address = address;
+        this.phone = phone;
+        this.isActive = isActive;
+
     }
 
-    public String toString() {
-        return null;
+    public Organization(Long id) {
+        this.id = id;
     }
+
 
     public Long getId(){
         return id;
@@ -71,8 +85,8 @@ public class Organization {
         return name;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getFullname() {
+        return fullname;
     }
 
     public String getInn() {
@@ -83,8 +97,8 @@ public class Organization {
         return kpp;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
     public String getPhone() {
@@ -96,12 +110,14 @@ public class Organization {
         return isActive;
     }
 
+    //public void setId(Long id){this.id = id;}
+
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
     public void setInn(String inn) {
@@ -113,7 +129,7 @@ public class Organization {
     }
 
     public void setAdress(String adress) {
-        this.adress = adress;
+        this.address = adress;
     }
 
     public void setPhone(String phone) {
@@ -122,6 +138,12 @@ public class Organization {
 
     public void setActive(Boolean active) {
         isActive = active;
+    }
+
+    @Override
+    public String toString() {
+        return "{id:" + id + ";name:" + name + ";fullname:" + fullname + ";INN:" + inn + ";KPP:" + kpp +
+                ";address" + address + ";phone:" + phone + ";isActive : " + isActive + "}";
     }
 }
 

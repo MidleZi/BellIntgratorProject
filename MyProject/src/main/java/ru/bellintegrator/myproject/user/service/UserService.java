@@ -11,10 +11,10 @@ public interface UserService {
      * Organization service method
      * @return {@User}
      */
-    List<UserView> all();
+    List<UserView> list();
 
 
-    User getUserById(Long id);
+    UserView getUserById(Long id);
 
     void update(UserView view);
 

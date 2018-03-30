@@ -2,6 +2,7 @@ package ru.bellintegrator.myproject.user.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import ru.bellintegrator.myproject.countries.model.Countries;
 import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.userdocs.model.UserDocs;
 
@@ -18,7 +19,7 @@ public class User {
     private Long id;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "officeid")
     private Office office;
 
@@ -42,31 +43,51 @@ public class User {
     @Column(name = "phone")
     private String phone;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
-    private Set<UserDocs> userDocs;
+    @MapsId
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id")
+    private UserDocs userDocs;
 
-    @Basic(optional = false)
-    @Column(name = "citizenshipcode")
-    private String citizenshipCode;
+    @MapsId
+    @OneToOne(fetch = FetchType.EAGER/*, mappedBy = "users"*/)
+    @JoinColumn(name = "citizenshipcode")
+    private Countries countries;
 
     @Basic(optional = false)
     @Column(name = "isidentified")
     private Boolean isIdentified;
 
-    public User(){
+    public User(){ }
 
+
+    public User(Long id) {
+        this.id =id;
     }
 
-    public User(String firstName, String secondName, String midlleName){
+    public User(Long id, Office office, String firstName, String secondName, String midleName, String position,
+                String phone,UserDocs userDocs, Countries countries, Boolean isIdentified) {
+        this.id =id;
+        this.office = office;
         this.firstName = firstName;
         this.secondName = secondName;
-        this.midlleName = midlleName;
+        this.midlleName = midleName;
+        this.position = position;
+        this.phone = phone;
+        this.userDocs = userDocs;
+        this.countries = countries;
+        this.isIdentified = isIdentified;
     }
 
-    public User(String firstName, String secondName) {
+    public User(String firstName, String secondName, String midleName, String position, String phone, Boolean isIdentified) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.midlleName = midleName;
+        this.position = position;
+        this.phone = phone;
+        this.isIdentified = isIdentified;
     }
 
-      public String toString() {
+    public String toString() {
           StringBuilder builder = new StringBuilder();
           builder.append("{id:");
           builder.append(getId());
@@ -84,9 +105,8 @@ public class User {
           builder.append(getPhone());
           builder.append(";userDoc:");
           builder.append(getUserDocs());
-          builder.append(";docNumber:");
-          builder.append(";citizenshipCode:");
-          builder.append(getCitizenshipCode());
+          builder.append(";countries:");
+          builder.append(getCountries());
           builder.append(";isIdentified:");
           builder.append(isIdentified());
           builder.append("}");
@@ -122,12 +142,14 @@ public class User {
         return phone;
     }
 
-    public Set<UserDocs> getUserDocs() {
-        return userDocs;
+    public UserDocs getUserDocs(){ return userDocs;}
+
+    public Countries getCountries() {
+        return countries;
     }
 
-    public String getCitizenshipCode() {
-        return citizenshipCode;
+    public Boolean getIdentified() {
+        return isIdentified;
     }
 
     @JsonProperty(value = "isIdentified")
@@ -159,12 +181,12 @@ public class User {
         this.phone = phone;
     }
 
-    public void setDocName(String docName) {
+    public void setUserDocs(UserDocs userDocs) {
         this.userDocs = userDocs;
     }
 
-    public void setCitizenshipCode(String citizenshipCode) {
-        this.citizenshipCode = citizenshipCode;
+    public void setCountries(Countries countries) {
+        this.countries = countries;
     }
 
     public void setIdentified(Boolean identified) {

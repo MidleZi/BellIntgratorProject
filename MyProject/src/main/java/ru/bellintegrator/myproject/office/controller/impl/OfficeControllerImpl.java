@@ -13,8 +13,10 @@ import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.office.service.OfficeService;
 import ru.bellintegrator.myproject.office.service.impl.OfficeServiceImpl;
 import ru.bellintegrator.myproject.office.view.OfficeView;
+import ru.bellintegrator.myproject.organization.controller.impl.OrganizationControllerImpl;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
@@ -24,6 +26,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 public class OfficeControllerImpl implements OfficeController {
 
     private final OfficeServiceImpl officeService;
+    protected static Logger logger = Logger.getLogger(OfficeControllerImpl.class.getName());
 
     @Autowired
     public OfficeControllerImpl(OfficeServiceImpl officeService) {
@@ -42,6 +45,7 @@ public class OfficeControllerImpl implements OfficeController {
     @ApiOperation(value = "getOffice", nickname = "getOffice", httpMethod = "GET")
     @RequestMapping(value = "/{id}", method = {GET})
     public Office getOfficeById(@PathVariable Long id) {
+        logger.info("Office get ID:" + id);
         return officeService.getOfficeById(id);
     }
 
@@ -53,6 +57,7 @@ public class OfficeControllerImpl implements OfficeController {
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/update", method = {POST})
     public void update(@RequestBody OfficeView view) {
+        logger.info("Office update " + view.toString());
         officeService.update(view);
     }
 
@@ -64,6 +69,7 @@ public class OfficeControllerImpl implements OfficeController {
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/save", method = {POST})
     public void save(@RequestBody OfficeView view) {
+        logger.info("Office save " + view.toString());
         officeService.save(view);
     }
 
@@ -75,6 +81,7 @@ public class OfficeControllerImpl implements OfficeController {
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/{id}", method = {DELETE})
     public void delete(@PathVariable Long id) {
+        logger.info("Office deleted ID:" + id);
          officeService.delete(id);
     }
 }

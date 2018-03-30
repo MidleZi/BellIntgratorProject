@@ -8,32 +8,40 @@ public class OfficeView {
 
     @ApiModelProperty(hidden = true)
 
-    public String id;
+    public Long id;
 
     public String name;
 
     public String orgId;
 
-    public String adress;
+    public String address;
 
     public String phone;
 
     public Boolean isActive;
 
+
     public OfficeView() {
 
     }
 
-    public OfficeView(String id, String name, String adress, String phone, Boolean isActive) {
-        this.id = id;
+    public OfficeView(String id, String name, String address, String phone, Boolean isActive) {
+        this.id = Long.parseLong(id);
         this.name = name;
-        this.adress = adress;
+        this.address = address;
+        this.phone = phone;
+        this.isActive = isActive;
+    }
+
+    public OfficeView(String name, String address, String phone, Boolean isActive) {
+        this.name = name;
+        this.address = address;
         this.phone = phone;
         this.isActive = isActive;
     }
 
     @Override
     public String toString() {
-        return "{id:" + id + ";name:" + name + ";address" + adress + ";phone" + phone + ";isActive" + isActive + "}";
+        return "{id:" + id + ";name:" + name + ";address" + address + ";phone" + phone + ";isActive" + isActive + "}";
     }
 }

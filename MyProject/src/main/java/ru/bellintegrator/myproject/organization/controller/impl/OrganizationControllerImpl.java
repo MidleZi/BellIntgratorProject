@@ -47,16 +47,16 @@ public class OrganizationControllerImpl implements OrganizationController {
         return organizationService.list();
 
     }
-    //работает
+    //почти работает(сскорее всего ругается на id из-за автозаполнения, добавить OUT
     @Override
     @ApiOperation(value = "getOrganization", nickname = "getOrganization", httpMethod = "GET")
     @RequestMapping(value = "/{id}", method = {GET})
     public Organization getOrganizationById(@PathVariable Long id){
-        logger.info("Geted ID:" + id);
+        logger.info("Organization get ID:" + id);
         return organizationService.getOrganizationById(id);
 
     }
-    //не работает
+    //работает, добавить OUT
     @Override
     @ApiOperation(value = "updateOrganization", nickname = "updateOrganization", httpMethod = "POST")
     @ApiResponses(value = {
@@ -65,10 +65,10 @@ public class OrganizationControllerImpl implements OrganizationController {
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/update", method = {POST})
     public void update(@RequestBody OrganizationView view){
-        logger.info(view.toString());
+        logger.info("Organization update " + view.toString());
         organizationService.update(view);
     }
-    //не работает
+    //работает, добавить OUT
     @Override
     @ApiOperation(value = "saveOrganization", nickname = "saveOrganization", httpMethod = "POST")
     @ApiResponses(value = {
@@ -77,11 +77,11 @@ public class OrganizationControllerImpl implements OrganizationController {
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/save", method = {POST})
     public void save(@RequestBody OrganizationView view){
-         logger.info(view.toString());
+         logger.info("Organization save" + view.toString());
          organizationService.save(view);
 
     }
-    //работает
+    //работает, добавить OUT
     @Override
     @ApiOperation(value = "deleteOrganization", nickname = "deleteOrganization", httpMethod = "DELETE")
     @ApiResponses(value = {
@@ -91,6 +91,6 @@ public class OrganizationControllerImpl implements OrganizationController {
     @RequestMapping(value = "/{id}", method = {DELETE})
     public void delete (@PathVariable Long id){
         organizationService.delete(id);
-        logger.info("Deleted " + id);
+        logger.info("Organization deleted ID:" + id);
     }
 }

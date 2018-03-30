@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class OrganizationServiceImpl implements OrganizationService {
 
 
-    private final Logger log = LoggerFactory.getLogger(OrganizationServiceImpl.class);
+    private final Logger logger = LoggerFactory.getLogger(OrganizationServiceImpl.class);
 
     private final OrganizationDAO DAO;
 
@@ -40,7 +40,7 @@ public class OrganizationServiceImpl implements OrganizationService {
             view.inn = o.getInn();
             view.isActive = o.getActive();
 
-            log.info(view.toString());
+            logger.info(view.toString());
 
             return view;
         };
@@ -53,14 +53,17 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     @Transactional
     public Organization getOrganizationById (Long id) {
-       return DAO.getOrganizationById(id);
+        logger.info("Organization get ID:" + id);
+        return DAO.getOrganizationById(id);
 
     }
 
     @Override
     @Transactional
     public void update(OrganizationView view) {
-        Organization organization = new Organization(view.name, view.inn);
+        Organization organization = new Organization(view.id, view.name, view.fullname, view.inn, view.kpp, view.address, view.phone,
+                view.isActive);
+        logger.info("update" + organization.toString());
         DAO.save(organization);
 
     }
@@ -68,16 +71,18 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     @Transactional
     public void save(OrganizationView view) {
-        Organization organization = new Organization(view.name, view.fullName, view.inn, view.kpp, view.adress, view.phone,
+        Organization organization = new Organization(view.name, view.fullname, view.inn, view.kpp, view.address, view.phone,
                 view.isActive);
+        logger.info("save:" + organization.toString());
         DAO.save(organization);
     }
 
     @Override
     @Transactional
     public void delete(Long id) {
-        Organization organization = new Organization();
+        Organization organization = new Organization(id);
         DAO.delete(organization);
+        logger.info("Organization deleted ID:" + id);
     }
 
 }
