@@ -1,4 +1,4 @@
-package ru.bellintegrator.myproject.countries.model;
+package ru.bellintegrator.myproject.countries;
 
 
 import javax.persistence.*;
@@ -9,8 +9,7 @@ import javax.persistence.*;
 public class Countries {
 
     @Id
-    @Basic(optional = false)
-    @JoinColumn(name = "countries")
+    @Column(name = "code")
     private Long code;
 
     @Basic(optional = false)

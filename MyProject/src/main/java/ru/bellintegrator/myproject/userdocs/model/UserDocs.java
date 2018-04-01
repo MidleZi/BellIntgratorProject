@@ -11,12 +11,11 @@ import javax.persistence.*;
 public class UserDocs {
 
     @Id
-    //@OneToOne(fetch = FetchType.EAGER/*, mappedBy = "usersdocs"*/)
-    @JoinColumn(name = "id")
+    @Basic(optional = false)
+    @Column(name = "id")
     private Long id;
 
-    @MapsId
-    //@OneToOne(fetch = FetchType.EAGER, mappedBy = "usersdocs")
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "docname")
     private Docs docs;
 
@@ -29,6 +28,13 @@ public class UserDocs {
     private String docDate;
 
     public UserDocs(){}
+
+    public UserDocs(Long id,Docs docs, String docNumber, String docDate){
+        this.id = id;
+        this.docs = docs;
+        this.docNumber = docNumber;
+        this.docDate = docDate;
+    }
 
     public UserDocs(Docs docs, String docNumber, String docDate) {
         this.docs = docs;
@@ -81,6 +87,5 @@ public class UserDocs {
     public void setDocDate(String docDate) {
         this.docDate = docDate;
     }
-
 
 }

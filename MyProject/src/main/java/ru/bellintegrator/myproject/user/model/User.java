@@ -2,12 +2,11 @@ package ru.bellintegrator.myproject.user.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ru.bellintegrator.myproject.countries.model.Countries;
+import ru.bellintegrator.myproject.countries.Countries;
 import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.userdocs.model.UserDocs;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -19,7 +18,7 @@ public class User {
     private Long id;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade ={CascadeType.REMOVE})
     @JoinColumn(name = "officeid")
     private Office office;
 
@@ -44,12 +43,11 @@ public class User {
     private String phone;
 
     @MapsId
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id")
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.REMOVE})
+    @JoinColumn(name = "userdoc")
     private UserDocs userDocs;
 
-    @MapsId
-    @OneToOne(fetch = FetchType.EAGER/*, mappedBy = "users"*/)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "citizenshipcode")
     private Countries countries;
 
@@ -64,7 +62,7 @@ public class User {
         this.id =id;
     }
 
-    public User(Long id, Office office, String firstName, String secondName, String midleName, String position,
+    public User(Long id, String firstName, String secondName, String midleName, String position,
                 String phone,UserDocs userDocs, Countries countries, Boolean isIdentified) {
         this.id =id;
         this.office = office;
@@ -78,12 +76,15 @@ public class User {
         this.isIdentified = isIdentified;
     }
 
-    public User(String firstName, String secondName, String midleName, String position, String phone, Boolean isIdentified) {
+    public User(String firstName, String secondName, String midleName, String position, String phone, UserDocs userDocs,
+                Countries countries, Boolean isIdentified) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.midlleName = midleName;
         this.position = position;
         this.phone = phone;
+        this.userDocs = userDocs;
+        this.countries = countries;
         this.isIdentified = isIdentified;
     }
 
@@ -142,7 +143,8 @@ public class User {
         return phone;
     }
 
-    public UserDocs getUserDocs(){ return userDocs;}
+    public UserDocs getUserDocs(){
+        return userDocs;}
 
     public Countries getCountries() {
         return countries;

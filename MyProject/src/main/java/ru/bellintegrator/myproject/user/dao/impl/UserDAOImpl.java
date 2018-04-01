@@ -8,6 +8,7 @@ import ru.bellintegrator.myproject.organization.model.Organization;
 import ru.bellintegrator.myproject.user.dao.UserDAO;
 import ru.bellintegrator.myproject.user.model.User;
 import ru.bellintegrator.myproject.user.service.impl.UserServiceImpl;
+import ru.bellintegrator.myproject.user.view.UserView;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -46,8 +47,8 @@ public class UserDAOImpl implements UserDAO {
         logger.info("User save " + user.toString());
     }
     @Override
-    public void delete(User user) {
+    public void delete(UserView user) {
         em.remove(user);
-        logger.info("User deleted ID:" + user.getId());
+        //logger.info("User deleted ID:" + user.getId());
     }
 }

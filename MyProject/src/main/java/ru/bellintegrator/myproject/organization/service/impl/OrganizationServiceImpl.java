@@ -80,7 +80,7 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     @Transactional
     public void delete(Long id) {
-        Organization organization = new Organization(id);
+        Organization organization = getOrganizationById(id);
         DAO.delete(organization);
         logger.info("Organization deleted ID:" + id);
     }

@@ -36,7 +36,7 @@ public class OrganizationControllerImpl implements OrganizationController {
 
     //не работает
     @Override
-    @ApiOperation(value = "allOrganization", nickname = "allOrganization", httpMethod = "POST")
+    @ApiOperation(value = "listOrganization", nickname = "listOrganization", httpMethod = "POST")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success", response = String.class),
             @ApiResponse(code = 404, message = "Not Found"),

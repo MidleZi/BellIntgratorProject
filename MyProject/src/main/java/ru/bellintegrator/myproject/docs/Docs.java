@@ -10,7 +10,6 @@ public class Docs {
     @Id
     @Basic(optional = false)
     @Column(name = "code")
-    //@OneToOne(fetch = FetchType.EAGER, mappedBy = "docs")
     private String code;
 
     @Basic(optional = false)
@@ -18,6 +17,12 @@ public class Docs {
     private String name;
 
     public Docs(){}
+
+
+    public Docs(String docName){
+        this.name = docName;
+    }
+
 
     public Docs(String code, String name){
         this.code = code;

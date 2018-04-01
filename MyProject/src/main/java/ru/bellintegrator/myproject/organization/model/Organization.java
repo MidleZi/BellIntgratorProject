@@ -20,7 +20,7 @@ public class Organization {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "organization", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "organization", cascade = {CascadeType.REMOVE},orphanRemoval = true)
     private Set<Office> office;
 
     @Basic(optional = false)
@@ -85,6 +85,10 @@ public class Organization {
         return name;
     }
 
+    public Set<Office> getOffice() {
+        return office;
+    }
+
     public String getFullname() {
         return fullname;
     }
@@ -116,6 +120,10 @@ public class Organization {
         this.name = name;
     }
 
+    public void setOffice(Set<Office> office) {
+        this.office = office;
+    }
+
     public void setFullname(String fullname) {
         this.fullname = fullname;
     }
@@ -128,7 +136,7 @@ public class Organization {
         this.kpp = kpp;
     }
 
-    public void setAdress(String adress) {
+    public void setAddress(String adress) {
         this.address = adress;
     }
 

@@ -77,7 +77,7 @@ public class UserControllerImpl implements UserController {
             @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/save", method = {POST})
     public void save(@RequestBody UserView view) {
-         logger.info("User save " + view.toString());
+         logger.info("User save " + view.toString1());
          userService.save(view);
     }
 
@@ -90,7 +90,7 @@ public class UserControllerImpl implements UserController {
     @RequestMapping(value = "/{id}", method = {DELETE})
     public void delete(@PathVariable Long id) {
          logger.info("User deleted ID:" + id);
-         userService.delete(id);
+        // userService.delete(id);
     }
 }
 
