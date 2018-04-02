@@ -119,5 +119,9 @@ public class UserView {
     public void setIdentified(Boolean identified) {
         isIdentified = identified;
     }
+
+    public String getId() {
+        return id;
+    }
 }
 

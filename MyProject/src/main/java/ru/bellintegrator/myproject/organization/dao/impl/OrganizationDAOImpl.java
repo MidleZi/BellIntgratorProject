@@ -32,6 +32,7 @@ public class OrganizationDAOImpl implements OrganizationDAO {
     }
     @Override
     public Organization getOrganizationById(Long id){
+        logger.info("Organization get ID:  " + id);
         return em.find(Organization.class, id);
     }
 

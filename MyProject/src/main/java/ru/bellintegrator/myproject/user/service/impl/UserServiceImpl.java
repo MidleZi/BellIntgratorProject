@@ -122,8 +122,8 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void delete(Long id) {
         UserView user = getUserById(id);
-        DAO.delete(user);
         logger.info("User deleted ID:" + id);
+        DAO.delete(user);
     }
 
 }

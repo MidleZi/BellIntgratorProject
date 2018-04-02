@@ -1,5 +1,6 @@
 package ru.bellintegrator.myproject.organization.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.bellintegrator.myproject.office.model.Office;
 
@@ -20,6 +21,7 @@ public class Organization {
     @Column(name = "name")
     private String name;
 
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "organization", cascade = {CascadeType.REMOVE},orphanRemoval = true)
     private Set<Office> office;
 

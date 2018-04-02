@@ -48,6 +48,7 @@ public class UserDAOImpl implements UserDAO {
     }
     @Override
     public void delete(UserView user) {
+        logger.info("User deleted ID:" + user.getId());
         em.remove(user);
         //logger.info("User deleted ID:" + user.getId());
     }

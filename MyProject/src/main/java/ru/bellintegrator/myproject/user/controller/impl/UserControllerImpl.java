@@ -90,7 +90,7 @@ public class UserControllerImpl implements UserController {
     @RequestMapping(value = "/{id}", method = {DELETE})
     public void delete(@PathVariable Long id) {
          logger.info("User deleted ID:" + id);
-        // userService.delete(id);
+         userService.delete(id);
     }
 }
 

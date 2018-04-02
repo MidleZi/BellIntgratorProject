@@ -38,8 +38,8 @@ CREATE TABLE IF NOT EXISTS `office` (
   CONSTRAINT `fk_orgId`
     FOREIGN KEY (`orgId`)
     REFERENCES `organization` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 CREATE INDEX `fk_orgId_idx` ON `office` (`orgId` ASC);
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -57,13 +57,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   CONSTRAINT `fk_officeId`
     FOREIGN KEY (`officeId`)
     REFERENCES `office` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_citizenship`
     FOREIGN KEY (`citizenshipCode`)
     REFERENCES `countries` (`code`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
 CREATE INDEX `fk_officeId_idx` ON `users` (`officeId` ASC);
 CREATE INDEX `fk_citizenship_idx` ON `users` (`citizenshipCode` ASC);
 
@@ -76,13 +76,13 @@ CREATE INDEX `fk_citizenship_idx` ON `users` (`citizenshipCode` ASC);
     CONSTRAINT `fk_docs`
       FOREIGN KEY (`docname`)
       REFERENCES `docs` (`code`)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION,
+      ON DELETE CASCADE
+      ON UPDATE CASCADE,
     CONSTRAINT `fk_userId`
       FOREIGN KEY (`id`)
       REFERENCES `users` (`id`)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION);
+      ON DELETE CASCADE
+      ON UPDATE CASCADE);
   CREATE INDEX `fk_docs_idx` ON `userdocs` (`docName` ASC);
   CREATE INDEX `fk_userId_idx` ON `userdocs` (`id` ASC);
 
