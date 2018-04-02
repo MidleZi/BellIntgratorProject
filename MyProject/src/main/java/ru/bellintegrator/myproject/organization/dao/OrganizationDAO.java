@@ -39,8 +39,8 @@ public interface OrganizationDAO {
     /**
      * Удалить Organization
      *
-     * @param organization
+     * @param id
      */
-    void delete(Organization organization);
+    void delete(Long id);
 
 }

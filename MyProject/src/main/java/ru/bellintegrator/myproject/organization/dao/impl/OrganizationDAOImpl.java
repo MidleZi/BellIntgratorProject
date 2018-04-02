@@ -48,9 +48,9 @@ public class OrganizationDAOImpl implements OrganizationDAO {
     }
 
     @Override
-    public void delete(Organization organization) {
-        logger.info("Organization deleted ID:" + organization.getId());
-        em.remove(organization);
+    public void delete(Long id) {
+        logger.info("Organization deleted ID:" + id);
+        em.remove(getOrganizationById(id));
     }
 
 
