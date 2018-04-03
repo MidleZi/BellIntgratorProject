@@ -1,6 +1,7 @@
 package ru.bellintegrator.myproject.organization.view;
 
 import io.swagger.annotations.ApiModelProperty;
+import ru.bellintegrator.myproject.organization.model.Organization;
 
 public class OrganizationView {
 
@@ -47,6 +48,19 @@ public class OrganizationView {
         this.address = address;
         this.phone = phone;
         this.isActive = isActive;
+    }
+
+
+    public Organization orgConvert(Organization org) {
+        org.setName(name);
+        org.setFullname(fullname);
+        org.setInn(inn);
+        org.setKpp(kpp);
+        org.setAddress(address);
+        org.setPhone(phone);
+        org.setActive(isActive);
+
+        return org;
     }
 
     @Override
