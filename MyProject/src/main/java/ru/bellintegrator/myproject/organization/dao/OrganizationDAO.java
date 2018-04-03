@@ -1,46 +1,24 @@
 package ru.bellintegrator.myproject.organization.dao;
 
 import ru.bellintegrator.myproject.organization.model.Organization;
+import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
 
 import java.util.List;
 
 public interface OrganizationDAO {
 
-    /**
-     * Получить все объекты Organization
-     *
-     * @return
-     */
-    List<Organization> list();
+    List<Organization> getAllOrganizations();
 
-    /**
-     * Получить Organization по идентификатору
-     *
-     * @param id
-     * @return
-     */
+   // List<Organization> getAllOrganizationsByCriteria(OrganizationFilterView filter);
+
+    List<Organization> list(OrganizationFilterView filter);
+
     Organization getOrganizationById(Long id);
 
-    /**
-     * Обновить Organization
-     *
-     * @param organization
-     * @return
-     */
     void update(Organization organization);
 
-    /**
-     * Сохранить Organization
-     *
-     * @param organization
-     */
     void save(Organization organization);
 
-    /**
-     * Удалить Organization
-     *
-     * @param id
-     */
     void delete(Long id);
 
 }

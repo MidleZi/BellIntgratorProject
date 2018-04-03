@@ -3,6 +3,7 @@ package ru.bellintegrator.myproject.organization.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.bellintegrator.myproject.office.model.Office;
+import ru.bellintegrator.myproject.organization.view.OrganizationView;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -10,6 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "organization")
+@NamedQuery(name = "Organization.findAll", query = "SELECT p FROM Organization p")
 public class Organization {
 
     @Id
@@ -78,6 +80,20 @@ public class Organization {
         this.id = id;
     }
 
+    public OrganizationView convertOrgToView() {
+        OrganizationView view = new OrganizationView();
+
+        view.id = id;
+        view.name = name;
+        view.fullname = fullname;
+        view.inn = inn;
+        view.kpp = kpp;
+        view.address = address;
+        view.phone = phone;
+        view.isActive = isActive;
+
+        return view;
+    }
 
     public Long getId(){
         return id;

@@ -9,8 +9,10 @@ import ru.bellintegrator.myproject.organization.dao.impl.OrganizationDAOImpl;
 import ru.bellintegrator.myproject.organization.service.OrganizationService;
 import ru.bellintegrator.myproject.organization.dao.OrganizationDAO;
 import ru.bellintegrator.myproject.organization.model.Organization;
+import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
 import ru.bellintegrator.myproject.organization.view.OrganizationView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -31,23 +33,19 @@ public class OrganizationServiceImpl implements OrganizationService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<OrganizationView> list() {
-        List<Organization> all = DAO.list();
+    public List<OrganizationView> list(OrganizationFilterView filterView) {
+        List<OrganizationView> result = new ArrayList<>();
+        List<Organization> orgs = DAO.list(filterView);
 
-        Function<Organization, OrganizationView> mapOrganization = o -> {
-            OrganizationView view = new OrganizationView();
-            view.name = o.getName();
-            view.inn = o.getInn();
-            view.isActive = o.getActive();
+            for(Organization org : orgs) {
+                OrganizationView view = org.convertOrgToView();
 
-            logger.info(view.toString());
+                logger.info(view.toString());
 
-            return view;
-        };
+                result.add(view);
+            }
 
-        return all.stream()
-                .map(mapOrganization)
-                .collect(Collectors.toList());
+            return result;
     }
 
     @Override

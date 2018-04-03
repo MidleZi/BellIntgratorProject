@@ -2,9 +2,10 @@ package ru.bellintegrator.myproject.organization.controller;
 
 
 import ru.bellintegrator.myproject.organization.model.Organization;
+import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
 import ru.bellintegrator.myproject.organization.view.OrganizationView;
-
-import java.util.List;
+import ru.bellintegrator.myproject.utils.Response;
+import ru.bellintegrator.myproject.utils.ResponseViewData;
 
 public interface OrganizationController {
 
@@ -12,7 +13,7 @@ public interface OrganizationController {
      * Get all organizations
      * @return JSON organizations value
      */
-    List<OrganizationView> list(OrganizationView view);
+    Response list(OrganizationFilterView view);
 
     Organization getOrganizationById(Long id);
 

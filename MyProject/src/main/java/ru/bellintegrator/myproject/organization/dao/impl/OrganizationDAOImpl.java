@@ -7,9 +7,16 @@ import org.springframework.stereotype.Repository;
 import ru.bellintegrator.myproject.organization.dao.OrganizationDAO;
 import ru.bellintegrator.myproject.organization.model.Organization;
 import ru.bellintegrator.myproject.organization.service.impl.OrganizationServiceImpl;
+import ru.bellintegrator.myproject.organization.view.OrganizationFilterOut;
+import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -25,11 +32,36 @@ public class OrganizationDAOImpl implements OrganizationDAO {
     }
 
     @Override
-    public List<Organization> list(){
-        TypedQuery<Organization> query = em.createQuery("SELECT o FROM organization o", Organization.class);
-        return query.getResultList();
+    public List<Organization> getAllOrganizations() {
+        TypedQuery<Organization> query = em.createNamedQuery("Organization.findAll", Organization.class);
+        List<Organization> result = query.getResultList();
 
+        return result;
     }
+
+    @Override
+    public List<Organization> list(OrganizationFilterView filter) {
+        OrgCriteriaConverter converter = new OrgCriteriaConverter(filter);
+        CriteriaQuery cq = converter.getCriteriaQuery();
+        Root<Organization> organizations = converter.getRoot();
+        List<Predicate> predicates = converter.getPredicates();
+
+        cq.select(organizations)
+                .where(predicates.toArray(new Predicate[]{}));
+
+        for (int i = 0; i < organizations.size(); i++) {
+
+        }
+
+        OrganizationFilterOut filterOut = new OrganizationFilterOut();
+
+        filterOut.setName(organizations.get);
+
+
+
+        return em.createQuery(cq).getResultList();
+    }
+
     @Override
     public Organization getOrganizationById(Long id){
         logger.info("Organization get ID:  " + id);
@@ -54,5 +86,54 @@ public class OrganizationDAOImpl implements OrganizationDAO {
         em.remove(getOrganizationById(id));
     }
 
+    private class OrgCriteriaConverter {
+        private final OrganizationFilterView filter;
+
+        private final List<Predicate> predicates = new ArrayList<>();
+        private Root<Organization> organizations;
+        private CriteriaQuery criteriaQuery;
+
+        public OrgCriteriaConverter(OrganizationFilterView filter) {
+            this.filter = filter;
+            makePredicates();
+        }
+
+        private void makePredicates() {
+            String name = filter.name;
+            String inn = filter.inn;
+            Boolean isActive = filter.isActive;
+
+            CriteriaBuilder qb = em.getCriteriaBuilder();
+            criteriaQuery = qb.createQuery();
+            organizations = criteriaQuery.from(Organization.class);
+
+            if (name != null) {
+                predicates.add(
+                        qb.like(organizations.get("name"), "%" + name + "%"));
+            }
+            if (inn != null) {
+                predicates.add(
+                        qb.equal(organizations.get("inn"), inn));
+            }
+            if (isActive != null) {
+                predicates.add(
+                        qb.equal(organizations.get("isActive"), isActive));
+            }
+        }
+
+
+        public List<Predicate> getPredicates() {
+            return predicates;
+        }
+
+        public Root<Organization> getRoot() {
+            return organizations;
+        }
+
+        public CriteriaQuery getCriteriaQuery() {
+            return criteriaQuery;
+        }
+
+    }
 
 }
