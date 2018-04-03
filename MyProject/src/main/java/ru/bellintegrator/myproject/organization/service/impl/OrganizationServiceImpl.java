@@ -61,8 +61,9 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     @Transactional
     public void update(OrganizationView view) {
-        Organization organization = new Organization(view.id, view.name, view.fullname, view.inn, view.kpp, view.address, view.phone,
-                view.isActive);
+        Long id = view.id;
+        Organization organization = DAO.getOrganizationById(id);
+        organization = view.orgConvert(organization);
         logger.info("update" + organization.toString());
         DAO.save(organization);
 
