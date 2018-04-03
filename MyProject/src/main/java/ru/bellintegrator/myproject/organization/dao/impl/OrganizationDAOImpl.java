@@ -7,8 +7,9 @@ import org.springframework.stereotype.Repository;
 import ru.bellintegrator.myproject.organization.dao.OrganizationDAO;
 import ru.bellintegrator.myproject.organization.model.Organization;
 import ru.bellintegrator.myproject.organization.service.impl.OrganizationServiceImpl;
-import ru.bellintegrator.myproject.organization.view.OrganizationFilterOut;
+//import ru.bellintegrator.myproject.organization.view.OrganizationFilterOut;
 import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
+import ru.bellintegrator.myproject.organization.view.OrganizationFilterViewList;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -49,13 +50,10 @@ public class OrganizationDAOImpl implements OrganizationDAO {
         cq.select(organizations)
                 .where(predicates.toArray(new Predicate[]{}));
 
-        for (int i = 0; i < organizations.size(); i++) {
+        /*List<Organization> list =
+        */
 
-        }
 
-        OrganizationFilterOut filterOut = new OrganizationFilterOut();
-
-        filterOut.setName(organizations.get);
 
 
 

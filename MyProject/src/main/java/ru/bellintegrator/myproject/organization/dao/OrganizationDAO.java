@@ -2,6 +2,7 @@ package ru.bellintegrator.myproject.organization.dao;
 
 import ru.bellintegrator.myproject.organization.model.Organization;
 import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
+import ru.bellintegrator.myproject.organization.view.OrganizationFilterViewList;
 
 import java.util.List;
 

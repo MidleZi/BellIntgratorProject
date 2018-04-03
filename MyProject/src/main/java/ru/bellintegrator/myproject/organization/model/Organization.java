@@ -95,6 +95,16 @@ public class Organization {
         return view;
     }
 
+    public OrganizationView convertOrgToViewFilter() {
+        OrganizationView view = new OrganizationView();
+
+        view.id = id;
+        view.name = name;
+        view.isActive = isActive;
+
+        return view;
+    }
+
     public Long getId(){
         return id;
     }
