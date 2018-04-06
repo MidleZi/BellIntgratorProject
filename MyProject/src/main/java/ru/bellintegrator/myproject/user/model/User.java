@@ -18,7 +18,7 @@ public class User {
     private Long id;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.EAGER, cascade ={CascadeType.REMOVE})
+    @ManyToOne(fetch = FetchType.LAZY, cascade ={CascadeType.REMOVE})
     @JoinColumn(name = "officeid")
     private Office office;
 
@@ -32,7 +32,7 @@ public class User {
 
     @Basic(optional = false)
     @Column(name = "middlename")
-    private String midlleName;
+    private String midleName;
 
     @Basic(optional = false)
     @Column(name = "position")
@@ -43,7 +43,7 @@ public class User {
     private String phone;
 
     @MapsId
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.REMOVE})
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.REMOVE})
     @JoinColumn(name = "userdoc")
     private UserDocs userDocs;
 
@@ -68,7 +68,7 @@ public class User {
         this.office = office;
         this.firstName = firstName;
         this.secondName = secondName;
-        this.midlleName = midleName;
+        this.midleName = midleName;
         this.position = position;
         this.phone = phone;
         this.userDocs = userDocs;
@@ -80,7 +80,7 @@ public class User {
                 Countries countries, Boolean isIdentified) {
         this.firstName = firstName;
         this.secondName = secondName;
-        this.midlleName = midleName;
+        this.midleName = midleName;
         this.position = position;
         this.phone = phone;
         this.userDocs = userDocs;
@@ -98,8 +98,8 @@ public class User {
           builder.append(getFirstName());
           builder.append(";secondName:");
           builder.append(getSecondName());
-          builder.append(";midlleName:");
-          builder.append(getMidlleName());
+          builder.append(";midleName:");
+          builder.append(getMidleName());
           builder.append(";position:");
           builder.append(getPosition());
           builder.append(";phone:");
@@ -131,8 +131,8 @@ public class User {
         return secondName;
     }
 
-    public String getMidlleName() {
-        return midlleName;
+    public String getMidleName() {
+        return midleName;
     }
 
     public String getPosition() {
@@ -171,8 +171,8 @@ public class User {
         this.secondName = secondName;
     }
 
-    public void setMidlleName(String midlleName) {
-        this.midlleName = midlleName;
+    public void setMidleName(String midleName) {
+        this.midleName = midleName;
     }
 
     public void setPosition(String position) {

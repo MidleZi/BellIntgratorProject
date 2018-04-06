@@ -1,6 +1,7 @@
 package ru.bellintegrator.myproject.organization.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.organization.view.OrganizationView;
@@ -12,6 +13,7 @@ import java.util.Set;
 @Entity
 @Table(name = "organization")
 @NamedQuery(name = "Organization.findAll", query = "SELECT p FROM Organization p")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Organization {
 
     @Id

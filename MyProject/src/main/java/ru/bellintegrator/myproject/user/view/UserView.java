@@ -2,7 +2,11 @@ package ru.bellintegrator.myproject.user.view;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModelProperty;
+import ru.bellintegrator.myproject.countries.Countries;
+import ru.bellintegrator.myproject.docs.Docs;
 import ru.bellintegrator.myproject.office.model.Office;
+import ru.bellintegrator.myproject.user.model.User;
+import ru.bellintegrator.myproject.userdocs.model.UserDocs;
 
 public class UserView {
 
@@ -86,6 +90,20 @@ public class UserView {
         return "{; Firstname: " + firstName+ "; SecondName: " + secondName + "; midleName: " + midleName +
                 "; position: " + position + "; phone " + phone + ";docCode " + docCode + "; docName " + docName + "; docNumber :" + docNumber + "; docDate :" + docDate + "; citizenshipCode "
                 + citizenshipCode + "; citizenshipName: " + citizenshipName + "; isIdentified " + isIdentified + "}";
+    }
+
+    public User toConvertUserEntity(User user, UserDocs docs, Countries countries) {
+
+        user.setFirstName(firstName);
+        user.setSecondName(secondName);
+        user.setMidleName(midleName);
+        user.setPosition(position);
+        user.setPhone(phone);
+        user.setIdentified(isIdentified);
+        user.setUserDocs(docs);
+        user.setCountries(countries);
+
+        return user;
     }
 
     public void setId(String id){

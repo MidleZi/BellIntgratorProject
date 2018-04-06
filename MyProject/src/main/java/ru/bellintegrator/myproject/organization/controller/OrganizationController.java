@@ -5,7 +5,7 @@ import ru.bellintegrator.myproject.organization.model.Organization;
 import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
 import ru.bellintegrator.myproject.organization.view.OrganizationView;
 import ru.bellintegrator.myproject.utils.Response;
-import ru.bellintegrator.myproject.utils.ResponseViewData;
+//import ru.bellintegrator.myproject.utils.ResponseViewData;
 
 public interface OrganizationController {
 

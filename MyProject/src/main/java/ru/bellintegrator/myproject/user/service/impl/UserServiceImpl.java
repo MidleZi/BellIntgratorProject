@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
         view.id = String.valueOf(user.getId());
         view.firstName = String.valueOf(user.getFirstName());
         view.secondName = String.valueOf(user.getSecondName());
-        view.midleName = String.valueOf(user.getMidlleName());
+        view.midleName = String.valueOf(user.getMidleName());
         view.position = String.valueOf(user.getPosition());
         view.phone = String.valueOf(user.getPhone());
         view.docName = String.valueOf(user.getUserDocs().getDocs().getName());
@@ -121,9 +121,8 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void delete(Long id) {
-        UserView user = getUserById(id);
         logger.info("User deleted ID:" + id);
-        DAO.delete(user);
+        DAO.delete(id);
     }
 
 }

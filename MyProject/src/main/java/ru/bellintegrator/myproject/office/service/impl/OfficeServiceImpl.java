@@ -10,8 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.bellintegrator.myproject.office.dao.impl.OfficeDAOImpl;
 import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.office.service.OfficeService;
+import ru.bellintegrator.myproject.office.view.OfficeFilterView;
+import ru.bellintegrator.myproject.office.view.OfficeFilterViewList;
 import ru.bellintegrator.myproject.office.view.OfficeView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -32,24 +35,25 @@ public class OfficeServiceImpl implements OfficeService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<OfficeView> list() {
-        List<Office> all = DAO.list();
+    public List<OfficeFilterViewList> list(OfficeFilterView filterView) {
+        List<Office> orgs = DAO.list(filterView);
+        List<OfficeFilterViewList> outList = new ArrayList();
 
-        Function<Office, OfficeView> mapOffice = p->{
-            OfficeView view = new OfficeView();
-            view.name = p.getName();
-           // view.orgId = p.getOrganization();
-            view.isActive = p.getActive();
+        for (int i = 0; i < orgs.size() ; i++) {
+            OfficeFilterViewList listOut = new OfficeFilterViewList();
+            listOut.setId(orgs.get(i).getId());
+            listOut.setName(orgs.get(i).getName());
+            listOut.setActive(orgs.get(i).getActive());
 
-            logger.info(view.toString());
+            outList.add(i, listOut);
 
-            return view;
-        };
+        }
 
-        return all.stream()
-                .map(mapOffice)
-                .collect(Collectors.toList());
+        logger.info("Geted List" + outList );
+
+        return outList;
     }
+
 
     @Override
     @Transactional

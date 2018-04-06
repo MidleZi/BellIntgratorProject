@@ -35,7 +35,6 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     @Transactional(readOnly = true)
     public List<OrganizationFilterViewList> list(OrganizationFilterView filterView) {
-        //List<OrganizationView> result = new ArrayList<>();
         List<Organization> orgs = DAO.list(filterView);
         List<OrganizationFilterViewList> outList = new ArrayList();
 

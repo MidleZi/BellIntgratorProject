@@ -1,6 +1,7 @@
 package ru.bellintegrator.myproject.office.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.bellintegrator.myproject.organization.model.Organization;
 
@@ -8,6 +9,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "office")
+@NamedQuery(name = "Office.findAll", query = "SELECT p FROM Office p")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Office {
 
     @Id
@@ -100,7 +103,6 @@ public class Office {
         return phone;
     }
 
-    @JsonProperty(value = "isActive")
     public Boolean getActive() {
         return isActive;
     }

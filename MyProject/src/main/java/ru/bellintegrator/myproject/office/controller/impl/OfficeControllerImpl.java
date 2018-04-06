@@ -8,14 +8,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.bellintegrator.myproject.exceptions.OrganizationControllerException;
 import ru.bellintegrator.myproject.office.controller.OfficeController;
 import ru.bellintegrator.myproject.office.model.Office;
-import ru.bellintegrator.myproject.office.service.OfficeService;
 import ru.bellintegrator.myproject.office.service.impl.OfficeServiceImpl;
+import ru.bellintegrator.myproject.office.view.OfficeFilterView;
 import ru.bellintegrator.myproject.office.view.OfficeView;
-import ru.bellintegrator.myproject.organization.controller.impl.OrganizationControllerImpl;
-
-import java.util.List;
+import ru.bellintegrator.myproject.utils.Response;
+import ru.bellintegrator.myproject.utils.ResponseViewData;
+import ru.bellintegrator.myproject.utils.ResponseViewError;
 import java.util.logging.Logger;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -36,9 +37,24 @@ public class OfficeControllerImpl implements OfficeController {
 
     @Override
     @ApiOperation(value = "allOffice", nickname = "allOffice", httpMethod = "POST")
-    @RequestMapping(method = {GET})
-    public List<OfficeView> list(@RequestBody OfficeView view) {
-        return officeService.list();
+    @RequestMapping(value = "/list", method = {POST})
+    public Response list(@RequestBody OfficeFilterView view) {
+        try {
+            if(view.name == null) throw new OrganizationControllerException();
+            Object data = officeService.list(view);
+
+            logger.info("Geted List" + data );
+
+            return ResponseViewData.newBuilder()
+                    .setData(data)
+                    .build();
+
+
+        } catch (Throwable e) {
+            return ResponseViewError.newBuilder()
+                    .setError(e.getMessage())
+                    .build();
+        }
     }
 
     @Override
@@ -51,10 +67,6 @@ public class OfficeControllerImpl implements OfficeController {
 
     @Override
     @ApiOperation(value = "updateOffice", nickname = "updateOffice", httpMethod = "POST")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Success", response = String.class),
-            @ApiResponse(code = 404, message = "Not Found"),
-            @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/update", method = {POST})
     public void update(@RequestBody OfficeView view) {
         logger.info("Office update " + view.toString());

@@ -47,7 +47,8 @@ public class UserDAOImpl implements UserDAO {
         logger.info("User save " + user.toString());
     }
     @Override
-    public void delete(UserView user) {
+    public void delete(Long id) {
+        User user = em.find(User.class, id);
         logger.info("User deleted ID:" + user.getId());
         em.remove(user);
         //logger.info("User deleted ID:" + user.getId());

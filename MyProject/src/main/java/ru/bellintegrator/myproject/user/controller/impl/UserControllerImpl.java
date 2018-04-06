@@ -36,10 +36,6 @@ public class UserControllerImpl implements UserController {
 
 
     @ApiOperation(value = "allUser", nickname = "allUser", httpMethod = "POST")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Success", response = String.class),
-            @ApiResponse(code = 404, message = "Not Found"),
-            @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(method = {GET})
     public List<UserView> list(@RequestBody UserView view) {
         return userService.list();
@@ -47,10 +43,6 @@ public class UserControllerImpl implements UserController {
 
     @Override
     @ApiOperation(value = "getUser", nickname = "getUser", httpMethod = "GET")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Success", response = String.class),
-            @ApiResponse(code = 404, message = "Not Found"),
-            @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/{id}", method = {GET})
     public UserView getUserById(@PathVariable Long id) {
         logger.info("User get ID:" + id);
@@ -59,10 +51,6 @@ public class UserControllerImpl implements UserController {
 
     @Override
     @ApiOperation(value = "updateUser", nickname = "updateUser", httpMethod = "POST")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Success", response = String.class),
-            @ApiResponse(code = 404, message = "Not Found"),
-            @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/update", method = {POST})
     public void update(@RequestBody UserView view) {
          logger.info("User update " + view.toString());
@@ -71,10 +59,6 @@ public class UserControllerImpl implements UserController {
 
     @Override
     @ApiOperation(value = "saveUser", nickname = "saveUser", httpMethod = "POST")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Success", response = String.class),
-            @ApiResponse(code = 404, message = "Not Found"),
-            @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/save", method = {POST})
     public void save(@RequestBody UserView view) {
          logger.info("User save " + view.toString1());
@@ -83,10 +67,6 @@ public class UserControllerImpl implements UserController {
 
     @Override
     @ApiOperation(value = "deleteUser", nickname = "deleteUser", httpMethod = "DELETE")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Success", response = String.class),
-            @ApiResponse(code = 404, message = "Not Found"),
-            @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/{id}", method = {DELETE})
     public void delete(@PathVariable Long id) {
          logger.info("User deleted ID:" + id);

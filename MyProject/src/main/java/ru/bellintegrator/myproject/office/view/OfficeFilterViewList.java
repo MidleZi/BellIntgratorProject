@@ -1,11 +1,11 @@
-package ru.bellintegrator.myproject.organization.view;
+package ru.bellintegrator.myproject.office.view;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import io.swagger.annotations.ApiModelProperty;
 
-
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-public class OrganizationFilterViewList {
+public class OfficeFilterViewList {
+
 
     @ApiModelProperty(hidden = true)
 
@@ -15,12 +15,14 @@ public class OrganizationFilterViewList {
 
     private Boolean isActive;
 
-    public OrganizationFilterViewList() {
+    public OfficeFilterViewList() {
+
     }
 
-    public OrganizationFilterViewList(String name) {
+    public OfficeFilterViewList(String name) {
         this.name = name;
     }
+
 
     public void setId(Long id) {
         this.id = id;
@@ -38,4 +40,6 @@ public class OrganizationFilterViewList {
     public String toString() {
         return "{id:" + id + ";name:" + name + ";isActive : " + isActive + "}";
     }
+
+
 }

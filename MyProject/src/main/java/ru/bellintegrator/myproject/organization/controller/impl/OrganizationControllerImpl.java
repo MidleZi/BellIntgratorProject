@@ -13,6 +13,7 @@ import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
 import ru.bellintegrator.myproject.organization.view.OrganizationView;
 import ru.bellintegrator.myproject.organization.controller.OrganizationController;
 import ru.bellintegrator.myproject.utils.Response;
+//import ru.bellintegrator.myproject.utils.ResponseViewData;
 import ru.bellintegrator.myproject.utils.ResponseViewData;
 import ru.bellintegrator.myproject.utils.ResponseViewError;
 import ru.bellintegrator.myproject.utils.ResponseViewSuccess;
@@ -39,7 +40,7 @@ public class OrganizationControllerImpl implements OrganizationController {
     //не работает
     @Override
     @ApiOperation(value = "listOrganization", nickname = "listOrganization", httpMethod = "POST")
-    @RequestMapping(value = "list", method = {POST})
+    @RequestMapping(value = "/list", method = {POST})
     public Response list(@RequestBody OrganizationFilterView view) {
         try {
             if(view.name == null) throw new OrganizationControllerException();
@@ -60,7 +61,9 @@ public class OrganizationControllerImpl implements OrganizationController {
 
 
     }
-    //почти работает(сскорее всего ругается на id из-за автозаполнения, добавить OUT
+
+
+    //работает, добавить OUT
     @Override
     @ApiOperation(value = "getOrganization", nickname = "getOrganization", httpMethod = "GET")
     @RequestMapping(value = "/{id}", method = {GET})
