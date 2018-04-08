@@ -9,10 +9,7 @@ import java.util.List;
 
 public interface OrganizationService{
 
-    /**
-     * Organization service method
-     * @return {@Organization}
-     */
+
     List<OrganizationFilterViewList> list(OrganizationFilterView filterView);
 
     Organization getOrganizationById(Long id);

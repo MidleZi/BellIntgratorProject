@@ -1,9 +1,10 @@
 package ru.bellintegrator.myproject.user.controller;
 
-import ru.bellintegrator.myproject.user.model.User;
-import ru.bellintegrator.myproject.user.view.UserView;
 
-import java.util.List;
+import ru.bellintegrator.myproject.user.view.UserFilterView;
+import ru.bellintegrator.myproject.user.view.UserView;
+import ru.bellintegrator.myproject.utils.Response;
+
 
 public interface UserController {
 
@@ -11,13 +12,13 @@ public interface UserController {
      * Get all offices
      * @return JSON offices value
      */
-    List<UserView> list(UserView view);
+    Response list(UserFilterView view);
 
-    UserView getUserById(Long id);
+    Response getUserById(Long id);
 
-    void update(UserView view);
+    Response update(UserView view);
 
-    void save(UserView view);
+    Response save(UserView view);
 
-    void delete(Long id);
+    Response delete(Long id);
 }

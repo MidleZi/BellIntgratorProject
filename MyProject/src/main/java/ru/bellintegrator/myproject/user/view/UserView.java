@@ -6,7 +6,8 @@ import ru.bellintegrator.myproject.countries.Countries;
 import ru.bellintegrator.myproject.docs.Docs;
 import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.user.model.User;
-import ru.bellintegrator.myproject.userdocs.model.UserDocs;
+
+import java.util.Date;
 
 public class UserView {
 
@@ -34,7 +35,7 @@ public class UserView {
 
     public String docNumber;
 
-    public String docDate;
+    public Date docDate;
 
     public String citizenshipCode;
 
@@ -46,61 +47,49 @@ public class UserView {
 
     }
 
-    public UserView(String id, String firstName, String secondName, String midleName, String position, String phone,
-                         String docName, String docNumber, String docDate, String citizenshipCode, String citizenshipName, Boolean isIdentified) {
-        this.id = id;
-        this.firstName = firstName;
-        this.secondName = secondName;
-        this.midleName = midleName;
-        this.position = position;
-        this.phone = phone;
-        this.docName = docName;
-        this.docNumber = docNumber;
-        this.docDate = docDate;
-        this.citizenshipCode = citizenshipCode;
-        this.citizenshipName = citizenshipName;
-        this.isIdentified = isIdentified;
-    }
-
-    public UserView(String firstName, String secondName, String midleName, String position, String phone, Long docCode,
-                    String docName, String docNumber, String docDate, String citizenshipCode, String citizenshipName, Boolean isIdentified) {
-
-        this.firstName = firstName;
-        this.secondName = secondName;
-        this.midleName = midleName;
-        this.position = position;
-        this.phone = phone;
-        this.docCode = docCode;
-        this.docName = docName;
-        this.docNumber = docNumber;
-        this.docDate = docDate;
-        this.citizenshipCode = citizenshipCode;
-        this.citizenshipName = citizenshipName;
-        this.isIdentified = isIdentified;
-    }
-
     @Override
     public String toString() {
-        return "{id: " + id + /*"; office" + office.getName() +*/ "; Firstname: " + firstName+ "; SecondName: " + secondName + "; midleName: " + midleName +
+        return "{id: " + id + "; Firstname: " + firstName+ "; SecondName: " + secondName + "; midleName: " + midleName +
                 "; position: " + position + "; phone " + phone + "; docName " + docName + "; docNumber :" + docNumber + "; docDate :" + docDate + "; citizenshipCode "
                 + citizenshipCode + "; citizenshipName: " + citizenshipName + "; isIdentified " + isIdentified + "}";
     }
 
     public String toString1() {
-        return "{; Firstname: " + firstName+ "; SecondName: " + secondName + "; midleName: " + midleName +
+        return "{ Firstname: " + firstName+ "; SecondName: " + secondName + "; midleName: " + midleName +
                 "; position: " + position + "; phone " + phone + ";docCode " + docCode + "; docName " + docName + "; docNumber :" + docNumber + "; docDate :" + docDate + "; citizenshipCode "
                 + citizenshipCode + "; citizenshipName: " + citizenshipName + "; isIdentified " + isIdentified + "}";
     }
 
-    public User toConvertUserEntity(User user, UserDocs docs, Countries countries) {
+    public User toConvertUserEntity(User user, Docs docs, Countries countries) {
 
         user.setFirstName(firstName);
         user.setSecondName(secondName);
         user.setMidleName(midleName);
         user.setPosition(position);
         user.setPhone(phone);
+        user.setDocs(docs);
+        user.setDocNumber(docNumber);
+        user.setDocDate(docDate);
         user.setIdentified(isIdentified);
-        user.setUserDocs(docs);
+        user.setDocs(docs);
+        user.setCountries(countries);
+
+        return user;
+    }
+
+    public User toConvertUserEntity(Docs docs, Countries countries) {
+
+        User user = new User();
+
+        user.setFirstName(firstName);
+        user.setSecondName(secondName);
+        user.setMidleName(midleName);
+        user.setPosition(position);
+        user.setPhone(phone);
+        user.setDocNumber(docNumber);
+        user.setDocDate(docDate);
+        user.setIdentified(isIdentified);
+        user.setDocs(docs);
         user.setCountries(countries);
 
         return user;

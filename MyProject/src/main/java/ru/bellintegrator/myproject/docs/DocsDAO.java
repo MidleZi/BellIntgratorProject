@@ -1,12 +1,15 @@
 package ru.bellintegrator.myproject.docs;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import ru.bellintegrator.myproject.user.model.User;
-
+import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.List;
 
+@Repository
 public class DocsDAO {
 
     private final EntityManager em;
@@ -22,6 +25,18 @@ public class DocsDAO {
         List<Docs> result = query.getResultList();
 
         return result;
+    }
+
+
+    public Docs getDocumentByName(String name) {
+        CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaQuery<Docs> criteria = builder.createQuery(Docs.class);
+
+        Root<Docs> account = criteria.from(Docs.class);
+        criteria.where(builder.equal(account.get("name"), name));
+
+        TypedQuery<Docs> query = em.createQuery(criteria);
+        return query.getSingleResult();
     }
 
 

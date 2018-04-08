@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.bellintegrator.myproject.exceptions.OrganizationServiceException;
 import ru.bellintegrator.myproject.organization.dao.impl.OrganizationDAOImpl;
 import ru.bellintegrator.myproject.organization.service.OrganizationService;
 import ru.bellintegrator.myproject.organization.dao.OrganizationDAO;
@@ -12,11 +13,9 @@ import ru.bellintegrator.myproject.organization.model.Organization;
 import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
 import ru.bellintegrator.myproject.organization.view.OrganizationFilterViewList;
 import ru.bellintegrator.myproject.organization.view.OrganizationView;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
-import java.util.stream.Collectors;
+
 
 
 @Service
@@ -54,8 +53,10 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     @Transactional
     public Organization getOrganizationById (Long id) {
+        Organization org = DAO.getOrganizationById(id);
+        if(org == null) throw new OrganizationServiceException("Организации с id " + id + " не существует");
         logger.info("Organization get ID:" + id);
-        return DAO.getOrganizationById(id);
+        return org;
 
     }
 
@@ -65,6 +66,7 @@ public class OrganizationServiceImpl implements OrganizationService {
         Long id = view.id;
         Organization organization = DAO.getOrganizationById(id);
         organization = view.orgConvert(organization);
+        if(organization == null) throw new OrganizationServiceException("Организации с id " + id + " не существует");
         logger.info("update" + organization.toString());
         DAO.save(organization);
 
@@ -82,7 +84,8 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     @Transactional
     public void delete(Long id) {
-        //Organization organization = new Organization(id);
+        Organization org = DAO.getOrganizationById(id);
+        if(org == null) throw new OrganizationServiceException("Организации с id " + id + " не существует");
         DAO.delete(id);
         logger.info("Organization deleted ID:" + id);
     }

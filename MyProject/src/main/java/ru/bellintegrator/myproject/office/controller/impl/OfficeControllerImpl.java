@@ -1,16 +1,14 @@
 package ru.bellintegrator.myproject.office.controller.impl;
 
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.bellintegrator.myproject.exceptions.OfficeControllerException;
 import ru.bellintegrator.myproject.exceptions.OrganizationControllerException;
 import ru.bellintegrator.myproject.office.controller.OfficeController;
-import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.office.service.impl.OfficeServiceImpl;
 import ru.bellintegrator.myproject.office.view.OfficeFilterView;
 import ru.bellintegrator.myproject.office.view.OfficeView;
@@ -50,7 +48,8 @@ public class OfficeControllerImpl implements OfficeController {
                     .build();
 
 
-        } catch (Throwable e) {
+        }
+        catch (Throwable e) {
             return ResponseViewError.newBuilder()
                     .setError(e.getMessage())
                     .build();
@@ -60,40 +59,91 @@ public class OfficeControllerImpl implements OfficeController {
     @Override
     @ApiOperation(value = "getOffice", nickname = "getOffice", httpMethod = "GET")
     @RequestMapping(value = "/{id}", method = {GET})
-    public Office getOfficeById(@PathVariable Long id) {
-        logger.info("Office get ID:" + id);
-        return officeService.getOfficeById(id);
+    public Response getOfficeById(@PathVariable Long id) {
+
+        try {
+            if(id == null) throw new OfficeControllerException();
+            Object data = officeService.getOfficeById(id);
+
+            logger.info("Office get ID:" + id);
+
+            return ResponseViewData.newBuilder()
+                    .setData(data)
+                    .build();
+
+
+        }
+        catch (Throwable e) {
+            return ResponseViewError.newBuilder()
+                    .setError(e.getMessage())
+                    .build();
+        }
     }
 
     @Override
     @ApiOperation(value = "updateOffice", nickname = "updateOffice", httpMethod = "POST")
     @RequestMapping(value = "/update", method = {POST})
-    public void update(@RequestBody OfficeView view) {
+    public Response update(@RequestBody OfficeView view) {
         logger.info("Office update " + view.toString());
         officeService.update(view);
+
+        try {
+            if(view.id == null) throw new OfficeControllerException();
+            officeService.save(view);
+
+            logger.info("Office save " + view.toString());
+
+            return ResponseViewData.newBuilder()
+                    .setData("success")
+                    .build();
+        }
+        catch (Throwable e) {
+            return ResponseViewError.newBuilder()
+                    .setError(e.getMessage())
+                    .build();
+        }
     }
 
     @Override
     @ApiOperation(value = "saveOffice", nickname = "saveOffice", httpMethod = "POST")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Success", response = String.class),
-            @ApiResponse(code = 404, message = "Not Found"),
-            @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/save", method = {POST})
-    public void save(@RequestBody OfficeView view) {
-        logger.info("Office save " + view.toString());
-        officeService.save(view);
+    public Response save(@RequestBody OfficeView view) {
+
+        try {
+            officeService.save(view);
+
+            logger.info("Office save " + view.toString());
+
+            return ResponseViewData.newBuilder()
+                    .setData("success")
+                    .build();
+        }
+        catch (Throwable e) {
+            return ResponseViewError.newBuilder()
+                    .setError(e.getMessage())
+                    .build();
+        }
     }
 
     @Override
     @ApiOperation(value = "deleteOffice", nickname = "deleteOffice", httpMethod = "DELETE")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Success", response = String.class),
-            @ApiResponse(code = 404, message = "Not Found"),
-            @ApiResponse(code = 500, message = "Failure")})
     @RequestMapping(value = "/{id}", method = {DELETE})
-    public void delete(@PathVariable Long id) {
-        logger.info("Office deleted ID:" + id);
-         officeService.delete(id);
+    public Response delete(@PathVariable Long id) {
+
+        try {
+            if(id == null) throw new OfficeControllerException();
+            officeService.delete(id);
+
+            logger.info("Office deleted ID:" + id);
+
+            return ResponseViewData.newBuilder()
+                    .setData("success")
+                    .build();
+        }
+        catch (Throwable e) {
+            return ResponseViewError.newBuilder()
+                    .setError(e.getMessage())
+                    .build();
+        }
     }
 }

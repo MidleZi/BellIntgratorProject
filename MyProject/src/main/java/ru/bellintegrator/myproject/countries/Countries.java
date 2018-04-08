@@ -6,11 +6,15 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "countries")
+@NamedQuery(name = "Countries.findAll", query = "SELECT p FROM Countries p")
 public class Countries {
 
     @Id
     @Column(name = "code")
     private Long code;
+
+    @Version
+    private Integer version;
 
     @Basic(optional = false)
     @Column(name = "name")

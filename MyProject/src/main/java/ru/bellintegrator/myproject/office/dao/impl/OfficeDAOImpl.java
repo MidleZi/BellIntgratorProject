@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import ru.bellintegrator.myproject.office.dao.OfficeDAO;
 import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.office.view.OfficeFilterView;
-import ru.bellintegrator.myproject.organization.model.Organization;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;

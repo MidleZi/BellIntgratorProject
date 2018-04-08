@@ -1,22 +1,20 @@
 package ru.bellintegrator.myproject.user.controller.impl;
-//преобразовать энтити во вью
+
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.bellintegrator.myproject.organization.controller.impl.OrganizationControllerImpl;
+import ru.bellintegrator.myproject.exceptions.UserControllerException;
 import ru.bellintegrator.myproject.user.controller.UserController;
-import ru.bellintegrator.myproject.user.model.User;
 import ru.bellintegrator.myproject.user.service.UserService;
+import ru.bellintegrator.myproject.user.view.UserFilterView;
 import ru.bellintegrator.myproject.user.view.UserView;
-
-import java.util.List;
+import ru.bellintegrator.myproject.utils.Response;
+import ru.bellintegrator.myproject.utils.ResponseViewData;
+import ru.bellintegrator.myproject.utils.ResponseViewError;
 import java.util.logging.Logger;
-
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -36,41 +34,112 @@ public class UserControllerImpl implements UserController {
 
 
     @ApiOperation(value = "allUser", nickname = "allUser", httpMethod = "POST")
-    @RequestMapping(method = {GET})
-    public List<UserView> list(@RequestBody UserView view) {
-        return userService.list();
+    @RequestMapping(value = "/list", method = {POST})
+    public Response list(@RequestBody UserFilterView view) {
+        try {
+            if(view.officeId == null) throw new UserControllerException();
+            Object data = userService.list(view);
+
+            logger.info("Geted List" + data );
+
+            return ResponseViewData.newBuilder()
+                    .setData(data)
+                    .build();
+
+
+        } catch (Throwable e) {
+            return ResponseViewError.newBuilder()
+                    .setError(e.getMessage())
+                    .build();
+        }
     }
 
     @Override
     @ApiOperation(value = "getUser", nickname = "getUser", httpMethod = "GET")
     @RequestMapping(value = "/{id}", method = {GET})
-    public UserView getUserById(@PathVariable Long id) {
-        logger.info("User get ID:" + id);
-        return userService.getUserById(id);
+    public Response getUserById(@PathVariable Long id) {
+        try {
+            logger.info("User get ID:" + id);
+            Object data = userService.getUserById(id);
+
+            return ResponseViewData.newBuilder()
+                    .setData(data)
+                    .build();
+
+
+        }
+        catch (Throwable e) {
+            return ResponseViewError.newBuilder()
+                    .setError(e.getMessage())
+                    .build();
+        }
     }
+
 
     @Override
     @ApiOperation(value = "updateUser", nickname = "updateUser", httpMethod = "POST")
     @RequestMapping(value = "/update", method = {POST})
-    public void update(@RequestBody UserView view) {
-         logger.info("User update " + view.toString());
-         userService.update(view);
+    public Response update(@RequestBody UserView view) {
+
+        try {
+            logger.info("User update " + view.toString());
+            userService.update(view);
+
+            return ResponseViewData.newBuilder()
+                    .setData("success")
+                    .build();
+
+
+        }
+        catch (Throwable e) {
+            return ResponseViewError.newBuilder()
+                    .setError(e.getMessage())
+                    .build();
+        }
     }
 
     @Override
     @ApiOperation(value = "saveUser", nickname = "saveUser", httpMethod = "POST")
     @RequestMapping(value = "/save", method = {POST})
-    public void save(@RequestBody UserView view) {
-         logger.info("User save " + view.toString1());
-         userService.save(view);
+    public Response save(@RequestBody UserView view) {
+
+        try {
+            logger.info("User save " + view.toString1());
+            userService.save(view);
+
+            return ResponseViewData.newBuilder()
+                    .setData("success")
+                    .build();
+
+
+        }
+        catch (Throwable e) {
+            return ResponseViewError.newBuilder()
+                    .setError(e.getMessage())
+                    .build();
+        }
     }
 
     @Override
     @ApiOperation(value = "deleteUser", nickname = "deleteUser", httpMethod = "DELETE")
     @RequestMapping(value = "/{id}", method = {DELETE})
-    public void delete(@PathVariable Long id) {
-         logger.info("User deleted ID:" + id);
-         userService.delete(id);
+    public Response delete(@PathVariable Long id) {
+
+        try {
+            logger.info("User get ID:" + id);
+            Object data = userService.getUserById(id);
+            userService.delete(id);
+            return ResponseViewData.newBuilder()
+                    .setData("success")
+                    .build();
+
+
+        }
+        catch (Throwable e) {
+            return ResponseViewError.newBuilder()
+                    .setError(e.getMessage())
+                    .build();
+        }
     }
 }
 

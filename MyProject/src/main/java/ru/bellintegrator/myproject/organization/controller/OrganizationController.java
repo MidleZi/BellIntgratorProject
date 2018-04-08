@@ -1,11 +1,10 @@
 package ru.bellintegrator.myproject.organization.controller;
 
 
-import ru.bellintegrator.myproject.organization.model.Organization;
 import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
 import ru.bellintegrator.myproject.organization.view.OrganizationView;
 import ru.bellintegrator.myproject.utils.Response;
-//import ru.bellintegrator.myproject.utils.ResponseViewData;
+
 
 public interface OrganizationController {
 
@@ -15,11 +14,11 @@ public interface OrganizationController {
      */
     Response list(OrganizationFilterView view);
 
-    Organization getOrganizationById(Long id);
+    Response getOrganizationById(Long id);
 
-    void update(OrganizationView view);
+    Response update(OrganizationView view);
 
-    void save(OrganizationView view);
+    Response save(OrganizationView view);
 
-    void delete(Long id);
+    Response delete(Long id);
 }

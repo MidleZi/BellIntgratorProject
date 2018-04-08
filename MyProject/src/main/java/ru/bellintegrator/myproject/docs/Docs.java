@@ -5,12 +5,16 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "docs")
+@NamedQuery(name = "Docs.findAll", query = "SELECT p FROM Docs p")
 public class Docs {
 
     @Id
     @Basic(optional = false)
     @Column(name = "code")
     private String code;
+
+    @Version
+    private Integer version;
 
     @Basic(optional = false)
     @Column(name = "name")
@@ -19,8 +23,8 @@ public class Docs {
     public Docs(){}
 
 
-    public Docs(String docName){
-        this.name = docName;
+    public Docs(String name){
+        this.name = name;
     }
 
 

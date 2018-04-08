@@ -3,10 +3,10 @@ package ru.bellintegrator.myproject.user.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.bellintegrator.myproject.countries.Countries;
+import ru.bellintegrator.myproject.docs.Docs;
 import ru.bellintegrator.myproject.office.model.Office;
-import ru.bellintegrator.myproject.userdocs.model.UserDocs;
-
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "users")
@@ -21,6 +21,9 @@ public class User {
     @ManyToOne(fetch = FetchType.LAZY, cascade ={CascadeType.REMOVE})
     @JoinColumn(name = "officeid")
     private Office office;
+
+    @Version
+    private Integer version;
 
     @Basic(optional = false)
     @Column(name = "firstname")
@@ -42,10 +45,16 @@ public class User {
     @Column(name = "phone")
     private String phone;
 
-    @MapsId
-    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.REMOVE})
-    @JoinColumn(name = "userdoc")
-    private UserDocs userDocs;
+    @Column(name = "docnumber")
+    private String docNumber;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "docdate")
+    private Date docDate;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "doctype")
+    private Docs docs;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "citizenshipcode")
@@ -63,27 +72,26 @@ public class User {
     }
 
     public User(Long id, String firstName, String secondName, String midleName, String position,
-                String phone,UserDocs userDocs, Countries countries, Boolean isIdentified) {
+                String phone,Docs docs, Countries countries, Boolean isIdentified) {
         this.id =id;
-        this.office = office;
         this.firstName = firstName;
         this.secondName = secondName;
         this.midleName = midleName;
         this.position = position;
         this.phone = phone;
-        this.userDocs = userDocs;
+        this.docs = docs;
         this.countries = countries;
         this.isIdentified = isIdentified;
     }
 
-    public User(String firstName, String secondName, String midleName, String position, String phone, UserDocs userDocs,
+    public User(String firstName, String secondName, String midleName, String position, String phone, Docs docs,
                 Countries countries, Boolean isIdentified) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.midleName = midleName;
         this.position = position;
         this.phone = phone;
-        this.userDocs = userDocs;
+        this.docs = docs;
         this.countries = countries;
         this.isIdentified = isIdentified;
     }
@@ -104,8 +112,8 @@ public class User {
           builder.append(getPosition());
           builder.append(";phone:");
           builder.append(getPhone());
-          builder.append(";userDoc:");
-          builder.append(getUserDocs());
+          builder.append(";doctype:");
+          builder.append(getDocs());
           builder.append(";countries:");
           builder.append(getCountries());
           builder.append(";isIdentified:");
@@ -143,8 +151,17 @@ public class User {
         return phone;
     }
 
-    public UserDocs getUserDocs(){
-        return userDocs;}
+    public Docs getDocs(){
+        return docs;
+    }
+
+    public String getDocNumber() {
+        return docNumber;
+    }
+
+    public Date getDocDate() {
+        return docDate;
+    }
 
     public Countries getCountries() {
         return countries;
@@ -183,8 +200,16 @@ public class User {
         this.phone = phone;
     }
 
-    public void setUserDocs(UserDocs userDocs) {
-        this.userDocs = userDocs;
+    public void setDocs(Docs docs) {
+        this.docs = docs;
+    }
+
+    public void setDocNumber(String docNumber) {
+        this.docNumber = docNumber;
+    }
+
+    public void setDocDate(Date docDate) {
+        this.docDate = docDate;
     }
 
     public void setCountries(Countries countries) {

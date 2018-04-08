@@ -1,18 +1,13 @@
 package ru.bellintegrator.myproject.user.service;
 
-import ru.bellintegrator.myproject.user.model.User;
+import ru.bellintegrator.myproject.user.view.UserFilterView;
+import ru.bellintegrator.myproject.user.view.UserFilterViewList;
 import ru.bellintegrator.myproject.user.view.UserView;
-
 import java.util.List;
 
 public interface UserService {
 
-    /**
-     * Organization service method
-     * @return {@User}
-     */
-    List<UserView> list();
-
+    public List<UserFilterViewList> list(UserFilterView filterView);
 
     UserView getUserById(Long id);
 

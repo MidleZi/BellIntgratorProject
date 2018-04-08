@@ -2,7 +2,6 @@ package ru.bellintegrator.myproject.office.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.bellintegrator.myproject.organization.model.Organization;
 
 import javax.persistence.*;
@@ -17,6 +16,9 @@ public class Office {
     @GeneratedValue
     @Column(name = "id")
     private Long id;
+
+    @Version
+    private Integer version;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.REMOVE})

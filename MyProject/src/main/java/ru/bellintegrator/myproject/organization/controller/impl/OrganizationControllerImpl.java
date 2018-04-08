@@ -7,17 +7,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.bellintegrator.myproject.exceptions.OrganizationControllerException;
-import ru.bellintegrator.myproject.organization.model.Organization;
 import ru.bellintegrator.myproject.organization.service.impl.OrganizationServiceImpl;
 import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
 import ru.bellintegrator.myproject.organization.view.OrganizationView;
 import ru.bellintegrator.myproject.organization.controller.OrganizationController;
 import ru.bellintegrator.myproject.utils.Response;
-//import ru.bellintegrator.myproject.utils.ResponseViewData;
 import ru.bellintegrator.myproject.utils.ResponseViewData;
 import ru.bellintegrator.myproject.utils.ResponseViewError;
-import ru.bellintegrator.myproject.utils.ResponseViewSuccess;
-
 import java.util.logging.Logger;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -37,7 +33,7 @@ public class OrganizationControllerImpl implements OrganizationController {
         this.organizationService = organizationService;
     }
 
-    //не работает
+
     @Override
     @ApiOperation(value = "listOrganization", nickname = "listOrganization", httpMethod = "POST")
     @RequestMapping(value = "/list", method = {POST})
@@ -62,44 +58,91 @@ public class OrganizationControllerImpl implements OrganizationController {
 
     }
 
-
-    //работает, добавить OUT
     @Override
     @ApiOperation(value = "getOrganization", nickname = "getOrganization", httpMethod = "GET")
     @RequestMapping(value = "/{id}", method = {GET})
-    public Organization getOrganizationById(@PathVariable Long id){
+    public Response getOrganizationById(@PathVariable Long id){
         logger.info("Organization get ID:" + id);
-        return organizationService.getOrganizationById(id);
+
+        try {
+            if(id == null) throw new OrganizationControllerException();
+            Object data = organizationService.getOrganizationById(id);
+            logger.info("Organization deleted ID:" + id);
+
+            return ResponseViewData.newBuilder()
+                    .setData(data)
+                    .build();
+
+
+        } catch (Throwable e) {
+            return ResponseViewError.newBuilder()
+                    .setError(e.getMessage())
+                    .build();
+        }
 
     }
-    //работает, добавить OUT
+
     @Override
     @ApiOperation(value = "updateOrganization", nickname = "updateOrganization", httpMethod = "POST")
     @RequestMapping(value = "/update", method = {POST})
-    public void update(@RequestBody OrganizationView view){
-        logger.info("Organization update " + view.toString());
-        organizationService.update(view);
+    public Response update(@RequestBody OrganizationView view){
+
+        try {
+            if(view.id == null) throw new OrganizationControllerException();
+            organizationService.update(view);;
+            logger.info("Organization update " + view.toString());
+
+            return ResponseViewData.newBuilder()
+                    .setData("success")
+                    .build();
+
+
+        } catch (Throwable e) {
+            return ResponseViewError.newBuilder()
+                    .setError(e.getMessage())
+                    .build();
+        }
     }
-    //работает, добавить OUT
+
     @Override
     @ApiOperation(value = "saveOrganization", nickname = "saveOrganization", httpMethod = "POST")
     @RequestMapping(value = "/save", method = {POST})
-    public void save(@RequestBody OrganizationView view){
-         logger.info("Organization save" + view.toString());
-         organizationService.save(view);
+    public Response save(@RequestBody OrganizationView view) {
 
-       /* Object data;
-        return ResponseViewSuccess.newBuilder()
-                .setData(data)
-                .build();*/
+        try {
+            organizationService.save(view);
+            logger.info("Organization save" + view.toString());
+
+            return ResponseViewData.newBuilder()
+                    .setData("success")
+                    .build();
+        }
+        catch (Throwable e) {
+            return ResponseViewError.newBuilder()
+                    .setError(e.getMessage())
+                    .build();
+        }
 
     }
-    //работает, добавить OUT
+
     @Override
     @ApiOperation(value = "deleteOrganization", nickname = "deleteOrganization", httpMethod = "DELETE")
     @RequestMapping(value = "/{id}", method = {DELETE})
-    public void delete (@PathVariable Long id){
-        organizationService.delete(id);
-        logger.info("Organization deleted ID:" + id);
+    public Response delete (@PathVariable Long id){
+        try {
+            if(id == null) throw new OrganizationControllerException();
+            organizationService.delete(id);
+            logger.info("Organization deleted ID:" + id);
+
+            return ResponseViewData.newBuilder()
+                    .setData("success")
+                    .build();
+
+
+        } catch (Throwable e) {
+            return ResponseViewError.newBuilder()
+                    .setError(e.getMessage())
+                    .build();
+        }
     }
 }

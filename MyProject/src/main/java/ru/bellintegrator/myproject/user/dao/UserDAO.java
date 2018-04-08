@@ -1,13 +1,14 @@
 package ru.bellintegrator.myproject.user.dao;
 
 import ru.bellintegrator.myproject.user.model.User;
-import ru.bellintegrator.myproject.user.view.UserView;
-
+import ru.bellintegrator.myproject.user.view.UserFilterView;
 import java.util.List;
 
 public interface UserDAO {
 
-    List<User> list();
+    List<User> getAllUser();
+
+    List<User> list(UserFilterView filter);
 
     User getUserById(Long id);
 

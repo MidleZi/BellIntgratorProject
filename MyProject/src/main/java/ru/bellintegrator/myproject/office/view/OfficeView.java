@@ -1,8 +1,6 @@
 package ru.bellintegrator.myproject.office.view;
 
 import io.swagger.annotations.ApiModelProperty;
-import org.springframework.web.bind.annotation.PathVariable;
-import ru.bellintegrator.myproject.organization.model.Organization;
 
 public class OfficeView {
 

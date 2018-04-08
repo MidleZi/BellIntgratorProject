@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.organization.view.OrganizationView;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -20,6 +19,9 @@ public class Organization {
     @GeneratedValue
     @Column(name = "id")
     private Long id;
+
+    @Version
+    private Integer version;
 
     @Basic(optional = false)
     @Column(name = "name")
@@ -97,16 +99,6 @@ public class Organization {
         return view;
     }
 
-    public OrganizationView convertOrgToViewFilter() {
-        OrganizationView view = new OrganizationView();
-
-        view.id = id;
-        view.name = name;
-        view.isActive = isActive;
-
-        return view;
-    }
-
     public Long getId(){
         return id;
     }
@@ -143,8 +135,6 @@ public class Organization {
     public Boolean getActive() {
         return isActive;
     }
-
-    //public void setId(Long id){this.id = id;}
 
     public void setName(String name) {
         this.name = name;
