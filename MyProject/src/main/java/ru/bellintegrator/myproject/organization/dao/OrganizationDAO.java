@@ -8,6 +8,8 @@ public interface OrganizationDAO {
 
     List<Organization> getAllOrganizations();
 
+    Organization getOrganizationByName(String name);
+
     List<Organization> list(OrganizationFilterView filter);
 
     Organization getOrganizationById(Long id);

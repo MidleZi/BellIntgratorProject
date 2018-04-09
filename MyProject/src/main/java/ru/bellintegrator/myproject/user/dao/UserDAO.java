@@ -8,6 +8,8 @@ public interface UserDAO {
 
     List<User> getAllUser();
 
+    User getUserByName(String name);
+
     List<User> list(UserFilterView filter);
 
     User getUserById(Long id);

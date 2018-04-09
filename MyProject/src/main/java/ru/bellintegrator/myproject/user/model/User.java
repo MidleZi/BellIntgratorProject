@@ -96,6 +96,10 @@ public class User {
         this.isIdentified = isIdentified;
     }
 
+    public User(String firstName) {
+        this.firstName = firstName;
+    }
+
     public String toString() {
           StringBuilder builder = new StringBuilder();
           builder.append("{id:");

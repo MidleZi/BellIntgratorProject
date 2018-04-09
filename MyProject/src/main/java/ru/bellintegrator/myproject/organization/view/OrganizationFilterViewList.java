@@ -22,6 +22,10 @@ public class OrganizationFilterViewList {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }

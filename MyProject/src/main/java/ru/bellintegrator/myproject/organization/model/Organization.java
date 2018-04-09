@@ -84,6 +84,10 @@ public class Organization {
         this.id = id;
     }
 
+    public Organization(String name) {
+        this.name = name;
+    }
+
     public OrganizationView convertOrgToView() {
         OrganizationView view = new OrganizationView();
 

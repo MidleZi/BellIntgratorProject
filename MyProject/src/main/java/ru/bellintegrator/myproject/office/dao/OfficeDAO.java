@@ -11,6 +11,8 @@ public interface OfficeDAO {
 
     List<Office> list(OfficeFilterView filter);
 
+    public Office getOfficeByName(String name);
+
     Office getOfficeById(Long id);
 
     void update(Office office);

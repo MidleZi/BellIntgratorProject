@@ -27,6 +27,10 @@ public class Countries {
         this. name = name;
     }
 
+    public Countries(String name) {
+        this.name = name;
+    }
+
     public Long getCode() {
         return code;
     }

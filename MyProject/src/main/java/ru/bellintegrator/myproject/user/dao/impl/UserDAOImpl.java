@@ -35,6 +35,18 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
+    public User getUserByName(String name) {
+        CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaQuery<User> criteria = builder.createQuery(User.class);
+
+        Root<User> user = criteria.from(User.class);
+        criteria.where(builder.equal(user.get("firstName"), name));
+
+        TypedQuery<User> query = em.createQuery(criteria);
+        return query.getSingleResult();
+    }
+
+    @Override
     public List<User> list(UserFilterView filter){
         UserDAOImpl.UserCriteriaConverter converter = new UserDAOImpl.UserCriteriaConverter(filter);
         CriteriaQuery cq = converter.getCriteriaQuery();

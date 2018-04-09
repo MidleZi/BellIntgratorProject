@@ -18,6 +18,8 @@ public class UserView {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public Office office;
 
+    public String officeId;
+
     public String firstName;
 
     public String secondName;
@@ -45,6 +47,17 @@ public class UserView {
 
     public UserView() {
 
+    }
+
+    public UserView(String fistName, String officeId) {
+        this.firstName = fistName;
+        this.officeId = officeId;
+    }
+
+    public UserView(String id, String firstName, String officeId) {
+        this.id = id;
+        this.firstName = firstName;
+        this.officeId = officeId;
     }
 
     @Override

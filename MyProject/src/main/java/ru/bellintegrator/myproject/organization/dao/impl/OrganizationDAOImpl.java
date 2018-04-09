@@ -37,6 +37,18 @@ public class OrganizationDAOImpl implements OrganizationDAO {
     }
 
     @Override
+    public Organization getOrganizationByName(String name) {
+        CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaQuery<Organization> criteria = builder.createQuery(Organization.class);
+
+        Root<Organization> organization = criteria.from(Organization.class);
+        criteria.where(builder.equal(organization.get("name"), name));
+
+        TypedQuery<Organization> query = em.createQuery(criteria);
+        return query.getSingleResult();
+    }
+
+    @Override
     public List<Organization> list(OrganizationFilterView filter) {
         OrgCriteriaConverter converter = new OrgCriteriaConverter(filter);
         CriteriaQuery cq = converter.getCriteriaQuery();

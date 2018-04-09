@@ -36,6 +36,18 @@ public class OfficeDAOImpl implements OfficeDAO {
     }
 
     @Override
+    public Office getOfficeByName(String name) {
+        CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaQuery<Office> criteria = builder.createQuery(Office.class);
+
+        Root<Office> office = criteria.from(Office.class);
+        criteria.where(builder.equal(office.get("name"), name));
+
+        TypedQuery<Office> query = em.createQuery(criteria);
+        return query.getSingleResult();
+    }
+
+    @Override
     public List<Office> list(OfficeFilterView filter){
         OfficeCriteriaConverter converter = new OfficeCriteriaConverter(filter);
         CriteriaQuery cq = converter.getCriteriaQuery();

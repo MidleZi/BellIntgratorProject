@@ -62,6 +62,10 @@ public class Office {
         this.id = id;
     }
 
+    public Office(String name) {
+        this.name = name;
+    }
+
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("{id:");

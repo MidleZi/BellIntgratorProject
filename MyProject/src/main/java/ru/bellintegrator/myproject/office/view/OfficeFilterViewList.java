@@ -36,6 +36,10 @@ public class OfficeFilterViewList {
         isActive = active;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return "{id:" + id + ";name:" + name + ";isActive : " + isActive + "}";
