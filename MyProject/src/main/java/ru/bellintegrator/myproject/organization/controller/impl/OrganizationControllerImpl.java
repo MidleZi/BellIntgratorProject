@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.bellintegrator.myproject.exceptions.OrganizationControllerException;
+import ru.bellintegrator.myproject.utils.ControllerException;
 import ru.bellintegrator.myproject.organization.service.impl.OrganizationServiceImpl;
 import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
 import ru.bellintegrator.myproject.organization.view.OrganizationView;
@@ -39,7 +39,7 @@ public class OrganizationControllerImpl implements OrganizationController {
     @RequestMapping(value = "/list", method = {POST})
     public Response list(@RequestBody OrganizationFilterView view) {
         try {
-            if(view.name == null) throw new OrganizationControllerException();
+            if(view.name == null) throw new ControllerException();
             Object data = organizationService.list(view);
 
             logger.info("Geted List" + data );
@@ -65,7 +65,7 @@ public class OrganizationControllerImpl implements OrganizationController {
         logger.info("Organization get ID:" + id);
 
         try {
-            if(id == null) throw new OrganizationControllerException();
+            if(id == null) throw new ControllerException();
             Object data = organizationService.getOrganizationById(id);
             logger.info("Organization deleted ID:" + id);
 
@@ -88,7 +88,7 @@ public class OrganizationControllerImpl implements OrganizationController {
     public Response update(@RequestBody OrganizationView view){
 
         try {
-            if(view.id == null) throw new OrganizationControllerException();
+            if(view.id == null) throw new ControllerException();
             organizationService.update(view);;
             logger.info("Organization update " + view.toString());
 
@@ -130,7 +130,7 @@ public class OrganizationControllerImpl implements OrganizationController {
     @RequestMapping(value = "/{id}", method = {DELETE})
     public Response delete (@PathVariable Long id){
         try {
-            if(id == null) throw new OrganizationControllerException();
+            if(id == null) throw new ControllerException();
             organizationService.delete(id);
             logger.info("Organization deleted ID:" + id);
 

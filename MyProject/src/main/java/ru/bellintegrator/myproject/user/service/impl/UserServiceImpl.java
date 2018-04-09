@@ -1,5 +1,6 @@
 package ru.bellintegrator.myproject.user.service.impl;
 
+import org.hibernate.service.spi.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,6 @@ import ru.bellintegrator.myproject.countries.Countries;
 import ru.bellintegrator.myproject.countries.CountriesDAO;
 import ru.bellintegrator.myproject.docs.Docs;
 import ru.bellintegrator.myproject.docs.DocsDAO;
-import ru.bellintegrator.myproject.exceptions.UserServiceException;
 import ru.bellintegrator.myproject.office.dao.impl.OfficeDAOImpl;
 import ru.bellintegrator.myproject.user.dao.impl.UserDAOImpl;
 import ru.bellintegrator.myproject.user.model.User;
@@ -70,7 +70,7 @@ public class UserServiceImpl implements UserService {
         UserView view = new UserView();
         User user = DAO.getUserById(id);
 
-        if(user == null) throw new UserServiceException("Сотрудника с  id " + id + " не существует");
+        if(user == null) throw new ServiceException("Сотрудника с  id " + id + " не существует");
 
         view.id = String.valueOf(user.getId());
         view.firstName = String.valueOf(user.getFirstName());
@@ -94,10 +94,10 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void update(UserView view) {
         Long updateID = Long.parseLong(view.id);
-        if (updateID == null) throw new UserServiceException("Не указан id");
+        if (updateID == null) throw new ServiceException("Не указан id");
 
         User user = DAO.getUserById(updateID);
-        if (user == null) throw new UserServiceException("Сотрудника с ID " + updateID + " нету в базе");
+        if (user == null) throw new ServiceException("Сотрудника с ID " + updateID + " нету в базе");
 
         Docs docs = null;
         if (view.docName != null) {
@@ -160,6 +160,8 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void delete(Long id) {
+        User user = DAO.getUserById(id);
+        if(user == null) throw new ServiceException("Сотрудника с id " + id + " не существует");
         logger.info("User deleted ID:" + id);
         DAO.delete(id);
     }

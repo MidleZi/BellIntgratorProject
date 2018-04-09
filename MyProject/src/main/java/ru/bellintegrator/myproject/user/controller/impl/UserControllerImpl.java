@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.bellintegrator.myproject.exceptions.UserControllerException;
+import ru.bellintegrator.myproject.utils.ControllerException;
 import ru.bellintegrator.myproject.user.controller.UserController;
 import ru.bellintegrator.myproject.user.service.UserService;
 import ru.bellintegrator.myproject.user.view.UserFilterView;
@@ -37,7 +37,7 @@ public class UserControllerImpl implements UserController {
     @RequestMapping(value = "/list", method = {POST})
     public Response list(@RequestBody UserFilterView view) {
         try {
-            if(view.officeId == null) throw new UserControllerException();
+            if(view.officeId == null) throw new ControllerException();
             Object data = userService.list(view);
 
             logger.info("Geted List" + data );
@@ -59,8 +59,9 @@ public class UserControllerImpl implements UserController {
     @RequestMapping(value = "/{id}", method = {GET})
     public Response getUserById(@PathVariable Long id) {
         try {
-            logger.info("User get ID:" + id);
+            if(id == null) throw new ControllerException();
             Object data = userService.getUserById(id);
+            logger.info("User get ID:" + id);
 
             return ResponseViewData.newBuilder()
                     .setData(data)
@@ -82,8 +83,9 @@ public class UserControllerImpl implements UserController {
     public Response update(@RequestBody UserView view) {
 
         try {
-            logger.info("User update " + view.toString());
+            if(view.id == null) throw new ControllerException();
             userService.update(view);
+            logger.info("User update " + view.toString());
 
             return ResponseViewData.newBuilder()
                     .setData("success")
@@ -126,9 +128,9 @@ public class UserControllerImpl implements UserController {
     public Response delete(@PathVariable Long id) {
 
         try {
-            logger.info("User get ID:" + id);
-            Object data = userService.getUserById(id);
+            if(id == null) throw new ControllerException();
             userService.delete(id);
+            logger.info("User get ID:" + id);
             return ResponseViewData.newBuilder()
                     .setData("success")
                     .build();

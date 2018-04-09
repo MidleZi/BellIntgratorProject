@@ -6,8 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.bellintegrator.myproject.exceptions.OfficeControllerException;
-import ru.bellintegrator.myproject.exceptions.OrganizationControllerException;
+import ru.bellintegrator.myproject.utils.ControllerException;
 import ru.bellintegrator.myproject.office.controller.OfficeController;
 import ru.bellintegrator.myproject.office.service.impl.OfficeServiceImpl;
 import ru.bellintegrator.myproject.office.view.OfficeFilterView;
@@ -38,7 +37,7 @@ public class OfficeControllerImpl implements OfficeController {
     @RequestMapping(value = "/list", method = {POST})
     public Response list(@RequestBody OfficeFilterView view) {
         try {
-            if(view.name == null) throw new OrganizationControllerException();
+            if(view.name == null) throw new ControllerException();
             Object data = officeService.list(view);
 
             logger.info("Geted List" + data );
@@ -62,7 +61,7 @@ public class OfficeControllerImpl implements OfficeController {
     public Response getOfficeById(@PathVariable Long id) {
 
         try {
-            if(id == null) throw new OfficeControllerException();
+            if(id == null) throw new ControllerException();
             Object data = officeService.getOfficeById(id);
 
             logger.info("Office get ID:" + id);
@@ -88,7 +87,7 @@ public class OfficeControllerImpl implements OfficeController {
         officeService.update(view);
 
         try {
-            if(view.id == null) throw new OfficeControllerException();
+            if(view.id == null) throw new ControllerException();
             officeService.save(view);
 
             logger.info("Office save " + view.toString());
@@ -131,7 +130,7 @@ public class OfficeControllerImpl implements OfficeController {
     public Response delete(@PathVariable Long id) {
 
         try {
-            if(id == null) throw new OfficeControllerException();
+            if(id == null) throw new ControllerException();
             officeService.delete(id);
 
             logger.info("Office deleted ID:" + id);

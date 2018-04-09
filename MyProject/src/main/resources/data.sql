@@ -1,5 +1,5 @@
-INSERT INTO `authusers` (`login`, `version`, `password`) VALUES ('admin', '0', 'admin');
-INSERT INTO `authusers` (`login`, `version`, `password`) VALUES ('user', '0', 'user');
+INSERT INTO `account` ( `name`, `login`, `version`, `password`) VALUES ( 'admin', 'admin', '0', 'admin');
+INSERT INTO `account` ( `name`, `login`, `version`, `password`) VALUES ('user', 'user', '0', 'user');
 
 INSERT INTO `countries` (`code`, `version`, `name`) VALUES ('643', '0', 'Российская Федерация');
 INSERT INTO `countries` (`code`, `version`, `name`) VALUES ('860', '0', 'Республика Узбекистан');
@@ -33,12 +33,3 @@ INSERT INTO `users` (`version`, `officeid`, `firstname`, `secondname`, `middlena
 INSERT INTO `users` (`version`, `officeid`, `firstname`, `secondname`, `middlename`, `position`, `phone`, `doctype`, `docnumber`, `docdate`, `citizenshipcode`, `isidentified`) VALUES ('0', '3', 'Мария', 'Филипова', 'Александровна', 'Кассир', '+7 (555) 546-89-78', '21', '6556 987458', '2007-04-15', '643', 'true');
 INSERT INTO `users` (`version`, `officeid`, `firstname`, `secondname`, `middlename`, `position`, `phone`, `doctype`, `docnumber`, `docdate`, `citizenshipcode`, `isidentified`) VALUES ('0', '3', 'Айгуль', 'Агазамад', 'Рафиковна', 'Уборщица', '+7 (568) 236-52-47', '10', 'СА 1580788', '1984-06-16', '860', 'false');
 INSERT INTO `users` (`version`, `officeid`, `firstname`, `secondname`, `middlename`, `position`, `phone`, `doctype`, `docnumber`, `docdate`, `citizenshipcode`, `isidentified`) VALUES ('0', '4', 'Геннадий', 'Маталлов', 'Вольфрамович', 'Директор', '+7 (123)123-45-67', '21', '6554 456321', '1987-04-17', '643', 'true');
-
-/*INSERT INTO `userDocs` (`user_id`, `version`, `docname`, `docnumber`, `docdate`) VALUES ('1', '0', '21', '7788 546546', '2014-02-15');
-INSERT INTO `userDocs` (`user_id`, `version`, `docname`, `docnumber`, `docdate`) VALUES ('2', '0', '21', '7744 789789', '2012-05-04');
-INSERT INTO `userDocs` (`user_id`, `version`, `docname`, `docnumber`, `docdate`) VALUES ('3', '0', '21', '6554 123456', '2010-07-02');
-INSERT INTO `userDocs` (`user_id`, `version`, `docname`, `docnumber`, `docdate`) VALUES ('4', '0', '21', '4658 987654', '2009-05-06');
-INSERT INTO `userDocs` (`user_id`, `version`, `docname`, `docnumber`, `docdate`) VALUES ('5', '0', '21', '1221 658975', '2004-08-06');
-INSERT INTO `userDocs` (`user_id`, `version`, `docname`, `docnumber`, `docdate`) VALUES ('6', '0', '21', '6556 987458', '2007-04-15');
-INSERT INTO `userDocs` (`user_id`, `version`, `docname`, `docnumber`, `docdate`) VALUES ('7', '0', '10', 'СА 1580788', '1984-06-16');
-INSERT INTO `userDocs` (`user_id`, `version`, `docname`, `docnumber`, `docdate`) VALUES ('8', '0', '21', '6554 456321', '1987-04-17');*/

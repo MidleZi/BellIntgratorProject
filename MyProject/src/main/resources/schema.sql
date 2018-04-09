@@ -1,9 +1,13 @@
 
-CREATE TABLE IF NOT EXISTS `authUsers` (
-  `login` VARCHAR(50) NOT NULL,
+CREATE TABLE IF NOT EXISTS `account` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `version` INT NOT NULL,
+  `name` VARCHAR(50) NOT NULL,
+  `login` VARCHAR(50) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`login`));
+  `activation_code`     VARCHAR(45),
+  `activation_status`   BOOLEAN,
+  PRIMARY KEY (`id`));
 
   CREATE TABLE IF NOT EXISTS `docs` (
     `code` VARCHAR(8) NOT NULL,
@@ -78,24 +82,5 @@ CREATE TABLE IF NOT EXISTS `users` (
 CREATE INDEX `fk_officeId_idx` ON `users` (`officeId` ASC);
 CREATE INDEX `fk_citizenship_idx` ON `users` (`citizenshipCode` ASC);
 
-  CREATE TABLE IF NOT EXISTS `userdocs` (
-    `user_id` INT NOT NULL,
-    `version` INT NOT NULL,
-    `docname` VARCHAR(45) NOT NULL,
-    `docnumber` VARCHAR(45) NOT NULL,
-    `docdate` DATE NOT NULL,
-    PRIMARY KEY (`user_id`),
-    CONSTRAINT `fk_docs`
-      FOREIGN KEY (`docname`)
-      REFERENCES `docs` (`code`)
-      ON DELETE CASCADE
-      ON UPDATE CASCADE,
-    CONSTRAINT `fk_userId`
-      FOREIGN KEY (`user_id`)
-      REFERENCES `users` (`id`)
-      ON DELETE CASCADE
-      ON UPDATE CASCADE);
-  CREATE INDEX `fk_docs_idx` ON `userdocs` (`docName` ASC);
-  CREATE INDEX `fk_userId_idx` ON `userdocs` (`user_id` ASC);
 
 

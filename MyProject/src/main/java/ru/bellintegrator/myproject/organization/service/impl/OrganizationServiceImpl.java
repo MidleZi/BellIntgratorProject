@@ -1,11 +1,11 @@
 package ru.bellintegrator.myproject.organization.service.impl;
 
+import org.hibernate.service.spi.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.bellintegrator.myproject.exceptions.OrganizationServiceException;
 import ru.bellintegrator.myproject.organization.dao.impl.OrganizationDAOImpl;
 import ru.bellintegrator.myproject.organization.service.OrganizationService;
 import ru.bellintegrator.myproject.organization.dao.OrganizationDAO;
@@ -54,7 +54,7 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Transactional
     public Organization getOrganizationById (Long id) {
         Organization org = DAO.getOrganizationById(id);
-        if(org == null) throw new OrganizationServiceException("Организации с id " + id + " не существует");
+        if(org == null) throw new ServiceException("Организации с id " + id + " не существует");
         logger.info("Organization get ID:" + id);
         return org;
 
@@ -66,7 +66,7 @@ public class OrganizationServiceImpl implements OrganizationService {
         Long id = view.id;
         Organization organization = DAO.getOrganizationById(id);
         organization = view.orgConvert(organization);
-        if(organization == null) throw new OrganizationServiceException("Организации с id " + id + " не существует");
+        if(organization == null) throw new ServiceException("Организации с id " + id + " не существует");
         logger.info("update" + organization.toString());
         DAO.save(organization);
 
@@ -85,7 +85,7 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Transactional
     public void delete(Long id) {
         Organization org = DAO.getOrganizationById(id);
-        if(org == null) throw new OrganizationServiceException("Организации с id " + id + " не существует");
+        if(org == null) throw new ServiceException("Организации с id " + id + " не существует");
         DAO.delete(id);
         logger.info("Organization deleted ID:" + id);
     }

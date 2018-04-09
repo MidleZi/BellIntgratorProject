@@ -1,11 +1,11 @@
 package ru.bellintegrator.myproject.office.service.impl;
 
+import org.hibernate.service.spi.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.bellintegrator.myproject.exceptions.OfficeServiceException;
 import ru.bellintegrator.myproject.office.dao.impl.OfficeDAOImpl;
 import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.office.service.OfficeService;
@@ -54,7 +54,7 @@ public class OfficeServiceImpl implements OfficeService {
     @Transactional
     public Office getOfficeById(Long id) {
         Office office =DAO.getOfficeById(id);
-        if(office == null) throw new OfficeServiceException("Офиса с id " + id + " не существует");
+        if(office == null) throw new ServiceException("Офиса с id " + id + " не существует");
         logger.info("Office get ID:" + id);
         return office;
     }
@@ -63,8 +63,8 @@ public class OfficeServiceImpl implements OfficeService {
     @Transactional
     public void update(OfficeView view) {
         Long id = view.id;
+        if(id == null) throw new ServiceException("Офиса с id " + id + " не существует");
         Office office = new Office(view.id, view.name, view.address, view.phone, view.isActive);
-        if(office == null) throw new OfficeServiceException("Организации с id " + id + " не существует");
         logger.info("Office update " + office.toString());
         DAO.update(office);
     }
@@ -81,7 +81,7 @@ public class OfficeServiceImpl implements OfficeService {
     @Transactional
     public void delete(Long id) {
         Office office = getOfficeById(id);
-        if(office == null) throw new OfficeServiceException("Офиса с id " + id + " не существует");
+        if(office == null) throw new ServiceException("Офиса с id " + id + " не существует");
         logger.info("Office deleted ID:" + id);
         DAO.delete(office);
     }
