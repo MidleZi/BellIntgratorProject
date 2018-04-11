@@ -35,8 +35,7 @@ public class UserServiceTest {
     UserService userService;
     @Autowired
     UserDAO userDAO;
-    @Autowired
-    OfficeDAO OfficeDAO;
+
 
 
     @Test
@@ -80,7 +79,7 @@ public class UserServiceTest {
 
         Assert.assertNotNull(list);
         Assert.assertFalse(list.isEmpty());
-        Assert.assertEquals(3, list.size());
+        Assert.assertEquals(9, list.size());
     }
 
     @Test
@@ -110,7 +109,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void testDeleteOffice(){
+    public void testDeleteUser(){
 
         userService.delete(4L);
 
@@ -118,6 +117,6 @@ public class UserServiceTest {
 
         Assert.assertNotNull(list);
         Assert.assertFalse(list.isEmpty());
-        Assert.assertEquals(7, list.size());
+        Assert.assertEquals(8, list.size());
     }
 }

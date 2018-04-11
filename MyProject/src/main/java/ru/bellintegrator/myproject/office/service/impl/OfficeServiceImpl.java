@@ -63,8 +63,9 @@ public class OfficeServiceImpl implements OfficeService {
     @Transactional
     public void update(OfficeView view) {
         Long id = view.id;
+        Office office = DAO.getOfficeById(id);
         if(id == null) throw new ServiceException("Офиса с id " + id + " не существует");
-        Office office = new Office(view.id, view.name, view.address, view.phone, view.isActive);
+        office = view.convertToEntity(office);
         logger.info("Office update " + office.toString());
         DAO.update(office);
     }

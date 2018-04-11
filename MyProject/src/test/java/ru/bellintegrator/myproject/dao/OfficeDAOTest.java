@@ -32,18 +32,19 @@ public class OfficeDAOTest {
     @Autowired
     private OrganizationDAO organizationDAO;
 
+    List<Office> offices = officeDAO.getAllOffice();
 
     @Test
     public void test() {
         //test get all
-        List<Office> offices = officeDAO.getAllOffice();
+
         Assert.assertNotNull(offices);
         Assert.assertEquals(4, offices.size());
 
         //test getOfficeById
         Office office = officeDAO.getOfficeById(1L);
         Assert.assertNotNull(office);
-        Assert.assertEquals("Ресоран 2", office.getName());
+        Assert.assertEquals("офис1", office.getName());
 
         // test list
         OfficeFilterView criteria = new OfficeFilterView("офис1");

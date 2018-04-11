@@ -1,6 +1,7 @@
 package ru.bellintegrator.myproject.office.view;
 
 import io.swagger.annotations.ApiModelProperty;
+import ru.bellintegrator.myproject.office.model.Office;
 
 public class OfficeView {
 
@@ -37,6 +38,17 @@ public class OfficeView {
         this.phone = phone;
         this.isActive = isActive;
     }
+
+    public Office convertToEntity(Office office){
+        office.setName(name);
+        office.setAddress(address);
+        office.setPhone(phone);
+        office.setActive(isActive);
+
+        return office;
+
+    }
+
 
     @Override
     public String toString() {

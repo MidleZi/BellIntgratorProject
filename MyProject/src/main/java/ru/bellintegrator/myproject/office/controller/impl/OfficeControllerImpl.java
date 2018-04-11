@@ -83,8 +83,6 @@ public class OfficeControllerImpl implements OfficeController {
     @ApiOperation(value = "updateOffice", nickname = "updateOffice", httpMethod = "POST")
     @RequestMapping(value = "/update", method = {POST})
     public Response update(@RequestBody OfficeView view) {
-        /*logger.info("Office update " + view.toString());
-        officeService.update(view);*/
 
         try {
             if(view.id == null) throw new ControllerException();
