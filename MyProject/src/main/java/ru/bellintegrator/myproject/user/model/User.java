@@ -18,7 +18,7 @@ public class User {
     private Long id;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY, cascade ={CascadeType.REMOVE})
+    @ManyToOne(fetch = FetchType.LAZY, cascade ={CascadeType.ALL})
     @JoinColumn(name = "officeid")
     private Office office;
 

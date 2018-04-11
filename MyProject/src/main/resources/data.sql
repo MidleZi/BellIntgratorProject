@@ -19,11 +19,12 @@ INSERT INTO `docs` (`code`, `version`, `name`) VALUES ('91', '0', 'Инные д
 
 INSERT INTO `organization` (`version`, `name`, `fullname`, `inn`, `kpp`, `address`, `phone`, `isactive`) VALUES ('0', 'BellIntegrator', 'ООО "Белл Интегратор"', '7777777777', '777777777', 'Москва', '+7 (495) 777-77-77', 'true');
 INSERT INTO `organization` (`version`, `name`, `fullname`, `inn`, `kpp`, `address`, `phone`, `isactive`) VALUES ('0', 'McDonald''s', 'ООО "Макдональдс"', '7788888888', '778888888', 'Москва', '+7 (495) 888-88-88', 'true');
+INSERT INTO `organization` (`version`, `name`, `fullname`, `inn`, `kpp`, `address`, `phone`, `isactive`) VALUES (0, 'test', 'test', 9876543210 , 876543210, 'test', 'test', false);
 
-INSERT INTO `office` (`version`, `orgid`, `name`, `address`, `phone`, `isactive`) VALUES ('0', '1', 'офис1', 'Москва', '+7(495) 777-77-77', 'true');
-INSERT INTO `office` (`version`, `orgid`, `name`, `address`, `phone`, `isactive`) VALUES ('0', '1', 'офис2', 'Пенза', '+7 (8412) 555-555', 'true');
-INSERT INTO `office` (`version`, `orgid`, `name`, `address`, `phone`, `isactive`) VALUES ('0', '2', 'ресторан 1', 'Москва, ул. Лескова', '+7 (495) 888-88-78', 'true');
-INSERT INTO `office` (`version`, `orgid`, `name`, `address`, `phone`, `isactive`) VALUES ('0', '2', 'Ресоран 2', 'Москва, ул Вучетича', '+7 (495) 888-88-98', 'false');
+INSERT INTO `office` (`version`, `orgid`, `name`, `address`, `phone`, `is_active`) VALUES ('0', '1', 'офис1', 'Москва', '+7(495) 777-77-77', 'true');
+INSERT INTO `office` (`version`, `orgid`, `name`, `address`, `phone`, `is_active`) VALUES ('0', '1', 'офис2', 'Пенза', '+7 (8412) 555-555', 'true');
+INSERT INTO `office` (`version`, `orgid`, `name`, `address`, `phone`, `is_active`) VALUES ('0', '2', 'ресторан 1', 'Москва, ул. Лескова', '+7 (495) 888-88-78', 'true');
+INSERT INTO `office` (`version`, `orgid`, `name`, `address`, `phone`, `is_active`) VALUES ('0', '2', 'Ресоран 2', 'Москва, ул Вучетича', '+7 (495) 888-88-98', 'false');
 
 INSERT INTO `users` (`version`, `officeid`, `firstname`, `secondname`, `middlename`, `position`, `phone`, `doctype`, `docnumber`, `docdate`, `citizenshipcode`, `isidentified`) VALUES ('0', '1', 'Василий', 'Васильев', 'Васильевич', 'Менеджер', '+7 (999) 998-98-98', '21', '7788 546546', '2014-02-15', '643', 'true');
 INSERT INTO `users` (`version`, `officeid`, `firstname`, `secondname`, `middlename`, `position`, `phone`, `doctype`, `docnumber`, `docdate`, `citizenshipcode`, `isidentified`) VALUES ('0', '1', 'Петр', 'Петров', 'Петрович', 'Начальник', '+7 (999) 999-99-65', '21', '7744 789789', '2012-05-04', '643', 'true');

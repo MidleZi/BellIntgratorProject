@@ -2,6 +2,7 @@ package ru.bellintegrator.myproject.office.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.bellintegrator.myproject.organization.model.Organization;
 
 import javax.persistence.*;
@@ -21,7 +22,7 @@ public class Office {
     private Integer version;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.REMOVE})
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinColumn(name = "orgid")
     private Organization organization;
 
@@ -38,7 +39,8 @@ public class Office {
     private String phone;
 
     @Basic(optional = false)
-    @Column(name = "isactive")
+    @Column(name = "is_active")
+    //@JsonProperty(value = "isActive")
     private Boolean isActive;
 
     public Office(){}
@@ -109,6 +111,7 @@ public class Office {
         return phone;
     }
 
+    @JsonProperty(value = "isActive")
     public Boolean getActive() {
         return isActive;
     }

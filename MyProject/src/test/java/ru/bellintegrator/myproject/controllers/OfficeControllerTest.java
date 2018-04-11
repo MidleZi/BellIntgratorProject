@@ -13,6 +13,8 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 import ru.bellintegrator.myproject.MyApplication;
+import ru.bellintegrator.myproject.office.view.OfficeFilterView;
+import ru.bellintegrator.myproject.office.view.OfficeView;
 import ru.bellintegrator.myproject.utils.ResponseViewData;
 
 @RunWith(SpringRunner.class)
@@ -30,7 +32,11 @@ public class OfficeControllerTest {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        String body = "{\"orgId\" : \"1\"}";
+        OfficeFilterView body = new OfficeFilterView();
+        body.orgId = "1";
+        body.name = "офис1";
+        body.phone = "+7(495) 777-77-77";
+        body.isActive = true;
         HttpEntity entity = new HttpEntity<>(body, headers);
 
         ResponseEntity<ResponseViewData> responseEntity =
@@ -38,9 +44,13 @@ public class OfficeControllerTest {
                         new ParameterizedTypeReference<ResponseViewData>(){
                         });
         ResponseViewData responseView = responseEntity.getBody();
-
         Assert.assertNotNull(responseView);
-        Assert.assertNotNull(responseView.getData());
+
+        Object data = responseView.getData();
+        Assert.assertNotNull(data);
+
+        String waitingResponse = "[{id=1, name=офис1, isActive=true}]";
+        Assert.assertEquals(waitingResponse, data.toString());
     }
 
     @Test
@@ -50,9 +60,13 @@ public class OfficeControllerTest {
                         new ParameterizedTypeReference<ResponseViewData>(){
                         });
         ResponseViewData responseView = responseEntity.getBody();
-
         Assert.assertNotNull(responseView);
-        Assert.assertNotNull(responseView.getData());
+
+        Object data = responseView.getData();
+        Assert.assertNotNull(data);
+
+        String waitingResponse = "{id=1, name=офис1, address=Москва, phone=+7(495) 777-77-77, isActive=true}";
+        Assert.assertEquals(waitingResponse, data.toString());
     }
 
     @Test
@@ -60,9 +74,12 @@ public class OfficeControllerTest {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        String body = "{\"orgId\" : \"1\","
-                + "\"name\" : \"someName\""
-                + "}";
+        OfficeView body = new OfficeView();
+        body.name = "Офис Рога и копыта";
+        body.address = "Санкт-Петербург, Лахтинский пр-т., д.10";
+        body.phone = "+7 (812) 857-99-88";
+        body.isActive = true;
+
         HttpEntity entity = new HttpEntity<>(body, headers);
 
         ResponseEntity<ResponseViewData> responseEntity =
@@ -70,9 +87,13 @@ public class OfficeControllerTest {
                         new ParameterizedTypeReference<ResponseViewData>(){
                         });
         ResponseViewData responseView = responseEntity.getBody();
-
         Assert.assertNotNull(responseView);
-        Assert.assertNotNull(responseView.getData());
+
+        Object data = responseView.getData();
+        Assert.assertNotNull(data);
+
+        String waitingResponse = "success";
+        Assert.assertEquals(waitingResponse, data.toString());
     }
 
     @Test
@@ -80,30 +101,42 @@ public class OfficeControllerTest {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        String body = "{\"id\" : \"1\","
-                + "\"name\" : \"newSomeName\""
-                + "}";
+        OfficeView body = new OfficeView();
+        body.id = 2L;
+        body.name = "Офис Рога и копыта";
+        body.address = "Санкт-Петербург, Лахтинский пр-т., д.1";
+        body.phone = "+7 (812) 857-99-88";
+        body.isActive = true;
+
         HttpEntity entity = new HttpEntity<>(body, headers);
 
         ResponseEntity<ResponseViewData> responseEntity =
-                restTemplate.exchange(patternURL + "/update", HttpMethod.PUT, entity,
+                restTemplate.exchange(patternURL + "/update", HttpMethod.POST, entity,
                         new ParameterizedTypeReference<ResponseViewData>(){
                         });
         ResponseViewData responseView = responseEntity.getBody();
-
         Assert.assertNotNull(responseView);
-        Assert.assertNotNull(responseView.getData());
+
+        Object data = responseView.getData();
+        Assert.assertNotNull(data);
+
+        String waitingResponse = "success";
+        Assert.assertEquals(waitingResponse, data.toString());
     }
 
     @Test
     public void testDeleteOffice() {
         ResponseEntity<ResponseViewData> responseEntity =
-                restTemplate.exchange(patternURL + "/2", HttpMethod.DELETE, null,
+                restTemplate.exchange(patternURL + "/3", HttpMethod.DELETE, null,
                         new ParameterizedTypeReference<ResponseViewData>(){
                         });
         ResponseViewData responseView = responseEntity.getBody();
-
         Assert.assertNotNull(responseView);
-        Assert.assertNotNull(responseView.getData());
+
+        Object data = responseView.getData();
+        Assert.assertNotNull(data);
+
+        String waitingResponse = "success";
+        Assert.assertEquals(waitingResponse, data.toString());
     }
 }

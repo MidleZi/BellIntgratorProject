@@ -1,5 +1,6 @@
 package ru.bellintegrator.myproject.user.view;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModelProperty;
 import ru.bellintegrator.myproject.countries.Countries;
@@ -15,9 +16,11 @@ public class UserView {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public String id;
 
+
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public Office office;
 
+    @JsonIgnore
     public String officeId;
 
     public String firstName;

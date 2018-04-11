@@ -28,7 +28,7 @@ public class Organization {
     private String name;
 
     @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "organization", cascade = {CascadeType.REMOVE},orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "organization", cascade = {CascadeType.ALL})
     private Set<Office> office;
 
     @Basic(optional = false)

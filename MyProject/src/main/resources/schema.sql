@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `office` (
   `name` VARCHAR(128) NOT NULL,
   `address` VARCHAR(128)NOT NULL,
   `phone` VARCHAR(20) NOT NULL,
-  `isactive` BOOLEAN NOT NULL,
+  `is_active` BOOLEAN NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_orgId`
     FOREIGN KEY (`orgId`)

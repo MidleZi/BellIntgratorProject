@@ -13,6 +13,8 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 import ru.bellintegrator.myproject.MyApplication;
+import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
+import ru.bellintegrator.myproject.organization.view.OrganizationView;
 import ru.bellintegrator.myproject.utils.ResponseViewData;
 
 @RunWith(SpringRunner.class)
@@ -29,7 +31,10 @@ public class OrganizationControllerTest {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        String body = "{\"name\" : \"BellIntegrator\"}";
+        OrganizationFilterView body = new OrganizationFilterView();
+        body.name = "BellIntegrator";
+        body.inn = "7777777777";
+        body.isActive = true;
         HttpEntity entity = new HttpEntity<>(body, headers);
 
         ResponseEntity<ResponseViewData> responseEntity =
@@ -37,9 +42,13 @@ public class OrganizationControllerTest {
                         new ParameterizedTypeReference<ResponseViewData>(){
                         });
         ResponseViewData responseView = responseEntity.getBody();
-
         Assert.assertNotNull(responseView);
-        Assert.assertNotNull(responseView.getData());
+
+        Object data = responseView.getData();
+        Assert.assertNotNull(data);
+
+        String waitingResponse = "[{id=1, name=BellIntegrator, isActive=true}]";
+        Assert.assertEquals(waitingResponse, data.toString());
     }
 
     @Test
@@ -49,9 +58,14 @@ public class OrganizationControllerTest {
                         new ParameterizedTypeReference<ResponseViewData>(){
                         });
         ResponseViewData responseView = responseEntity.getBody();
-
         Assert.assertNotNull(responseView);
-        Assert.assertNotNull(responseView.getData());
+
+        Object data = responseView.getData();
+        Assert.assertNotNull(data);
+
+        String waitingResponse = "{id=1, name=BellIntegrator, fullname=ООО \"Белл Интегратор\", inn=7777777777, kpp=777777777, address=Москва, " +
+                 "phone=+7 (495) 777-77-77, isActive=true}";
+        Assert.assertEquals(waitingResponse, data.toString());
     }
 
     @Test
@@ -59,7 +73,15 @@ public class OrganizationControllerTest {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        String body = "{\"name\" : \"newName\"}";
+        OrganizationView body = new OrganizationView();
+        body.name = "Подсолнухи";
+        body.fullname = "ООО \"Подсолнухи\"";
+        body.inn = "123456789012";
+        body.kpp = "123456789";
+        body.address = "Волгоград, Московский пр-т., д.1";
+        body.phone = "+7 (8442) 57-99-88";
+        body.isActive = true;
+
         HttpEntity entity = new HttpEntity<>(body, headers);
 
         ResponseEntity<ResponseViewData> responseEntity =
@@ -67,9 +89,13 @@ public class OrganizationControllerTest {
                         new ParameterizedTypeReference<ResponseViewData>(){
                         });
         ResponseViewData responseView = responseEntity.getBody();
-
         Assert.assertNotNull(responseView);
-        Assert.assertNotNull(responseView.getData());
+
+        Object data = responseView.getData();
+        Assert.assertNotNull(data);
+
+        String waitingResponse = "success";
+        Assert.assertEquals(waitingResponse, data.toString());
     }
 
     @Test
@@ -77,31 +103,47 @@ public class OrganizationControllerTest {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
-        String body = "{\"id\" : \"1\","
-                + "\"name\" : \"newSomeName\""
-                + "}";
+        OrganizationView body = new OrganizationView();
+        body.id = 2L;
+        body.name = "Рога и копыта";
+        body.fullname = "АО \"Рога и копыта\"";
+        body.inn = "1234567890";
+        body.kpp = "123456789";
+        body.address = "Санкт-Петербург, Лахтинский пр-т., д.1";
+        body.phone = "+7 (812) 857-99-88";
+        body.isActive = true;
         HttpEntity entity = new HttpEntity<>(body, headers);
 
         ResponseEntity<ResponseViewData> responseEntity =
-                restTemplate.exchange(patternURL + "/update", HttpMethod.PUT, entity,
+                restTemplate.exchange(patternURL + "/update", HttpMethod.POST, entity,
                         new ParameterizedTypeReference<ResponseViewData>(){
                         });
-        ResponseViewData responseView = responseEntity.getBody();
 
+        ResponseViewData responseView = responseEntity.getBody();
         Assert.assertNotNull(responseView);
-        Assert.assertNotNull(responseView.getData());
+
+        Object data = responseView.getData();
+        Assert.assertNotNull(data);
+
+        String waitingResponse = "success";
+        Assert.assertEquals(waitingResponse, data.toString());
     }
 
     @Test
     public void testDeleteOrganization() {
         ResponseEntity<ResponseViewData> responseEntity =
-                restTemplate.exchange(patternURL + "/2", HttpMethod.DELETE, null,
+                restTemplate.exchange(patternURL + "/3", HttpMethod.DELETE, null,
                         new ParameterizedTypeReference<ResponseViewData>(){
                         });
         ResponseViewData responseView = responseEntity.getBody();
-
         Assert.assertNotNull(responseView);
-        Assert.assertNotNull(responseView.getData());
+
+        Object data = responseView.getData();
+        Assert.assertNotNull(data);
+
+        String waitingResponse = "success";
+        Assert.assertEquals(waitingResponse, data.toString());
     }
+
 
 }
