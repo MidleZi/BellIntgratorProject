@@ -22,7 +22,7 @@ public class Office {
     private Integer version;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "orgid")
     private Organization organization;
 
@@ -114,6 +114,10 @@ public class Office {
     @JsonProperty(value = "isActive")
     public Boolean getActive() {
         return isActive;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setOrganization(Organization id) {

@@ -39,6 +39,17 @@ public class DocsDAO {
         return query.getSingleResult();
     }
 
+    public Docs getDocumentByCode(String code) {
+        CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaQuery<Docs> criteria = builder.createQuery(Docs.class);
+
+        Root<Docs> account = criteria.from(Docs.class);
+        criteria.where(builder.equal(account.get("code"), code));
+
+        TypedQuery<Docs> query = em.createQuery(criteria);
+        return query.getSingleResult();
+    }
+
 
    public  void save(Docs docs){
         em.persist(docs);

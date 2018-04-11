@@ -11,10 +11,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 import ru.bellintegrator.myproject.MyApplication;
+import ru.bellintegrator.myproject.office.model.Office;
+import ru.bellintegrator.myproject.organization.dao.OrganizationDAO;
 import ru.bellintegrator.myproject.organization.model.Organization;
 import ru.bellintegrator.myproject.organization.service.OrganizationService;
 import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
 import ru.bellintegrator.myproject.organization.view.OrganizationFilterViewList;
+import ru.bellintegrator.myproject.organization.view.OrganizationView;
 
 
 import java.util.List;
@@ -28,6 +31,7 @@ public class OrganizationServiceTest {
 
     @Autowired
     OrganizationService orgService;
+    OrganizationDAO orgDAO;
 
     @Test
     public void testGetOrganizationById() {
@@ -45,6 +49,60 @@ public class OrganizationServiceTest {
 
         OrganizationFilterViewList response = list.get(0);
         Assert.assertEquals("BellIntegrator", response.getName());
+    }
+
+    @Test
+    public void testUpdateOrganization() {
+
+        OrganizationView body = new OrganizationView();
+        body.id = 2L;
+        body.name = "Рога и копыта";
+        body.fullname = "АО \"Рога и копыта\"";
+        body.inn = "1234567890";
+        body.kpp = "123456789";
+        body.address = "Санкт-Петербург, Лахтинский пр-т., д.1";
+        body.phone = "+7 (812) 857-99-88";
+        body.isActive = true;
+
+        orgService.update(body);
+
+        Organization organization = orgDAO.getOrganizationById(2L);
+
+        Assert.assertNotNull(organization);
+        Assert.assertEquals("АО \"Рога и копыта\"", organization.getName());
+    }
+
+    @Test
+    public void testSaveOrganization(){
+
+        OrganizationView body = new OrganizationView();
+        body.name = "Подсолнухи";
+        body.fullname = "ООО \"Подсолнухи\"";
+        body.inn = "123456789012";
+        body.kpp = "123456789";
+        body.address = "Волгоград, Московский пр-т., д.1";
+        body.phone = "+7 (8442) 57-99-88";
+        body.isActive = true;
+
+        orgService.save(body);
+
+        List<Organization> list = orgDAO.getAllOrganizations();
+
+        Assert.assertNotNull(list);
+        Assert.assertFalse(list.isEmpty());
+        Assert.assertEquals(4, list.size());
+    }
+
+    @Test
+    public void testDeleteOrganization(){
+
+        orgService.delete(3L);
+
+        List<Organization> list = orgDAO.getAllOrganizations();
+
+        Assert.assertNotNull(list);
+        Assert.assertFalse(list.isEmpty());
+        Assert.assertEquals(2, list.size());
     }
 
 }

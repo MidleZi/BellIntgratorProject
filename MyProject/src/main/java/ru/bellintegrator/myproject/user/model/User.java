@@ -18,7 +18,7 @@ public class User {
     private Long id;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY, cascade ={CascadeType.ALL})
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "officeid")
     private Office office;
 
@@ -178,6 +178,10 @@ public class User {
     @JsonProperty(value = "isIdentified")
     public Boolean isIdentified() {
         return isIdentified;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setOffice(Office office) {

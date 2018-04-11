@@ -16,4 +16,11 @@ public class OfficeFilterView {
     public OfficeFilterView(String name){
         this.name = name;
     }
+
+    public OfficeFilterView(String orgId, String name, String phone, Boolean isActive) {
+        this.orgId = orgId;
+        this.name = name;
+        this.phone = phone;
+        this.isActive = isActive;
+    }
 }

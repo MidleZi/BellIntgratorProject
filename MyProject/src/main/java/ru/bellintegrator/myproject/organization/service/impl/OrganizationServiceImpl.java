@@ -68,7 +68,7 @@ public class OrganizationServiceImpl implements OrganizationService {
         organization = view.orgConvert(organization);
         if(organization == null) throw new ServiceException("Организации с id " + id + " не существует");
         logger.info("update" + organization.toString());
-        DAO.save(organization);
+        DAO.update(organization);
 
     }
 

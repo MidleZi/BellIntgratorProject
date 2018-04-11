@@ -144,6 +144,10 @@ public class Organization {
         this.name = name;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public void setOffice(Set<Office> office) {
         this.office = office;
     }

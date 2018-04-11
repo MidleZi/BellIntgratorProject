@@ -134,6 +134,7 @@ public class UserServiceImpl implements UserService {
         Docs docs = null;
         if (view.docName != null) {
             List<Docs> docslist = DAODD.allDocs();
+
             if (docslist.contains(view.docName) == true) {
                 Docs doc = new Docs(view.docName);
                 DAODD.save(doc);
@@ -145,10 +146,10 @@ public class UserServiceImpl implements UserService {
         Countries countries = null;
         if (view.citizenshipCode != null){
             List<Countries> countrieslist = DAOCount.allCountries();
-            if (countrieslist.contains(view.citizenshipCode) == true) {
+           /* if (countrieslist.contains(view.citizenshipCode) == true) {
                 Countries countr = new Countries(Long.parseLong(view.citizenshipCode), view.citizenshipName);
                 DAOCount.save(countr);
-            }
+            }*/
 
             countries = DAOCount.getCountriesByName(view.citizenshipName);
         }

@@ -13,6 +13,7 @@ import ru.bellintegrator.myproject.MyApplication;
 import ru.bellintegrator.myproject.office.dao.OfficeDAO;
 import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.office.view.OfficeFilterView;
+import ru.bellintegrator.myproject.office.view.OfficeView;
 import ru.bellintegrator.myproject.organization.dao.OrganizationDAO;
 import ru.bellintegrator.myproject.organization.model.Organization;
 
@@ -31,46 +32,6 @@ public class OfficeDAOTest {
     @Autowired
     private OrganizationDAO organizationDAO;
 
-/*    List<Office> offices = officeDAO.getAllOffice();
-    String testName = "testName";
-    Office office = new Office(testName);
-
-
-    @Test
-    public void testList() {
-        OfficeFilterView criteria = new OfficeFilterView("#1");
-        List<Office> officesByCriteria = officeDAO.list(criteria);
-        Assert.assertNotNull(officesByCriteria);
-        Assert.assertEquals(1, officesByCriteria.size());
-    }
-
-    @Test
-    public void testSave() {
-
-        Organization org = organizationDAO.getOrganizationById(1L);
-        office.setOrganization(org);
-        officeDAO.save(office);
-        offices = officeDAO.getAllOffice();
-        Assert.assertEquals(3, offices.size());
-    }
-
-    @Test
-    public void testUpdate() {
-        Office updateTestOffice = officeDAO.getOfficeByName(testName);
-        Assert.assertNotNull(updateTestOffice);
-        String nameForUpdate = "newTestName";
-        updateTestOffice.setName(nameForUpdate);
-        officeDAO.update(updateTestOffice);
-        Office officeAfterUpdate = officeDAO.getOfficeByName(nameForUpdate);
-        Assert.assertNotNull(officeAfterUpdate);
-    }
-
-    @Test
-    public void testDelete() {
-        officeDAO.delete(office);
-        offices = officeDAO.getAllOffice();
-        Assert.assertEquals(2, offices.size());
-    }*/
 
     @Test
     public void test() {
@@ -79,25 +40,36 @@ public class OfficeDAOTest {
         Assert.assertNotNull(offices);
         Assert.assertEquals(4, offices.size());
 
-        // test get all with criteria
+        //test getOfficeById
+        Office office = officeDAO.getOfficeById(1L);
+        Assert.assertNotNull(office);
+        Assert.assertEquals("Ресоран 2", office.getName());
+
+        // test list
         OfficeFilterView criteria = new OfficeFilterView("офис1");
         List<Office> officesByCriteria = officeDAO.list(criteria);
         Assert.assertNotNull(officesByCriteria);
         Assert.assertEquals(1, officesByCriteria.size());
 
         //test save
-        String testName = "testName";
-        Office saveTestOffice = new Office(testName);
-        Organization org = organizationDAO.getOrganizationById(1L);
-        saveTestOffice.setOrganization(org);
+        Office saveTestOffice = new Office();
+        saveTestOffice.setName("Подсолнухи");
+        saveTestOffice.setAddress("Санкт-Петербург, Лахтинский пр-т., д.12");
+        saveTestOffice.setPhone("+7 (812) 857-99-77");
+        saveTestOffice.setActive(true);
         officeDAO.save(saveTestOffice);
         offices = officeDAO.getAllOffice();
-        Assert.assertEquals(3, offices.size());
+        Assert.assertEquals(5, offices.size());
 
         //test update
-        Office updateTestOffice = officeDAO.getOfficeByName(testName);
+        Office updateTestOffice = new Office();
+        updateTestOffice.setId(2L);
+        updateTestOffice.setName("Офис Рога и копыта");
+        updateTestOffice.setAddress("Санкт-Петербург, Лахтинский пр-т., д.10");
+        updateTestOffice.setPhone("+7 (812) 857-99-88");
+        updateTestOffice.setActive(true);
         Assert.assertNotNull(updateTestOffice);
-        String nameForUpdate = "newTestName";
+        String nameForUpdate = "Офис Рога и копыта";
         updateTestOffice.setName(nameForUpdate);
         officeDAO.update(updateTestOffice);
         Office officeAfterUpdate = officeDAO.getOfficeByName(nameForUpdate);
@@ -106,7 +78,7 @@ public class OfficeDAOTest {
         //test delete
         officeDAO.delete(officeAfterUpdate);
         offices = officeDAO.getAllOffice();
-        Assert.assertEquals(2, offices.size());
+        Assert.assertEquals(5, offices.size());
     }
 
 }

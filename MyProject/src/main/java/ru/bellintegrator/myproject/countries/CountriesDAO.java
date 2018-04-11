@@ -38,6 +38,17 @@ public class CountriesDAO{
         return query.getSingleResult();
     }
 
+    public Countries getCountriesByCode(String code) {
+        CriteriaBuilder builder = em.getCriteriaBuilder();
+        CriteriaQuery<Countries> criteria = builder.createQuery(Countries.class);
+
+        Root<Countries> account = criteria.from(Countries.class);
+        criteria.where(builder.equal(account.get("code"), code));
+
+        TypedQuery<Countries> query = em.createQuery(criteria);
+        return query.getSingleResult();
+    }
+
     public void save(Countries contries) {
         em.persist(contries);
     }

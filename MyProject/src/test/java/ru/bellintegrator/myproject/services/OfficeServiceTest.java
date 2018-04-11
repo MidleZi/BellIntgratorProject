@@ -10,13 +10,20 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 import ru.bellintegrator.myproject.MyApplication;
+import ru.bellintegrator.myproject.office.dao.OfficeDAO;
+import ru.bellintegrator.myproject.office.dao.impl.OfficeDAOImpl;
 import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.office.service.OfficeService;
 import ru.bellintegrator.myproject.office.view.OfficeFilterView;
 import ru.bellintegrator.myproject.office.view.OfficeFilterViewList;
+import ru.bellintegrator.myproject.office.view.OfficeView;
+import ru.bellintegrator.myproject.user.model.User;
+import ru.bellintegrator.myproject.user.view.UserView;
 
 
 import java.util.List;
+
+import static org.assertj.core.util.DateUtil.parse;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {MyApplication.class})
@@ -27,6 +34,8 @@ public class OfficeServiceTest {
 
     @Autowired
     OfficeService officeService;
+    @Autowired
+    OfficeDAO officeDAOImpl;
 
     @Test
     public void testGetOfficeById() {
@@ -36,7 +45,7 @@ public class OfficeServiceTest {
     }
 
     @Test
-    public void testGetAllOfficesByCriteria() {
+    public void testList() {
         OfficeFilterView filter = new OfficeFilterView("1");
         List<OfficeFilterViewList> list = officeService.list(filter);
         Assert.assertNotNull(list);
@@ -46,5 +55,52 @@ public class OfficeServiceTest {
         Assert.assertEquals("офис1", response.getName());
     }
 
+    @Test
+    public void testUpdateOffice() {
+
+        OfficeView body = new OfficeView();
+        body.id = 2L;
+        body.name = "Офис Рога и копыта";
+        body.address = "Санкт-Петербург, Лахтинский пр-т., д.1";
+        body.phone = "+7 (812) 857-99-88";
+        body.isActive = true;
+
+        officeService.update(body);
+
+        Office office = officeDAOImpl.getOfficeById(2L);
+
+        Assert.assertNotNull(office);
+        Assert.assertEquals("Офис Рога и копыта", office.getName());
+    }
+
+    @Test
+    public void testSaveOffice(){
+
+        OfficeView body = new OfficeView();
+        body.name = "Офис Рога и копыта";
+        body.address = "Санкт-Петербург, Лахтинский пр-т., д.10";
+        body.phone = "+7 (812) 857-99-88";
+        body.isActive = true;
+
+        officeService.save(body);
+
+        List<Office> list = officeDAOImpl.getAllOffice();
+
+        Assert.assertNotNull(list);
+        Assert.assertFalse(list.isEmpty());
+        Assert.assertEquals(5, list.size());
+    }
+
+    @Test
+    public void testDeleteOffice(){
+
+        officeService.delete(4L);
+
+        List<Office> list = officeDAOImpl.getAllOffice();
+
+        Assert.assertNotNull(list);
+        Assert.assertFalse(list.isEmpty());
+        Assert.assertEquals(3, list.size());
+    }
 
 }
