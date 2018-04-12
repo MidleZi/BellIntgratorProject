@@ -1,8 +1,8 @@
 package ru.bellintegrator.myproject.user.service.impl;
 
 import org.hibernate.service.spi.ServiceException;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,6 +11,8 @@ import ru.bellintegrator.myproject.countries.CountriesDAO;
 import ru.bellintegrator.myproject.docs.Docs;
 import ru.bellintegrator.myproject.docs.DocsDAO;
 import ru.bellintegrator.myproject.office.dao.impl.OfficeDAOImpl;
+import ru.bellintegrator.myproject.office.model.Office;
+import ru.bellintegrator.myproject.user.controller.impl.UserControllerImpl;
 import ru.bellintegrator.myproject.user.dao.impl.UserDAOImpl;
 import ru.bellintegrator.myproject.user.model.User;
 import ru.bellintegrator.myproject.user.view.UserFilterView;
@@ -24,26 +26,26 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
 
-    private final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+    protected static Logger logger = Logger.getLogger(UserControllerImpl.class.getName());
 
-    private final UserDAOImpl DAO;
-    private final DocsDAO DAODD;
-    private final CountriesDAO DAOCount;
-    private final OfficeDAOImpl DAOOffice;
+    private final UserDAOImpl dao;
+    private final DocsDAO daoDD;
+    private final CountriesDAO daoCount;
+    private final OfficeDAOImpl daoOffice;
 
     @Autowired
-    public UserServiceImpl(UserDAOImpl dao, DocsDAO DAODD, CountriesDAO DAOcout,OfficeDAOImpl DAOOffice) {
-        this.DAO = dao;
-        this.DAODD = DAODD;
-        this.DAOCount = DAOcout;
-        this.DAOOffice = DAOOffice;
+    public UserServiceImpl(UserDAOImpl dao, DocsDAO daoDD, CountriesDAO daoCout, OfficeDAOImpl daoOffice) {
+        this.dao = dao;
+        this.daoDD = daoDD;
+        this.daoCount = daoCout;
+        this.daoOffice = daoOffice;
     }
 
 
     @Override
     @Transactional(readOnly = true)
     public List<UserFilterViewList> list(UserFilterView filterView) {
-        List<User> users = DAO.list(filterView);
+        List<User> users = dao.list(filterView);
         List<UserFilterViewList> outList = new ArrayList();
 
         for (int i = 0; i < users.size() ; i++) {
@@ -68,7 +70,7 @@ public class UserServiceImpl implements UserService {
     public UserView getUserById(Long id) {
 
         UserView view = new UserView();
-        User user = DAO.getUserById(id);
+        User user = dao.getUserById(id);
 
         if(user == null) throw new ServiceException("Сотрудника с  id " + id + " не существует");
 
@@ -96,75 +98,65 @@ public class UserServiceImpl implements UserService {
         Long updateID = Long.parseLong(view.id);
         if (updateID == null) throw new ServiceException("Не указан id");
 
-        User user = DAO.getUserById(updateID);
+        User user = dao.getUserById(updateID);
         if (user == null) throw new ServiceException("Сотрудника с ID " + updateID + " нету в базе");
 
         Docs docs = null;
         if (view.docName != null) {
-            List<Docs> docslist = DAODD.allDocs();
+            List<Docs> docslist = daoDD.allDocs();
             if (docslist.contains(view.docName) == true) {
                 Docs doc = new Docs(view.docName);
-                DAODD.save(doc);
+                daoDD.save(doc);
             }
 
-            docs = DAODD.getDocumentByName(view.docName);
+            docs = daoDD.getDocumentByName(view.docName);
         }
 
         Countries countries = null;
         if (view.citizenshipCode != null){
-            List<Countries> countrieslist = DAOCount.allCountries();
+            List<Countries> countrieslist = daoCount.allCountries();
             if (countrieslist.contains(view.citizenshipCode) == true) {
                 Countries countr = new Countries(Long.parseLong(view.citizenshipCode), view.citizenshipName);
-                DAOCount.save(countr);
+                daoCount.save(countr);
             }
 
-            countries = DAOCount.getCountriesByName(view.citizenshipName);
+            countries = daoCount.getCountriesByName(view.citizenshipName);
         }
 
 
         user = view.toConvertUserEntity(user,docs,countries);
         logger.info("User update " + user.toString());
-        DAO.update(user);
+        dao.update(user);
     }
 
     @Override
     @Transactional
     public void save(UserView view) {
 
+        Long officeId = Long.parseLong(view.officeId);
+        if(officeId == null) throw new ServiceException("officeId is missed");
+
+        Office office = daoOffice.getOfficeById(officeId);
+        if(office == null) throw new ServiceException("No office has id = " + officeId);
+
         Docs docs = null;
-        if (view.docName != null) {
-            List<Docs> docslist = DAODD.allDocs();
-
-            if (docslist.contains(view.docName) == true) {
-                Docs doc = new Docs(view.docName);
-                DAODD.save(doc);
-            }
-
-            docs = DAODD.getDocumentByName(view.docName);
-        }
+        if (view.docName != null) docs = daoDD.getDocumentByName(view.docName);
 
         Countries countries = null;
-        if (view.citizenshipCode != null){
-            List<Countries> countrieslist = DAOCount.allCountries();
-           /* if (countrieslist.contains(view.citizenshipCode) == true) {
-                Countries countr = new Countries(Long.parseLong(view.citizenshipCode), view.citizenshipName);
-                DAOCount.save(countr);
-            }*/
+        if (view.citizenshipCode != null) countries = daoCount.getCountriesByName(view.citizenshipName);
 
-            countries = DAOCount.getCountriesByName(view.citizenshipName);
-        }
-
-        User user = view.toConvertUserEntity(/*office,*/ docs, countries);
-        DAO.save(user);
+        User user = view.toConvertUserEntity(office, docs, countries);
+        logger.info("User save " + user.toString());
+        dao.save(user);
     }
 
     @Override
     @Transactional
     public void delete(Long id) {
-        User user = DAO.getUserById(id);
+        User user = dao.getUserById(id);
         if(user == null) throw new ServiceException("Сотрудника с id " + id + " не существует");
         logger.info("User deleted ID:" + id);
-        DAO.delete(id);
+        dao.delete(id);
     }
 
 }

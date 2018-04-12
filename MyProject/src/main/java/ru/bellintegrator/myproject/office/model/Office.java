@@ -19,7 +19,7 @@ public class Office {
     private Long id;
 
     @Version
-    private Integer version;
+    private Integer version = 0;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)

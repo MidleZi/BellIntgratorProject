@@ -13,6 +13,7 @@ import ru.bellintegrator.myproject.MyApplication;
 import ru.bellintegrator.myproject.office.dao.OfficeDAO;
 import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.office.view.OfficeFilterView;
+import ru.bellintegrator.myproject.office.view.OfficeFilterViewList;
 import ru.bellintegrator.myproject.office.view.OfficeView;
 import ru.bellintegrator.myproject.organization.dao.OrganizationDAO;
 import ru.bellintegrator.myproject.organization.model.Organization;
@@ -32,12 +33,13 @@ public class OfficeDAOTest {
     @Autowired
     private OrganizationDAO organizationDAO;
 
-    List<Office> offices = officeDAO.getAllOffice();
+
 
     @Test
     public void test() {
         //test get all
 
+        List<Office> offices = officeDAO.getAllOffice();
         Assert.assertNotNull(offices);
         Assert.assertEquals(4, offices.size());
 
@@ -47,7 +49,7 @@ public class OfficeDAOTest {
         Assert.assertEquals("офис1", office.getName());
 
         // test list
-        OfficeFilterView criteria = new OfficeFilterView("офис1");
+        OfficeFilterView criteria = new OfficeFilterView("1", "офис1", "+7(495) 777-77-77", true);
         List<Office> officesByCriteria = officeDAO.list(criteria);
         Assert.assertNotNull(officesByCriteria);
         Assert.assertEquals(1, officesByCriteria.size());
@@ -64,7 +66,7 @@ public class OfficeDAOTest {
 
         //test update
         Office updateTestOffice = new Office();
-        updateTestOffice.setId(2L);
+        updateTestOffice.setId(4L);
         updateTestOffice.setName("Офис Рога и копыта");
         updateTestOffice.setAddress("Санкт-Петербург, Лахтинский пр-т., д.10");
         updateTestOffice.setPhone("+7 (812) 857-99-88");
@@ -79,7 +81,7 @@ public class OfficeDAOTest {
         //test delete
         officeDAO.delete(officeAfterUpdate);
         offices = officeDAO.getAllOffice();
-        Assert.assertEquals(5, offices.size());
+        Assert.assertEquals(4, offices.size());
     }
 
 }

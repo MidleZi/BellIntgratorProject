@@ -111,7 +111,7 @@ public class UserServiceTest {
     @Test
     public void testDeleteUser(){
 
-        userService.delete(4L);
+        userService.delete(8L);
 
         List<User> list = userDAO.getAllUser();
 

@@ -11,19 +11,13 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 import ru.bellintegrator.myproject.MyApplication;
 import ru.bellintegrator.myproject.office.dao.OfficeDAO;
-import ru.bellintegrator.myproject.office.dao.impl.OfficeDAOImpl;
 import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.office.service.OfficeService;
 import ru.bellintegrator.myproject.office.view.OfficeFilterView;
 import ru.bellintegrator.myproject.office.view.OfficeFilterViewList;
 import ru.bellintegrator.myproject.office.view.OfficeView;
-import ru.bellintegrator.myproject.user.model.User;
-import ru.bellintegrator.myproject.user.view.UserView;
-
-
 import java.util.List;
 
-import static org.assertj.core.util.DateUtil.parse;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {MyApplication.class})

@@ -1,15 +1,18 @@
 package ru.bellintegrator.myproject.user.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import ru.bellintegrator.myproject.countries.Countries;
 import ru.bellintegrator.myproject.docs.Docs;
 import ru.bellintegrator.myproject.office.model.Office;
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "users")
+@NamedQuery(name = "User.findAll", query = "SELECT p FROM User p")
 public class User {
 
     @Id
@@ -23,7 +26,7 @@ public class User {
     private Office office;
 
     @Version
-    private Integer version;
+    private Integer version = 0;
 
     @Basic(optional = false)
     @Column(name = "firstname")
