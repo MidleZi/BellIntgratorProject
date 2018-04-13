@@ -35,13 +35,8 @@ public class OrganizationDAOTest {
         Assert.assertNotNull(organizations);
         Assert.assertEquals(3, organizations.size());
 
-        //test getOfficeById
-        Organization organization = organizationDAO.getOrganizationById(1L);
-        Assert.assertNotNull(organization);
-        Assert.assertEquals("BellIntegrator", organization.getName());
-
         // test list
-        OrganizationFilterView criteria = new OrganizationFilterView("офис1");
+        OrganizationFilterView criteria = new OrganizationFilterView("BellIntegrator");
         List<Organization> officesByCriteria = organizationDAO.list(criteria);
         Assert.assertNotNull(officesByCriteria);
         Assert.assertEquals(1, officesByCriteria.size());
@@ -57,9 +52,16 @@ public class OrganizationDAOTest {
         saveTestOrganizations.setActive(true);
         organizationDAO.save(saveTestOrganizations);
         organizations = organizationDAO.getAllOrganizations();
-        Assert.assertEquals(5, organizations.size());
+        Assert.assertEquals(4, organizations.size());
 
-        //test update
+
+        //test delete
+        organizationDAO.delete(3L);
+        organizations = organizationDAO.getAllOrganizations();
+        Assert.assertEquals(3, organizations.size());
+
+
+        /*//test update
         Organization updateTestOrganizations = new Organization();
         updateTestOrganizations.setId(1L);
         saveTestOrganizations.setName("Рога и копыта");
@@ -74,12 +76,9 @@ public class OrganizationDAOTest {
         updateTestOrganizations.setName(nameForUpdate);
         organizationDAO.update(updateTestOrganizations);
         Organization organizationsAfterUpdate = organizationDAO.getOrganizationByName(nameForUpdate);
-        Assert.assertNotNull(organizationsAfterUpdate);
+        Assert.assertNotNull(organizationsAfterUpdate);*/
 
-        //test delete
-        organizationDAO.delete(3L);
-        organizations = organizationDAO.getAllOrganizations();
-        Assert.assertEquals(2, organizations.size());
+
     }
 
 

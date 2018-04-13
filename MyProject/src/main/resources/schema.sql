@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `office` (
     ON UPDATE CASCADE);
 CREATE INDEX `fk_orgId_idx` ON `office` (`orgId` ASC);
 
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `version` INT NOT NULL,
   `officeid` INT,
@@ -79,8 +79,8 @@ CREATE TABLE IF NOT EXISTS `users` (
     REFERENCES `countries` (`code`)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
-CREATE INDEX `fk_officeId_idx` ON `users` (`officeId` ASC);
-CREATE INDEX `fk_citizenship_idx` ON `users` (`citizenshipCode` ASC);
+CREATE INDEX `fk_officeId_idx` ON `user` (`officeId` ASC);
+CREATE INDEX `fk_citizenship_idx` ON `user` (`citizenshipCode` ASC);
 
 
 

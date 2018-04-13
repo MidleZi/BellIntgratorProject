@@ -46,21 +46,13 @@ public class UserDAOTest {
 
 
     @Test
-    public void testAll() {
-        //test get all
-        List<User> users = userDAO.getAllUser();
-        Assert.assertNotNull(users);
-        Assert.assertEquals(8, users.size());
-    }
-
-  /*  @Test
     public void test() {
         //test get all
         List<User> users = userDAO.getAllUser();
         Assert.assertNotNull(users);
         Assert.assertEquals(8, users.size());
 
-        // test get all with criteria
+      /*  // test get all with criteria
         UserFilterView criteria = new UserFilterView();
 
         criteria.officeId = "1";
@@ -73,9 +65,9 @@ public class UserDAOTest {
 
         List<User> usersByCriteria = userDAO.list(criteria);
         Assert.assertNotNull(usersByCriteria);
-        Assert.assertEquals(1, usersByCriteria.size());
+        Assert.assertEquals(1, usersByCriteria.size());*/
 
-        //test save
+      /*  //test save
         User saveTestUser = new User();
 
         saveTestUser.setFirstName("Гимли");
@@ -118,45 +110,7 @@ public class UserDAOTest {
         //test delete
         userDAO.delete(9L);
         users = userDAO.getAllUser();
-        Assert.assertEquals(8, users.size());
-    }*/
-
-/*    String testName = "testName";
-    User saveTestUser = new User(testName);
-    List<User> users = userDAO.getAllUser();
-
-
-    @Test
-    public void testList() {
-        UserFilterView criteria = new UserFilterView("Василий");
-        List<User> usersByCriteria = userDAO.list(criteria);
-        Assert.assertNotNull(usersByCriteria);
-        Assert.assertEquals(1, usersByCriteria.size());
-    }
-    @Test
-    public void testSave() {
-        Office office = officeDAO.getOfficeById(1L);
-        saveTestUser.setOffice(office);
-        userDAO.save(saveTestUser);
-        users = userDAO.getAllUser();
-        Assert.assertEquals(9, users.size());
+        Assert.assertEquals(8, users.size());*/
     }
 
-    @Test
-    public void testUpdate() {
-        User updateTestUser = userDAO.getUserByName(testName);
-        Assert.assertNotNull(updateTestUser);
-        String nameForUpdate = "newTestName";
-        updateTestUser.setFirstName(nameForUpdate);
-        userDAO.update(updateTestUser);
-        User userAfterUpdate = userDAO.getUserByName(nameForUpdate);
-        Assert.assertNotNull(userAfterUpdate);
-    }
-
-    @Test
-    public void testDelete() {
-        userDAO.delete(1L);
-        users = userDAO.getAllUser();
-        Assert.assertEquals(8, users.size());
-    }*/
 }

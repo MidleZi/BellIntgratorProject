@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 @NamedQuery(name = "User.findAll", query = "SELECT p FROM User p")
 public class User {
 
