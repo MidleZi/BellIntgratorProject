@@ -12,7 +12,6 @@ import java.util.Set;
 @Entity
 @Table(name = "organization")
 @NamedQuery(name = "Organization.findAll", query = "SELECT p FROM Organization p")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Organization {
 
     @Id
@@ -21,14 +20,14 @@ public class Organization {
     private Long id;
 
     @Version
-    private Integer version;
+    private Integer version = 0;
 
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
 
     @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "organization", cascade = {CascadeType.ALL})
+    @OneToMany(mappedBy = "organization", cascade = {CascadeType.ALL}, orphanRemoval = true)
     private Set<Office> office;
 
     @Basic(optional = false)

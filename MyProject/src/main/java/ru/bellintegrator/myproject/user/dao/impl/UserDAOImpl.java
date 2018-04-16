@@ -29,8 +29,9 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public List<User> getAllUser(){
-        TypedQuery<User> query = em.createQuery("User.findAll", User.class);
+        TypedQuery<User> query = em.createNamedQuery("User.findAll", User.class);
         List<User> result =  query.getResultList();
+
         return result;
     }
 
@@ -80,7 +81,6 @@ public class UserDAOImpl implements UserDAO {
         User user = em.find(User.class, id);
         logger.info("User deleted ID:" + user.getId());
         em.remove(user);
-        //logger.info("User deleted ID:" + user.getId());
     }
 
     private class UserCriteriaConverter {

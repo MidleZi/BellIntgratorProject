@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.bellintegrator.myproject.MyApplication;
 import ru.bellintegrator.myproject.office.model.Office;
 import ru.bellintegrator.myproject.organization.dao.OrganizationDAO;
+import ru.bellintegrator.myproject.organization.dao.impl.OrganizationDAOImpl;
 import ru.bellintegrator.myproject.organization.model.Organization;
 import ru.bellintegrator.myproject.organization.service.OrganizationService;
 import ru.bellintegrator.myproject.organization.view.OrganizationFilterView;
@@ -31,7 +32,7 @@ public class OrganizationServiceTest {
 
     @Autowired
     OrganizationService orgService;
-    OrganizationDAO orgDAO;
+    OrganizationDAO organizationDAO;
 
     @Test
     public void testGetOrganizationById() {
@@ -51,7 +52,7 @@ public class OrganizationServiceTest {
         Assert.assertEquals("BellIntegrator", response.getName());
     }
 
-   /* @Test
+    @Test
     public void testUpdateOrganization() {
 
         OrganizationView body = new OrganizationView();
@@ -66,7 +67,7 @@ public class OrganizationServiceTest {
 
         orgService.update(body);
 
-        Organization organization = orgDAO.getOrganizationById(2L);
+        Organization organization = organizationDAO.getOrganizationById(2L);
 
         Assert.assertNotNull(organization);
         Assert.assertEquals("АО \"Рога и копыта\"", organization.getName());
@@ -75,18 +76,18 @@ public class OrganizationServiceTest {
     @Test
     public void testSaveOrganization(){
 
-        OrganizationView body = new OrganizationView();
-        body.name = "Подсолнухи";
-        body.fullname = "ООО \"Подсолнухи\"";
-        body.inn = "123456789012";
-        body.kpp = "123456789";
-        body.address = "Волгоград, Московский пр-т., д.1";
-        body.phone = "+7 (8442) 57-99-88";
-        body.isActive = true;
+        OrganizationView view = new OrganizationView();
+        view.name = "Подсолнухи";
+        view.fullname = "ООО \"Подсолнухи\"";
+        view.inn = "123456789012";
+        view.kpp = "123456789";
+        view.address = "Волгоград, Московский пр-т., д.1";
+        view.phone = "+7 (8442) 57-99-88";
+        view.isActive = true;
 
-        orgService.save(body);
+        orgService.save(view);
 
-        List<Organization> list = orgDAO.getAllOrganizations();
+        List<Organization> list = organizationDAO.getAllOrganizations();
 
         Assert.assertNotNull(list);
         Assert.assertFalse(list.isEmpty());
@@ -98,11 +99,11 @@ public class OrganizationServiceTest {
 
         orgService.delete(3L);
 
-        List<Organization> list = orgDAO.getAllOrganizations();
+        List<Organization> list = organizationDAO.getAllOrganizations();
 
         Assert.assertNotNull(list);
         Assert.assertFalse(list.isEmpty());
         Assert.assertEquals(2, list.size());
-    }*/
+    }
 
 }

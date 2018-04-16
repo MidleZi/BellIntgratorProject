@@ -84,7 +84,7 @@ public class UserServiceTest {
     }
 
 
-   /* @Test
+    @Test
     public void testSaveUser(){
         UserView view = new UserView();
 
@@ -107,7 +107,7 @@ public class UserServiceTest {
 
         Assert.assertNotNull(list);
         Assert.assertFalse(list.isEmpty());
-        Assert.assertEquals(9, list.size());
+        Assert.assertEquals(8, list.size());
     }
 
     @Test
@@ -119,6 +119,6 @@ public class UserServiceTest {
 
         Assert.assertNotNull(list);
         Assert.assertFalse(list.isEmpty());
-        Assert.assertEquals(8, list.size());
-    }*/
+        Assert.assertEquals(7, list.size());
+    }
 }

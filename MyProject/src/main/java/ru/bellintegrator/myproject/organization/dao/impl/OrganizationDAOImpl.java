@@ -83,8 +83,9 @@ public class OrganizationDAOImpl implements OrganizationDAO {
 
     @Override
     public void delete(Long id) {
+        Organization organization = em.find(Organization.class, id);
         logger.info("Organization deleted ID:" + id);
-        em.remove(getOrganizationById(id));
+        em.remove(organization);
     }
 
     private class OrgCriteriaConverter {

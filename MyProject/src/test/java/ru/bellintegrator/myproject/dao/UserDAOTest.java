@@ -52,7 +52,7 @@ public class UserDAOTest {
         Assert.assertNotNull(users);
         Assert.assertEquals(8, users.size());
 
-      /*  // test get all with criteria
+        // test get all with criteria
         UserFilterView criteria = new UserFilterView();
 
         criteria.officeId = "1";
@@ -65,9 +65,9 @@ public class UserDAOTest {
 
         List<User> usersByCriteria = userDAO.list(criteria);
         Assert.assertNotNull(usersByCriteria);
-        Assert.assertEquals(1, usersByCriteria.size());*/
+        Assert.assertEquals(1, usersByCriteria.size());
 
-      /*  //test save
+        //test save
         User saveTestUser = new User();
 
         saveTestUser.setFirstName("Гимли");
@@ -84,6 +84,11 @@ public class UserDAOTest {
         userDAO.save(saveTestUser);
         users = userDAO.getAllUser();
         Assert.assertEquals(9, users.size());
+
+        //test delete
+        userDAO.delete(9L);
+        users = userDAO.getAllUser();
+        Assert.assertEquals(8, users.size());
 
         //test update
         User updateTestUser = new User();
@@ -107,10 +112,7 @@ public class UserDAOTest {
         User userAfterUpdate = userDAO.getUserByName(nameForUpdate);
         Assert.assertNotNull(userAfterUpdate);
 
-        //test delete
-        userDAO.delete(9L);
-        users = userDAO.getAllUser();
-        Assert.assertEquals(8, users.size());*/
+
     }
 
 }

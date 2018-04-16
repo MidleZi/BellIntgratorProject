@@ -31,6 +31,7 @@ public class OrganizationServiceImpl implements OrganizationService {
         this.DAO = dao;
     }
 
+
     @Override
     @Transactional(readOnly = true)
     public List<OrganizationFilterViewList> list(OrganizationFilterView filterView) {
@@ -86,8 +87,8 @@ public class OrganizationServiceImpl implements OrganizationService {
     public void delete(Long id) {
         Organization org = DAO.getOrganizationById(id);
         if(org == null) throw new ServiceException("Организации с id " + id + " не существует");
-        DAO.delete(id);
         logger.info("Organization deleted ID:" + id);
+        DAO.delete(id);
     }
 
 }
