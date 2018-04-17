@@ -107,7 +107,7 @@ public class UserServiceTest {
 
         Assert.assertNotNull(list);
         Assert.assertFalse(list.isEmpty());
-        Assert.assertEquals(8, list.size());
+        Assert.assertEquals(9, list.size());
     }
 
     @Test

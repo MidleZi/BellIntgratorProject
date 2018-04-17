@@ -26,18 +26,18 @@ public class OrganizationDAOTest {
 
 
     @Autowired
-    private OrganizationDAOImpl organizationDAO;
+    private OrganizationDAOImpl dao;
 
     @Test
     public void test() {
         //test get all
-        List<Organization> organizations = organizationDAO.getAllOrganizations();
+        List<Organization> organizations = dao.getAllOrganizations();
         Assert.assertNotNull(organizations);
         Assert.assertEquals(3, organizations.size());
 
         // test list
         OrganizationFilterView criteria = new OrganizationFilterView("BellIntegrator");
-        List<Organization> officesByCriteria = organizationDAO.list(criteria);
+        List<Organization> officesByCriteria = dao.list(criteria);
         Assert.assertNotNull(officesByCriteria);
         Assert.assertEquals(1, officesByCriteria.size());
 
@@ -50,33 +50,33 @@ public class OrganizationDAOTest {
         saveTestOrganizations.setAddress("Волгоград, Московский пр-т., д.1");
         saveTestOrganizations.setPhone("+7 (8442) 57-99-88");
         saveTestOrganizations.setActive(true);
-        organizationDAO.save(saveTestOrganizations);
-        organizations = organizationDAO.getAllOrganizations();
+        dao.save(saveTestOrganizations);
+        organizations = dao.getAllOrganizations();
         Assert.assertEquals(4, organizations.size());
 
 
         //test delete
-        organizationDAO.delete(3L);
-        organizations = organizationDAO.getAllOrganizations();
+        dao.delete(3L);
+        organizations = dao.getAllOrganizations();
         Assert.assertEquals(3, organizations.size());
 
 
-        /*//test update
+        //test update
         Organization updateTestOrganizations = new Organization();
         updateTestOrganizations.setId(1L);
-        saveTestOrganizations.setName("Рога и копыта");
-        saveTestOrganizations.setFullname("АО \"Рога и копыта\"");
-        saveTestOrganizations.setInn("1234567890");
-        saveTestOrganizations.setKpp("123456789");
-        saveTestOrganizations.setAddress("Санкт-Петербург, Лахтинский пр-т., д.10");
-        saveTestOrganizations.setPhone("+7 (812) 857-99-88");
-        saveTestOrganizations.setActive(true);
+        updateTestOrganizations.setName("Рога и копыта");
+        updateTestOrganizations.setFullname("АО \"Рога и копыта\"");
+        updateTestOrganizations.setInn("1234567890");
+        updateTestOrganizations.setKpp("123456789");
+        updateTestOrganizations.setAddress("Санкт-Петербург, Лахтинский пр-т., д.10");
+        updateTestOrganizations.setPhone("+7 (812) 857-99-88");
+        updateTestOrganizations.setActive(true);
         Assert.assertNotNull(updateTestOrganizations);
         String nameForUpdate = "Офис Рога и копыта";
         updateTestOrganizations.setName(nameForUpdate);
-        organizationDAO.update(updateTestOrganizations);
-        Organization organizationsAfterUpdate = organizationDAO.getOrganizationByName(nameForUpdate);
-        Assert.assertNotNull(organizationsAfterUpdate);*/
+        dao.update(updateTestOrganizations);
+        Organization organizationsAfterUpdate = dao.getOrganizationByName(nameForUpdate);
+        Assert.assertNotNull(organizationsAfterUpdate);
 
 
     }

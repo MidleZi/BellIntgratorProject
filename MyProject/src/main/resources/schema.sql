@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `account` (
     PRIMARY KEY (`code`));
 
   CREATE TABLE IF NOT EXISTS `countries` (
-    `code` INT NOT NULL,
+    `code` VARCHAR(50) NOT NULL,
     `version` INT NOT NULL,
     `name` VARCHAR(50) NOT NULL,
     PRIMARY KEY (`code`));

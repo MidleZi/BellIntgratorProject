@@ -11,7 +11,7 @@ public class Countries {
 
     @Id
     @Column(name = "code")
-    private Long code;
+    private String code;
 
     @Version
     private Integer version;
@@ -22,7 +22,7 @@ public class Countries {
 
     public Countries(){}
 
-    public Countries(Long code, String name){
+    public Countries(String code, String name){
         this.code = code;
         this. name = name;
     }
@@ -31,7 +31,7 @@ public class Countries {
         this.name = name;
     }
 
-    public Long getCode() {
+    public String getCode() {
         return code;
     }
 
@@ -39,7 +39,7 @@ public class Countries {
         return name;
     }
 
-    public void setCode(Long code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

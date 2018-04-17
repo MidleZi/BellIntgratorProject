@@ -76,27 +76,28 @@ public class UserView {
                 + citizenshipCode + "; citizenshipName: " + citizenshipName + "; isIdentified " + isIdentified + "}";
     }
 
-    public User toConvertUserEntity(Office office, Docs docs, Countries countries) {
-
-        User user = new User();
+    public User toConvertUserEntity(User user, Docs docs, Countries countries) {
 
         user.setFirstName(firstName);
         user.setSecondName(secondName);
         user.setMidleName(midleName);
         user.setPosition(position);
         user.setPhone(phone);
-        user.setDocs(docs);
         user.setDocNumber(docNumber);
         user.setDocDate(docDate);
         user.setIdentified(isIdentified);
-        user.setOffice(office);
         user.setDocs(docs);
         user.setCountries(countries);
 
         return user;
+
     }
 
-    public User toConvertUserEntity(User user, Docs docs, Countries countries) {
+
+    public User toConvertUserEntity(Docs docs, Countries countries) {
+
+        User user = new User();
+
         user.setFirstName(firstName);
         user.setSecondName(secondName);
         user.setMidleName(midleName);
@@ -146,5 +147,6 @@ public class UserView {
     public String getId() {
         return id;
     }
+
 }
 

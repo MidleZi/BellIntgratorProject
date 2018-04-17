@@ -27,7 +27,7 @@ public class Organization {
     private String name;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "organization", cascade = {CascadeType.ALL}, orphanRemoval = true)
+    @OneToMany(mappedBy = "organization", cascade = {CascadeType.ALL})
     private Set<Office> office;
 
     @Basic(optional = false)

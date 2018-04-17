@@ -116,7 +116,7 @@ public class UserServiceImpl implements UserService {
         if (view.citizenshipCode != null){
             List<Countries> countrieslist = daoCount.allCountries();
             if (countrieslist.contains(view.citizenshipCode) == true) {
-                Countries countr = new Countries(Long.parseLong(view.citizenshipCode), view.citizenshipName);
+                Countries countr = new Countries (view.citizenshipCode, view.citizenshipName);
                 daoCount.save(countr);
             }
 
@@ -133,19 +133,13 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void save(UserView view) {
 
-        Long officeId = Long.parseLong(view.officeId);
-        if(officeId == null) throw new ServiceException("officeId is missed");
-
-        Office office = daoOffice.getOfficeById(officeId);
-        if(office == null) throw new ServiceException("No office has id = " + officeId);
-
         Docs docs = null;
         if (view.docName != null) docs = daoDD.getDocumentByName(view.docName);
 
         Countries countries = null;
         if (view.citizenshipCode != null) countries = daoCount.getCountriesByName(view.citizenshipName);
 
-        User user = view.toConvertUserEntity(office, docs, countries);
+        User user = view.toConvertUserEntity(/*office,*/ docs, countries);
         logger.info("User save " + user.toString());
         dao.save(user);
     }
