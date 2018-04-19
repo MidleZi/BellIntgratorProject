@@ -32,7 +32,7 @@ public class OrganizationServiceTest {
 
     @Autowired
     OrganizationService orgService;
-    OrganizationDAO dao;
+    OrganizationDAO organizationDAO;
 
     @Test
     public void testGetOrganizationById() {
@@ -67,10 +67,10 @@ public class OrganizationServiceTest {
 
         orgService.update(body);
 
-        Organization organization = dao.getOrganizationById(2L);
+        Organization organization = orgService.getOrganizationById(2L);
 
         Assert.assertNotNull(organization);
-        Assert.assertEquals("АО \"Рога и копыта\"", organization.getName());
+        Assert.assertEquals("Рога и копыта", organization.getName());
     }
 
     @Test
@@ -87,11 +87,11 @@ public class OrganizationServiceTest {
 
         orgService.save(view);
 
-        List<Organization> organizations = dao.getAllOrganizations();
+        List<OrganizationView> list = orgService.getAllOrganization();
 
-        Assert.assertNotNull(organizations);
-        Assert.assertFalse(organizations.isEmpty());
-        Assert.assertEquals(4, organizations.size());
+        Assert.assertNotNull(list);
+        Assert.assertFalse(list.isEmpty());
+        Assert.assertEquals(4, list.size());
     }
 
     @Test
@@ -99,11 +99,11 @@ public class OrganizationServiceTest {
 
         orgService.delete(3L);
 
-        List<Organization> organizations = dao.getAllOrganizations();
+        List<OrganizationView> list = orgService.getAllOrganization();
 
-        Assert.assertNotNull(organizations);
-        Assert.assertFalse(organizations.isEmpty());
-        Assert.assertEquals(2, organizations.size());
+        Assert.assertNotNull(list);
+        Assert.assertFalse(list.isEmpty());
+        Assert.assertEquals(2, list.size());
     }
 
 }

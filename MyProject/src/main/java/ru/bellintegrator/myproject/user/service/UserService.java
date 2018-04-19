@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface UserService {
 
+    public List<UserView> getAllUser();
+
     public List<UserFilterViewList> list(UserFilterView filterView);
 
     UserView getUserById(Long id);

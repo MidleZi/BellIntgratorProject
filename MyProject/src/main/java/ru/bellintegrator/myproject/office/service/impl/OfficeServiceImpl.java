@@ -20,18 +20,43 @@ public class OfficeServiceImpl implements OfficeService {
 
     private final Logger logger = LoggerFactory.getLogger(OfficeServiceImpl.class);
 
-    private final OfficeDAOImpl DAO;
+    private final OfficeDAOImpl dao;
 
     @Autowired
     public OfficeServiceImpl(OfficeDAOImpl dao) {
-        this.DAO = dao;
+        this.dao = dao;
     }
 
+    @Override
+    @Transactional
+    public List<OfficeView> getAllOffice() {
+
+        List<Office> allOffice = dao.getAllOffice();
+        List<OfficeView> viewlist = new ArrayList();
+
+        if(allOffice == null) throw new ServiceException("Сотрудников в базе нет");
+
+        for (int i = 0; i <allOffice.size() ; i++) {
+
+            OfficeView view = new OfficeView();
+
+            view.id = allOffice.get(i).getId();
+            view.name = allOffice.get(i).getName();
+            view.address = allOffice.get(i).getAddress();
+            view.phone =allOffice.get(i).getPhone();
+            view.isActive = allOffice.get(i).getActive();
+
+            viewlist.add(view);
+        }
+        //logger.info("User get ID:" + id);
+        return viewlist;
+
+    }
 
     @Override
     @Transactional(readOnly = true)
     public List<OfficeFilterViewList> list(OfficeFilterView filterView) {
-        List<Office> orgs = DAO.list(filterView);
+        List<Office> orgs = dao.list(filterView);
         List<OfficeFilterViewList> outList = new ArrayList();
 
         for (int i = 0; i < orgs.size() ; i++) {
@@ -53,7 +78,7 @@ public class OfficeServiceImpl implements OfficeService {
     @Override
     @Transactional
     public Office getOfficeById(Long id) {
-        Office office =DAO.getOfficeById(id);
+        Office office = dao.getOfficeById(id);
         if(office == null) throw new ServiceException("Офиса с id " + id + " не существует");
         logger.info("Office get ID:" + id);
         return office;
@@ -63,11 +88,11 @@ public class OfficeServiceImpl implements OfficeService {
     @Transactional
     public void update(OfficeView view) {
         Long id = view.id;
-        Office office = DAO.getOfficeById(id);
+        Office office = dao.getOfficeById(id);
         if(id == null) throw new ServiceException("Офиса с id " + id + " не существует");
         office = view.convertToEntity(office);
         logger.info("Office update " + office.toString());
-        DAO.update(office);
+        dao.update(office);
     }
 
     @Override
@@ -75,7 +100,7 @@ public class OfficeServiceImpl implements OfficeService {
     public void save(OfficeView view) {
         Office office = new Office(view.name, view.address, view.phone, view.isActive);
         logger.info("Office save " + office.toString());
-        DAO.save(office);
+        dao.save(office);
     }
 
     @Override
@@ -84,7 +109,7 @@ public class OfficeServiceImpl implements OfficeService {
         Office office = getOfficeById(id);
         if(office == null) throw new ServiceException("Офиса с id " + id + " не существует");
         logger.info("Office deleted ID:" + id);
-        DAO.delete(office);
+        dao.delete(office);
     }
 
 

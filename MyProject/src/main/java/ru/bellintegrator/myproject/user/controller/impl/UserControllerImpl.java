@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import ru.bellintegrator.myproject.user.view.UserFilterViewList;
 import ru.bellintegrator.myproject.utils.ControllerException;
 import ru.bellintegrator.myproject.user.controller.UserController;
 import ru.bellintegrator.myproject.user.service.UserService;
@@ -14,6 +15,8 @@ import ru.bellintegrator.myproject.user.view.UserView;
 import ru.bellintegrator.myproject.utils.Response;
 import ru.bellintegrator.myproject.utils.ResponseViewData;
 import ru.bellintegrator.myproject.utils.ResponseViewError;
+
+import java.util.List;
 import java.util.logging.Logger;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
@@ -30,6 +33,27 @@ public class UserControllerImpl implements UserController {
     @Autowired
     public UserControllerImpl(UserService usersService) {
         this.userService = usersService;
+    }
+
+    @Override
+    @ApiOperation(value = "getAllUser", nickname = "getAllUser", httpMethod = "GET")
+    @RequestMapping(value = "/all", method = {GET})
+    public Response getAllUser() {
+        try {
+            Object data = userService.getAllUser();
+            logger.info("All User: ");
+
+            return ResponseViewData.newBuilder()
+                    .setData(data)
+                    .build();
+
+
+        }
+        catch (Throwable e) {
+            return ResponseViewError.newBuilder()
+                    .setError(e.getMessage())
+                    .build();
+        }
     }
 
 

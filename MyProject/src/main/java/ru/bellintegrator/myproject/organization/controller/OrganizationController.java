@@ -12,6 +12,8 @@ public interface OrganizationController {
      * Get all organizations
      * @return JSON organizations value
      */
+    Response getAllOrganization();
+
     Response list(OrganizationFilterView view);
 
     Response getOrganizationById(Long id);

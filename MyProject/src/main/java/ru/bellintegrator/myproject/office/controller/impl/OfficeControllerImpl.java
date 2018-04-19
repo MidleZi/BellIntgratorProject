@@ -31,6 +31,26 @@ public class OfficeControllerImpl implements OfficeController {
         this.officeService = officeService;
     }
 
+    @Override
+    @ApiOperation(value = "getAllOffice", nickname = "getAllOffice", httpMethod = "GET")
+    @RequestMapping(value = "/all", method = {GET})
+    public Response getAllOffice() {
+        try {
+            Object data = officeService.getAllOffice();
+            logger.info("All Office: ");
+
+            return ResponseViewData.newBuilder()
+                    .setData(data)
+                    .build();
+
+
+        }
+        catch (Throwable e) {
+            return ResponseViewError.newBuilder()
+                    .setError(e.getMessage())
+                    .build();
+        }
+    }
 
     @Override
     @ApiOperation(value = "allOffice", nickname = "allOffice", httpMethod = "POST")

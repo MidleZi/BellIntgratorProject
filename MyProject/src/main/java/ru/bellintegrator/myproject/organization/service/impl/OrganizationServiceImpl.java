@@ -24,18 +24,47 @@ public class OrganizationServiceImpl implements OrganizationService {
 
     private final Logger logger = LoggerFactory.getLogger(OrganizationServiceImpl.class);
 
-    private final OrganizationDAO DAO;
+    private final OrganizationDAO dao;
 
     @Autowired
     public OrganizationServiceImpl(OrganizationDAOImpl dao) {
-        this.DAO = dao;
+        this.dao = dao;
     }
 
+    @Override
+    @Transactional
+    public List<OrganizationView> getAllOrganization() {
+
+        List<Organization> allOrganization = dao.getAllOrganizations();
+        List<OrganizationView> viewlist = new ArrayList();
+
+
+        if(allOrganization == null) throw new ServiceException("Сотрудников в базе нет");
+
+        for (int i = 0; i <allOrganization.size() ; i++) {
+
+            OrganizationView view = new OrganizationView();
+
+            view.id = allOrganization.get(i).getId();
+            view.name = allOrganization.get(i).getName();
+            view.fullname = allOrganization.get(i).getFullname();
+            view.inn = allOrganization.get(i).getInn();
+            view.kpp = allOrganization.get(i).getKpp();
+            view.address = allOrganization.get(i).getAddress();
+            view.phone =allOrganization.get(i).getPhone();
+            view.isActive = allOrganization.get(i).getActive();
+
+            viewlist.add(view);
+        }
+        //logger.info("User get ID:" + id);
+        return viewlist;
+
+    }
 
     @Override
     @Transactional(readOnly = true)
     public List<OrganizationFilterViewList> list(OrganizationFilterView filterView) {
-        List<Organization> orgs = DAO.list(filterView);
+        List<Organization> orgs = dao.list(filterView);
         List<OrganizationFilterViewList> outList = new ArrayList();
 
         for (int i = 0; i < orgs.size() ; i++) {
@@ -54,7 +83,7 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     @Transactional
     public Organization getOrganizationById (Long id) {
-        Organization org = DAO.getOrganizationById(id);
+        Organization org = dao.getOrganizationById(id);
         if(org == null) throw new ServiceException("Организации с id " + id + " не существует");
         logger.info("Organization get ID:" + id);
         return org;
@@ -65,11 +94,11 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Transactional
     public void update(OrganizationView view) {
         Long id = view.id;
-        Organization organization = DAO.getOrganizationById(id);
+        Organization organization = dao.getOrganizationById(id);
         organization = view.orgConvert(organization);
         if(organization == null) throw new ServiceException("Организации с id " + id + " не существует");
         logger.info("update" + organization.toString());
-        DAO.update(organization);
+        dao.update(organization);
 
     }
 
@@ -79,16 +108,16 @@ public class OrganizationServiceImpl implements OrganizationService {
         Organization organization = new Organization(view.name, view.fullname, view.inn, view.kpp, view.address, view.phone,
                 view.isActive);
         logger.info("save:" + organization.toString());
-        DAO.save(organization);
+        dao.save(organization);
     }
 
     @Override
     @Transactional
     public void delete(Long id) {
-        Organization org = DAO.getOrganizationById(id);
+        Organization org = dao.getOrganizationById(id);
         if(org == null) throw new ServiceException("Организации с id " + id + " не существует");
         logger.info("Organization deleted ID:" + id);
-        DAO.delete(id);
+        dao.delete(id);
     }
 
 }

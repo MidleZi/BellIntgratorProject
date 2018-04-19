@@ -41,6 +41,39 @@ public class UserServiceImpl implements UserService {
         this.daoOffice = daoOffice;
     }
 
+    @Override
+    @Transactional
+    public List<UserView> getAllUser() {
+
+        List<User> allUser = dao.getAllUser();
+        List<UserView> viewlist = new ArrayList();
+
+
+        if(allUser == null) throw new ServiceException("Сотрудников в базе нет");
+
+        for (int i = 0; i <allUser.size() ; i++) {
+
+            UserView view = new UserView();
+
+            view.id = String.valueOf(allUser.get(i).getId());
+            view.firstName = String.valueOf(allUser.get(i).getFirstName());
+            view.secondName = String.valueOf(allUser.get(i).getSecondName());
+            view.midleName = String.valueOf(allUser.get(i).getMidleName());
+            view.position = String.valueOf(allUser.get(i).getPosition());
+            view.phone = String.valueOf(allUser.get(i).getPhone());
+            view.docName = String.valueOf(allUser.get(i).getDocs().getName());
+            view.docNumber = String.valueOf(allUser.get(i).getDocNumber());
+            view.docDate = allUser.get(i).getDocDate();
+            view.citizenshipCode = String.valueOf(allUser.get(i).getCountries().getCode());
+            view.citizenshipName = String.valueOf(allUser.get(i).getCountries().getName());
+            view.isIdentified = Boolean.valueOf(allUser.get(i).getIdentified());
+            logger.info(view.toString());
+            viewlist.add(view);
+        }
+        //logger.info("User get ID:" + id);
+        return viewlist;
+
+    }
 
     @Override
     @Transactional(readOnly = true)
@@ -62,8 +95,6 @@ public class UserServiceImpl implements UserService {
 
         return outList;
     }
-
-
 
     @Override
     @Transactional

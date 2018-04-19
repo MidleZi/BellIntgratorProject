@@ -33,6 +33,26 @@ public class OrganizationControllerImpl implements OrganizationController {
         this.organizationService = organizationService;
     }
 
+    @Override
+    @ApiOperation(value = "getAllOrganization", nickname = "getAllOrganization", httpMethod = "GET")
+    @RequestMapping(value = "/all", method = {GET})
+    public Response getAllOrganization() {
+        try {
+            Object data = organizationService.getAllOrganization();
+            logger.info("All Office: ");
+
+            return ResponseViewData.newBuilder()
+                    .setData(data)
+                    .build();
+
+
+        }
+        catch (Throwable e) {
+            return ResponseViewError.newBuilder()
+                    .setError(e.getMessage())
+                    .build();
+        }
+    }
 
     @Override
     @ApiOperation(value = "listOrganization", nickname = "listOrganization", httpMethod = "POST")

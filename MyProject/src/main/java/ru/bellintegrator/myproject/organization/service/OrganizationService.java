@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface OrganizationService{
 
+    List<OrganizationView> getAllOrganization();
 
     List<OrganizationFilterViewList> list(OrganizationFilterView filterView);
 

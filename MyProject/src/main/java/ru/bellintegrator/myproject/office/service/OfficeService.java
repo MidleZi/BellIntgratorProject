@@ -12,7 +12,9 @@ public interface OfficeService {
      * Organization service method
      * @return {@Office}
      */
-    public List<OfficeFilterViewList> list(OfficeFilterView filterView);
+    List<OfficeView> getAllOffice();
+
+    List<OfficeFilterViewList> list(OfficeFilterView filterView);
 
     Office getOfficeById(Long id);
 

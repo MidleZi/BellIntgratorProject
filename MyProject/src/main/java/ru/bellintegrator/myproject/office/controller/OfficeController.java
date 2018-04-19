@@ -12,6 +12,8 @@ public interface OfficeController {
      * Get all offices
      * @return JSON offices value
      */
+    public Response getAllOffice();
+
     Response list(OfficeFilterView view);
 
     Response getOfficeById(Long id);
