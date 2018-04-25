@@ -109,7 +109,7 @@ public class OrganizationControllerImpl implements OrganizationController {
 
         try {
             if(view.id == null) throw new ControllerException();
-            organizationService.update(view);;
+            organizationService.update(view);
             logger.info("Organization update " + view.toString());
 
             return ResponseViewData.newBuilder()
